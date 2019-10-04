@@ -1,4 +1,4 @@
 package com.example.projecttwobase.repository;
 
-public class PostRepository {
+public interface PostRepository {
 }
