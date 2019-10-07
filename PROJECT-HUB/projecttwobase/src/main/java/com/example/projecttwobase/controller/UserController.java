@@ -11,11 +11,15 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    //SIGN UP
     @PostMapping("/signup")
 
+    //LOG IN
     @PostMapping("/login")
 
+    //GET COMMENT BY USER ID
     @GetMapping("/{username}/comment")
 
+    //GET POST BY USER ID
     @GetMapping("/{username}/post")
 }
