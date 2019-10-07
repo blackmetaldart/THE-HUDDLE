@@ -16,8 +16,9 @@ public class UserServiceImpl implements UserService {
        return userRepository.save(newUser);
     }
 
-    public String login(User user){
-        return "hello";
+    @Override
+    public User login(String username, String password) {
+        return userRepository.login(username, password);
     }
 
     public User getUser(String username) {
