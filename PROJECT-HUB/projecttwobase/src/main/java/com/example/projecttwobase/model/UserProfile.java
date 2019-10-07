@@ -19,6 +19,9 @@ public class UserProfile {
     @Column
     private String address;
 
+    public Long getId() {return id;}
+    public void setId(Long id) {this.id = id;}
+
     public String getAddtEmail() {return addtEmail;}
     public void setAddtEmail(String addtEmail) {this.addtEmail = addtEmail;}
 
