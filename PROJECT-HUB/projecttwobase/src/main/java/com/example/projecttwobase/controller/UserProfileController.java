@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserProfileController {
-    @Autowired
-    UserProfileService userProfileService;
+    //@Autowired
+    //UserProfileService userProfileService;
 
     //CREATE
     //@PostMapping("/profile")
