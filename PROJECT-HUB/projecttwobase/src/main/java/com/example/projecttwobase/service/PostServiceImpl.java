@@ -16,7 +16,7 @@ public class PostServiceImpl {
         return
     }
 
-    public Iterable<Post> listPost(){
+    public Iterable<Post> listAllPosts(){
         return
     }
 }

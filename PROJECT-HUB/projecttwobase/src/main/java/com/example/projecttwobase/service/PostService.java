@@ -7,6 +7,6 @@ public interface PostService {
     public Post createPost(Post post);
     public void deletePostByPostId(Long postId);
     public Post getPostByUser(User user);
-    public Iterable<Post> listPost();
+    public Iterable<Post> listAllPosts();
 
 }
