@@ -1,6 +1,7 @@
 package com.example.projecttwobase.service;
 
 import com.example.projecttwobase.model.User;
+import com.example.projecttwobase.model.UserRole;
 import com.example.projecttwobase.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,9 +12,14 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    UserRoleService userRoleService;
+
     @Override
-    public User createUser(User newUser){
-       return userRepository.save(newUser);
+    public User createUser(User newUser) {
+        UserRole userRole = userRoleService.getRole(newUser.getUserRole().getName());
+        newUser.setUserRole(userRole);
+        return userRepository.save(newUser);
     }
 
     @Override
