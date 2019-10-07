@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/comment")
 public class CommentController {
-    @Autowired
-    CommentService commentService;
+    //@Autowired
+    //CommentService commentService;
 
     //POST(create) COMMENT
-    @PostMapping
+    //@PostMapping
 
     //GET COMMENT
-    @GetMapping("/{id}")
+    //@GetMapping("/{id}")
 
     //DELETE COMMENT
-    @DeleteMapping("/{id}")
+    //@DeleteMapping("/{id}")
 }

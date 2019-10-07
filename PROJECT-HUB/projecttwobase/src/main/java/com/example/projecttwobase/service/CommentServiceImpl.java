@@ -5,18 +5,18 @@ import com.example.projecttwobase.model.User;
 
 public class CommentServiceImpl {
     public Comment createComment(Comment comment){
-        return
+        return null;
     }
 
     public Comment getCommentByUser (User user){
-        return
+        return null;
     }
 
     public Comment getCommentByPostId (Long postId){
-        return
+        return null;
     }
 
-    public Comment deleteCommentByCommentId (Long commentId){
-        return
+    public void deleteCommentByCommentId (Long commentId){
+
     }
 }

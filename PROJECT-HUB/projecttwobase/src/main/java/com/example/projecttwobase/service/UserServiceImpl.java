@@ -1,13 +1,19 @@
 package com.example.projecttwobase.service;
 
 import com.example.projecttwobase.model.User;
+import com.example.projecttwobase.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService {
-    public String createUser(User newUser){
-        if(userRepository.save(newUser)!=null){
 
-        }
-        return "hello";
+    @Autowired
+    private UserRepository userRepository;
+
+    @Override
+    public User createUser(User newUser){
+       return userRepository.save(newUser);
     }
 
     public String login(User user){
@@ -15,7 +21,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getUser(String username) {
-        return
+        return null;
     }
 
     @Override

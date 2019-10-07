@@ -12,12 +12,12 @@ public class UserProfileController {
     UserProfileService userProfileService;
 
     //CREATE
-    @PostMapping("/profile")
+    //@PostMapping("/profile")
 
     //UPDATE
-    @PostMapping("/profile/{username}")
+    //@PostMapping("/profile/{username}")
 
     //GET
-    @GetMapping("/profile/{username}")
+    //@GetMapping("/profile/{username}")
 
 }

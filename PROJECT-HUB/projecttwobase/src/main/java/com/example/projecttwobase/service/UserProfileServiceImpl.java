@@ -4,14 +4,14 @@ import com.example.projecttwobase.model.UserProfile;
 
 public class UserProfileServiceImpl {
     public UserProfile createUserProfile (String username, UserProfile newProfile){
-        return
+        return null;
     }
 
     public UserProfile getUserProfile (String username) {
-        return
+        return null;
     }
 
-    public UserProfile updateUserProfile (String ) { return }
+    public UserProfile updateUserProfile (String unknown) { return null; }
 
 
 }
