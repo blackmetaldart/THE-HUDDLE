@@ -13,6 +13,8 @@ public class Comment {
     @Column
     private String text;
 
+    public Comment(){}
+
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
 
