@@ -1,9 +1,6 @@
 package com.example.projecttwobase.model;
 
-import org.hibernate.annotations.ManyToAny;
-
 import javax.persistence.*;
-import javax.xml.ws.BindingType;
 
 @Entity
 @Table(name="post")
