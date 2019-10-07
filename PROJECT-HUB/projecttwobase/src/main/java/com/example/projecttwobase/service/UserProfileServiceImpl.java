@@ -10,4 +10,6 @@ public class UserProfileServiceImpl {
     public UserProfile getUserProfile (String username) {
         return
     }
+
+    public UserProfile updateUserProfile (String ) { return }
 }
