@@ -6,5 +6,4 @@ public interface UserService {
     public String createUser(User newUser);
     public String login(User user);
     public User getUser(String username);
-
 }
