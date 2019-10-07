@@ -4,6 +4,9 @@ import com.example.projecttwobase.model.User;
 
 public class UserServiceImpl implements UserService {
     public String createUser(User newUser){
+        if(userRepository.save(newUser)!=null){
+
+        }
         return "hello";
     }
 
@@ -13,5 +16,10 @@ public class UserServiceImpl implements UserService {
 
     public User getUser(String username) {
         return
+    }
+
+    @Override
+    public User addPost(String username, Long postId) {
+        return null;
     }
 }
