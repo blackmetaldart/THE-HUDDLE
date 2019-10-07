@@ -5,18 +5,17 @@ import com.example.projecttwobase.model.User;
 
 public class PostServiceImpl {
     public Post createPost(Post post){
-        return
+        return null;
     }
 
     public void deletePostByPostId(Long postId){
-        return
     }
 
     public Post getPostByUser(User user) {
-        return
+        return null;
     }
 
     public Iterable<Post> listAllPosts(){
-        return
+        return null;
     }
 }

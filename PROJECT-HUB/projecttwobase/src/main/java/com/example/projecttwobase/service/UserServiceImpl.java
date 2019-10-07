@@ -1,21 +1,35 @@
 package com.example.projecttwobase.service;
 
 import com.example.projecttwobase.model.User;
+import com.example.projecttwobase.model.UserRole;
+import com.example.projecttwobase.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService {
-    public String createUser(User newUser){
-        if(userRepository.save(newUser)!=null){
 
-        }
-        return "hello";
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    UserRoleService userRoleService;
+
+    @Override
+    public User createUser(User newUser) {
+        UserRole userRole = userRoleService.getRole(newUser.getUserRole().getName());
+        newUser.setUserRole(userRole);
+        return userRepository.save(newUser);
     }
 
-    public String login(User user){
-        return "hello";
+    @Override
+    public User login(String username, String password) {
+        return userRepository.login(username, password);
     }
 
+    @Override
     public User getUser(String username) {
-        return
+        return userRepository.findByUsername(username);
     }
 
     @Override

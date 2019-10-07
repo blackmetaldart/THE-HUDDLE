@@ -1,5 +1,7 @@
 package com.example.projecttwobase.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,6 +22,19 @@ public class UserProfile {
     private String address;
 
     public UserProfile(){}
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "userProfile", cascade={CascadeType.DETACH,
+            CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}

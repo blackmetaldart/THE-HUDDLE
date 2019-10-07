@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/post")
 public class PostController {
-    @Autowired
-    PostService postService;
+    //@Autowired
+    //PostService postService;
 
     //POST
-    @PostMapping
+    //@PostMapping
 
     //GET POST LIST
-    @GetMapping("/list")
+    //@GetMapping("/list")
 
     //GET POST BY POST ID
-    @GetMapping("/{id}")
+    //@GetMapping("/{id}")
 
     //GET COMMENT BY POST ID
-    @GetMapping("/{id}/comment")
+    //@GetMapping("/{id}/comment")
 
     //DELETE POST BY ID
-    @DeleteMapping ("/{id}")
+    //@DeleteMapping ("/{id}")
 }
 

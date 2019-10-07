@@ -6,5 +6,5 @@ public interface CommentService {
     public Comment createComment(Comment comment);
     public Comment getCommentByUser (Long user);
     public Comment getCommentByPostId (Long postId);
-    public Comment deleteCommentByCommentId (Long commentId);
+    public void deleteCommentByCommentId (Long commentId);
 }
