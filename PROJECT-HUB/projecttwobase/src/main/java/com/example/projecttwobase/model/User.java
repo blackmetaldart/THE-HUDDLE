@@ -1,7 +1,13 @@
 package com.example.projecttwobase.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 @Entity
 @Table(name = "users")
 public class User {
@@ -39,7 +45,6 @@ public class User {
     private UserRole userRole;
 
     public UserRole getUserRole() { return userRole; }
-
     public void setUserRole(UserRole userRole) { this.userRole = userRole; }
 
     public Long getId() {return id;}
