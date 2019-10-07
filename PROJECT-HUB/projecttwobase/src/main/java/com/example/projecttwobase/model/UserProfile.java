@@ -21,6 +21,18 @@ public class UserProfile {
 
     public UserProfile(){}
 
+    @OneToOne(mappedBy = "userProfile", cascade={CascadeType.DETACH,
+            CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
 
