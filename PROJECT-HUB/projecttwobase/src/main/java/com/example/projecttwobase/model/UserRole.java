@@ -7,6 +7,9 @@ import java.util.List;
 @Entity
 @Table(name = "user_role")
 public class UserRole {
+    //Role 1 = Admin
+    //Role 2 = General
+    //Role 3 = DBA
 
     @Id
     @Column
