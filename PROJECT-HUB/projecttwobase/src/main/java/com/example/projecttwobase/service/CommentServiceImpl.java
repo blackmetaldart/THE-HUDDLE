@@ -24,6 +24,7 @@ public class CommentServiceImpl implements CommentService {
     public Comment createComment(@RequestBody Comment comment, Long postId ){
         return postRepository.findById(postId).map(post -> {
             comment.setPost(post);
+            comment.setUsername(post.getUsername());
             return commentRepository.save(comment);
         }).orElseThrow(() -> new ExceptionHandler("PostId " + postId + " not found"));
     }

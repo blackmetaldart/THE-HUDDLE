@@ -29,7 +29,7 @@ public class Post {
     private String username;
 
     public void setUsername(String username) {
-        this.username = user.getUsername();
+        this.username = getUsername();
     }
 
     public String getUsername() {
