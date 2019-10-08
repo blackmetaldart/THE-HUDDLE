@@ -23,17 +23,18 @@ public class Post {
     @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH,
                     CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinTable(name = "users_post",
+    @JoinTable(name = "user_post",
             joinColumns = {@JoinColumn(name = "post_id")},
-            inverseJoinColumns = @JoinColumn(name = "users_id"))
-    private User users;
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private User user;
 
 
     @OneToMany(
             cascade = CascadeType.ALL,
-            orphanRemoval = true
+            orphanRemoval = true,
+            fetch = FetchType.LAZY,
+            mappedBy = "post"
     )
-    @JoinColumn(name = "post_id")
     private List<Comment> comments = new ArrayList<>();
 
     public Long getId() {return id;}
