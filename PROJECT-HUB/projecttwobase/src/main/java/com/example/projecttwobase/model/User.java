@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
@@ -47,6 +49,18 @@ public class User {
     public UserRole getUserRole() { return userRole; }
     public void setUserRole(UserRole userRole) { this.userRole = userRole; }
 
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH,
+                    CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinTable(name = "user_post",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = @JoinColumn(name = "post_id"))
+    private List<Post> posts;
+
+    public List<Post> getPosts(){ return posts; }
+
+    public void setPosts(List<Post> posts) { this.posts = posts; }
+
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
 
@@ -58,5 +72,13 @@ public class User {
 
     public String getEmail() {return email;}
     public void setEmail(String email) {this.email = email;}
+
+    public List<Post> addPost(Post post){
+        if(posts == null)
+            posts = new ArrayList<>();
+        posts.add(post);
+
+        return posts;
+    }
 
 }

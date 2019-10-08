@@ -5,6 +5,8 @@ import com.example.projecttwobase.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/post")
 public class PostController {
@@ -14,7 +16,7 @@ public class PostController {
 
     //POST
     @PostMapping
-    public Post createPost(@RequestBody Post post){
+    public Post createPost(@Valid @RequestBody Post post){
         return postService.createPost(post);
     }
 
@@ -23,6 +25,7 @@ public class PostController {
     public Iterable<Post> listPosts(){
         return postService.listAllPosts();
     }
+
 
     //GET POST BY POST ID
     //@GetMapping("/{id}")
