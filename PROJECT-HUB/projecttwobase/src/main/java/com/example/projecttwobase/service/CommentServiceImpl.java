@@ -8,10 +8,12 @@ import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.repository.CommentRepository;
 import com.example.projecttwobase.repository.PostRepository;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+@Service
 public class CommentServiceImpl {
 
     @Autowired
