@@ -30,13 +30,15 @@ public class PostController {
 
     //GET POST BY POST ID
     @GetMapping("/{id}")
-    public Post postsById(@Valid @PathVariable Long postId) {
-        return postService.getPostByPostId(postId);
+    public Post postsById(@Valid @PathVariable Long id) {
+        return postService.getPostByPostId(id);
     }
 
     //GET COMMENT BY POST ID
     @GetMapping("/{id}/comment")
-    public Comment commentBy
+    public List<Comment> getCommentByPostId(@PathVariable Long id) {
+        return postService.getCommentByPostId(id);
+    }
 
     //DELETE POST BY ID
     //@DeleteMapping ("/{id}")
