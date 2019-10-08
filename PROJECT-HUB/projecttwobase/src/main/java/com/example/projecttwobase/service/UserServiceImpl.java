@@ -43,7 +43,6 @@ public class UserServiceImpl implements UserService {
         User user = getUser(username);
         user.addPost(post);
 
-
         return userRepository.save(user);
     }
 

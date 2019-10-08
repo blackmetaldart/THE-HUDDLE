@@ -7,10 +7,10 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface PostService {
-    public Post createPost(Post post);
-    public ResponseEntity<Object> deletePostByPostId(Long postId);
-    public List<Post> getPostByUsername(String username);
-    public Post getPostByPostId (Long postId);
-    public List<Comment> getCommentByPostId (Long postId);
-    public Iterable<Post> listAllPosts();
+    Post createPost(Post post);
+    ResponseEntity<Object> deletePostByPostId(Long postId);
+    List<Post> getPostByUsername(String username);
+    Post getPostByPostId (Long postId);
+    List<Comment> getCommentByPostId (Long postId);
+    Iterable<Post> listAllPosts();
 }

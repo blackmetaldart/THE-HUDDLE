@@ -3,8 +3,8 @@ package com.example.projecttwobase.service;
 import com.example.projecttwobase.model.User;
 
 public interface UserService {
-    public User createUser(User newUser);
-    public User login(String username, String password);
-    public User getUser(String username);
-    public User addPost(String username, Long postId);
+    User createUser(User newUser);
+    User login(String username, String password);
+    User getUser(String username);
+    User addPost(String username, Long postId);
 }

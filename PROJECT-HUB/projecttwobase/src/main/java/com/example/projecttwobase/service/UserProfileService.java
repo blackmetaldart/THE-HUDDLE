@@ -3,7 +3,7 @@ package com.example.projecttwobase.service;
 import com.example.projecttwobase.model.UserProfile;
 
 public interface UserProfileService {
-    public UserProfile createUserProfile (String username, UserProfile newProfile);
-    public UserProfile getUserProfile (String username);
-    public UserProfile updateUserProfile (String unknown );
+    UserProfile createUserProfile (String username, UserProfile newProfile);
+    UserProfile getUserProfile (String username);
+    UserProfile updateUserProfile (String unknown );
 }

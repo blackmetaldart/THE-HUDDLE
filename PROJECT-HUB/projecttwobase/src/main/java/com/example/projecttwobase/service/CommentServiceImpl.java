@@ -3,7 +3,6 @@ package com.example.projecttwobase.service;
 
 import com.example.projecttwobase.config.ExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.interceptor.CacheableOperation;
 import org.springframework.http.ResponseEntity;
 
 import com.example.projecttwobase.model.Comment;
@@ -40,7 +39,7 @@ public class CommentServiceImpl implements CommentService {
         return commentRepository.findById(commentId).map(comment ->{
             commentRepository.delete(comment);
             return ResponseEntity.ok().build();
-        }).orElseThrow(() -> new ResourceNotFoundException("Comment not found with id " + commentId));
+        }).orElseThrow(() -> new ExceptionHandler("Comment not found with id " + commentId));
 
     }
 }

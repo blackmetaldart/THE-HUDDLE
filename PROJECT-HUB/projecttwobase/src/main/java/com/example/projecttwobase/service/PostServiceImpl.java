@@ -6,7 +6,6 @@ import com.example.projecttwobase.model.Post;
 import com.example.projecttwobase.repository.CommentRepository;
 import com.example.projecttwobase.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
