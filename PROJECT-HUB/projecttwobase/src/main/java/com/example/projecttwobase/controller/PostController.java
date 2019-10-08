@@ -1,5 +1,6 @@
 package com.example.projecttwobase.controller;
 
+import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.model.Post;
 import com.example.projecttwobase.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,8 @@ public class PostController {
     }
 
     //GET COMMENT BY POST ID
-    //@GetMapping("/{id}/comment")
+    @GetMapping("/{id}/comment")
+    public Comment commentBy
 
     //DELETE POST BY ID
     //@DeleteMapping ("/{id}")
