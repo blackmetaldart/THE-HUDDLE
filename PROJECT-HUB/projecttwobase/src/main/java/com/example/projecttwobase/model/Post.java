@@ -1,6 +1,7 @@
 package com.example.projecttwobase.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +13,11 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column
     private String title;
 
+    @NotNull
     @Column
     private String description;
 
