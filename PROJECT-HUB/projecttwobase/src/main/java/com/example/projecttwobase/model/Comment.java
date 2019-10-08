@@ -26,7 +26,7 @@ public class Comment {
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
     @JsonIdentityReference(alwaysAsId=true)
     @JsonProperty("user_id")
-    private User user;
+    private String username;
 
     public Comment(){}
 
@@ -44,12 +44,12 @@ public class Comment {
     @JsonProperty("post_id")
     private Post post;
 
-    public void setUser(User user){
-        this.user = user;
+    public void setUsername(String username){
+        this.username = username;
     }
 
-    public User getUser(){
-        return user;
+    public String getUsername(){
+        return username;
     }
 
     public Post getPost() {

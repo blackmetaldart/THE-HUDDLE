@@ -3,6 +3,7 @@ package com.example.projecttwobase.service;
 import com.example.projecttwobase.config.ExceptionHandler;
 import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.model.Post;
+import com.example.projecttwobase.model.User;
 import com.example.projecttwobase.repository.CommentRepository;
 import com.example.projecttwobase.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,8 @@ public class PostServiceImpl implements PostService{
     PostRepository postRepository;
 
     @Override
-    public Post createPost(Post post) {
+    public Post createPost(String username, Post post) {
+        post.setUsername(username);
         return postRepository.save(post);
     }
 

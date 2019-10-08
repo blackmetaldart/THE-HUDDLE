@@ -26,16 +26,14 @@ public class Post {
     @JoinTable(name = "user_post",
             joinColumns = {@JoinColumn(name = "post_id")},
             inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private User user;
+    private String username;
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = user.getUsername();
     }
 
-    public User getUser() {
-        return user;
-    }
-
+    public String getUsername() {
+        return username;}
 
     @OneToMany(
             cascade = CascadeType.ALL,

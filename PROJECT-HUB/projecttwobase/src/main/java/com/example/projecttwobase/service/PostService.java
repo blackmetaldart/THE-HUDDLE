@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface PostService {
-    Post createPost(Post post);
+    Post createPost(String username, Post post);
     ResponseEntity<Object> deletePostByPostId(Long postId);
     List<Post> getPostByUsername(String username);
     Post getPostByPostId (Long postId);
