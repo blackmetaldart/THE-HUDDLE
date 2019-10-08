@@ -30,7 +30,7 @@ public class PostController {
     //GET POST BY POST ID
     @GetMapping("/{id}")
     public List<Post> postsById(@Valid @PathVariable Long postId) {
-        return postService.getPostByUser()
+        return postService.getPostByPostId()
     }
 
     //GET COMMENT BY POST ID

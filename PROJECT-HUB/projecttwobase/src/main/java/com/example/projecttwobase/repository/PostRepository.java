@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface PostRepository extends CrudRepository<Post, Long> {
     public List<Post> findPostByUsername (String username);
+    public Post getPostByPostId (Long postId);
 
 }
