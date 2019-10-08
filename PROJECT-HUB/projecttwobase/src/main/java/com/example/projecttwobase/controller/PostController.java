@@ -17,9 +17,9 @@ public class PostController {
     PostService postService;
 
     //POST
-    @PostMapping("/post")
-    public Post createPost(@Valid @RequestBody Post post){
-        return postService.createPost(post);
+    @PostMapping("{username}/makePost")
+    public Post createPost(@Valid @RequestBody Post post, @Valid @PathVariable String username){
+        return postService.createPost(username, post);
     }
 
     //GET POST LIST
