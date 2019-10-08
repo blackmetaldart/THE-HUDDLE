@@ -30,21 +30,19 @@ public class PostController {
     }
 
     //GET POST BY POST ID
-    @GetMapping("/{id}")
-    public Post postsById(@Valid @PathVariable Long id) {
-        return postService.getPostByPostId(id);
+    @GetMapping("/{postId}")
+    public Post postsById(@Valid @PathVariable Long postId) {
+        return postService.getPostByPostId(postId);
     }
 
     //GET COMMENT BY POST ID
-    @GetMapping("/{id}/comment")
-    public List<Comment> getCommentByPostId(@PathVariable Long id) {
-        return postService.getCommentByPostId(id);
+    @GetMapping("/{postId}/comment")
+    public List<Comment> getCommentByPostId(@PathVariable Long postId) { return postService.getCommentByPostId(postId);
     }
 
     //DELETE POST BY ID
-    @DeleteMapping ("/{id}")
-    public ResponseEntity deletePostByPostId(@PathVariable Long id) {
-        return postService.deletePostByPostId(id);
+    @DeleteMapping ("/{postId}")
+    public ResponseEntity<Object> deletePostByPostId(@PathVariable Long postId) { return postService.deletePostByPostId(postId);
     }
 }
 
