@@ -11,37 +11,36 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/post")
 public class PostController {
 
     @Autowired
     PostService postService;
 
     //POST
-    @PostMapping
+    @PostMapping("/post")
     public Post createPost(@Valid @RequestBody Post post){
         return postService.createPost(post);
     }
 
     //GET POST LIST
-    @GetMapping("/list")
+    @GetMapping("/post/list")
     public Iterable<Post> listPosts(){
         return postService.listAllPosts();
     }
 
     //GET POST BY POST ID
-    @GetMapping("/{postId}")
+    @GetMapping("/post/{postId}")
     public Post postsById(@Valid @PathVariable Long postId) {
         return postService.getPostByPostId(postId);
     }
 
     //GET COMMENT BY POST ID
-    @GetMapping("/{postId}/comment")
+    @GetMapping("/post/{postId}/comment")
     public List<Comment> getCommentByPostId(@PathVariable Long postId) { return postService.getCommentByPostId(postId);
     }
 
     //DELETE POST BY ID
-    @DeleteMapping ("/{postId}")
+    @DeleteMapping ("/post/{postId}")
     public ResponseEntity<Object> deletePostByPostId(@PathVariable Long postId) { return postService.deletePostByPostId(postId);
     }
 
