@@ -44,6 +44,6 @@ public class UserController {
     @GetMapping("/{username}/post")
     public List<Post> postByUsername (@PathVariable String username) {
         Object postService = null;
-        return postService.getPostByUsername (username);
+        return postService.getPostByUsername(username);
     }
 }

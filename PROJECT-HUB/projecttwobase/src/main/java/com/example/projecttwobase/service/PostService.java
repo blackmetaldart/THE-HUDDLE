@@ -2,7 +2,6 @@ package com.example.projecttwobase.service;
 
 import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.model.Post;
-import com.example.projecttwobase.model.User;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
