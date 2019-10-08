@@ -4,6 +4,7 @@ import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.model.Post;
 import com.example.projecttwobase.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -41,6 +42,9 @@ public class PostController {
     }
 
     //DELETE POST BY ID
-    //@DeleteMapping ("/{id}")
+    @DeleteMapping ("/{id}")
+    public ResponseEntity deletePostByPostId(@PathVariable Long id) {
+        return postService.deletePostByPostId(id);
+    }
 }
 
