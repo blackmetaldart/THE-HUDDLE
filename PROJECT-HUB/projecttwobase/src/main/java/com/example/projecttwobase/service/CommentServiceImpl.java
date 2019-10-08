@@ -36,15 +36,11 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public void deleteCommentByCommentId(Long commentId) {
+    public ResponseEntity<Object> deleteCommentByCommentId (Long commentId){
+        return commentRepository.findById(commentId).map(comment ->{
+            commentRepository.delete(comment);
+            return ResponseEntity.ok().build();
+        }).orElseThrow(() -> new ResourceNotFoundException("Comment not found with id " + commentId));
 
     }
-
-//    public ResponseEntity<Object> deleteCommentByCommentId (Long commentId){
-//        return commentRepository.findById(commentId).map(comment ->{
-//            commentRepository.delete(comment);
-//            return ResponseEntity.ok().build();
-//        }).orElseThrow(() -> new ResourceNotFoundException("Comment not found with id " + commentId));
-//
-//    }
 }
