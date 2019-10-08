@@ -28,7 +28,7 @@ public class UserRole {
 
     public UserRole() {}
 
-    @OneToMany(mappedBy = "userRole",
+    @OneToMany(mappedBy = "user_role",
             cascade = CascadeType.ALL)
     private List<User> users;
 

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "userProfile")
+@Table(name = "user_profile")
 public class UserProfile {
     @Id
     @Column
@@ -24,7 +24,7 @@ public class UserProfile {
     public UserProfile(){}
 
     @JsonIgnore
-    @OneToOne(mappedBy = "userProfile", cascade={CascadeType.DETACH,
+    @OneToOne(mappedBy = "user_profile", cascade={CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private User user;
 
