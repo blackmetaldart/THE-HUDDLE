@@ -43,7 +43,7 @@ public class User {
 
     @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "users_user_role_id", nullable = false)
+    @JoinColumn(name = "users_role_id", nullable = false)
     private UserRole userRole;
 
     public UserRole getUserRole() { return userRole; }
