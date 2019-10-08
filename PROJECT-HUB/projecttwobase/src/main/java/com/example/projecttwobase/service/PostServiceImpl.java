@@ -1,7 +1,9 @@
 package com.example.projecttwobase.service;
 
+import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.model.Post;
 import com.example.projecttwobase.model.User;
+import com.example.projecttwobase.repository.CommentRepository;
 import com.example.projecttwobase.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -34,6 +36,11 @@ public class PostServiceImpl implements PostService{
     public List<Post> getPostByUser(User user) {
         String username = user.getUsername();
         return postRepository.findPostByUsername(username);
+    }
+
+    public List<Comment> getCommentByPostId (Long postId){
+        CommentRepository commentRepository = null;
+        return commentRepository.findByPostId(postId);
     }
 
     @Override
