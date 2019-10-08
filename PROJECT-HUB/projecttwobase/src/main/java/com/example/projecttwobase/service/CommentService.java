@@ -2,9 +2,11 @@ package com.example.projecttwobase.service;
 
 import com.example.projecttwobase.model.Comment;
 
+import java.util.List;
+
 public interface CommentService {
     public Comment createComment(Comment comment);
-    public Comment getCommentByUser (Long user);
-    public Comment getCommentByPostId (Long postId);
+    public List<Comment> getCommentByUser (Long user);
+    public List<Comment> getCommentByPostId (Long postId);
     public void deleteCommentByCommentId (Long commentId);
 }
