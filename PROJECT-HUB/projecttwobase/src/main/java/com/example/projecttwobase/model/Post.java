@@ -26,8 +26,7 @@ public class Post {
     @JoinTable(name = "users_post",
             joinColumns = {@JoinColumn(name = "post_id")},
             inverseJoinColumns = @JoinColumn(name = "users_id"))
-    private List<User> users;
-
+    private User users;
     public List<User> getUsers(){ return users; }
 
     public void setUsers(List<User> users) { this.users = users; }
