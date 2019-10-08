@@ -18,7 +18,7 @@ public class UserProfileController {
     }
 
     //UPDATE
-    @PostMapping("/{username}")
+    //@PostMapping("/{username}")
 
     //GET
     @GetMapping("/{username}")

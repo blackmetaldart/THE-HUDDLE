@@ -24,7 +24,7 @@ public class UserProfile {
     public UserProfile(){}
 
     @JsonIgnore
-    @OneToOne(mappedBy = "userProfile", cascade={CascadeType.DETACH,
+    @OneToOne(mappedBy = "userProfile", fetch = FetchType.LAZY, cascade={CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private User user;
 

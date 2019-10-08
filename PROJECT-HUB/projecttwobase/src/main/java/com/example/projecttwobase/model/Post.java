@@ -18,7 +18,11 @@ public class Post {
     @Column
     private String description;
 
-    public Post(){}
+    public Post() {
+    }
+
+    @Column
+    private String username;
 
     @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH,
@@ -26,22 +30,13 @@ public class Post {
     @JoinTable(name = "user_post",
             joinColumns = {@JoinColumn(name = "post_id")},
             inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private String username;
+    private User user;
 
-    public void setUsername(String username) {
-        this.username = getUsername();
-    }
+    public User getUser(){return user;}
+    public void setUser(User user){this.user = user;}
 
-    public String getUsername() {
-        return username;}
-
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.LAZY,
-            mappedBy = "post"
-    )
-    private List<Comment> comments = new ArrayList<>();
+    public String getUsername() {return username; }
+    public void setUsername(String username) { this.username = getUsername();}
 
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}

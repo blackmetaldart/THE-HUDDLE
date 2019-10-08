@@ -30,7 +30,7 @@ public class User {
     public User(){}
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="users_profile_id")
+    @JoinColumn(name="user_profile_id")
     private UserProfile userProfile;
 
     public UserProfile getUserProfile() {
@@ -43,7 +43,7 @@ public class User {
 
     @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "users_role_id", nullable = false)
+    @JoinColumn(name = "user_role_id", nullable = false)
     private UserRole userRole;
 
     public UserRole getUserRole() { return userRole; }
@@ -51,10 +51,7 @@ public class User {
 
     @OneToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH,
-                    CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinTable(name = "users_post",
-            joinColumns = {@JoinColumn(name = "users_id")},
-            inverseJoinColumns = @JoinColumn(name = "post_id"))
+                    CascadeType.MERGE, CascadeType.REFRESH}, mappedBy="user")
     private List<Post> posts;
 
     public List<Post> getPosts(){ return posts; }

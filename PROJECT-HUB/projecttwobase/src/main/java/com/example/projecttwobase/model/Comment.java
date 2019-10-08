@@ -20,13 +20,16 @@ public class Comment {
     @Column
     private String text;
 
+    @Column
+    private String username;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
     @JsonIdentityReference(alwaysAsId=true)
     @JsonProperty("user_id")
-    private String username;
+    private User user;
 
     public Comment(){}
 
@@ -51,6 +54,12 @@ public class Comment {
     public String getUsername(){
         return username;
     }
+
+    public void setUser(User user){
+        this.user = user;
+    }
+
+    public User getUser(){return user;}
 
     public Post getPost() {
         return post;

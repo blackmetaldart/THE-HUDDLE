@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CommentRepository extends CrudRepository<Comment, Long> {
-    @Query("FROM Comment comm WHERE comm.postId = ?1")
+    @Query("FROM Comment comm WHERE comm.post = ?1")
     List<Comment> findByPostId(Long postId);
 
     @Query("FROM Comment comm WHERE  comm.username = ?1")
