@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface PostRepository extends CrudRepository<Post, Long> {
-    public List<Post> findPostByUsername (String username);
-    public Post getPostByPostId (Long postId);
+    List<Post> findPostByUsername (String username);
+    Post getPostByPostId (Long postId);
 
 }
