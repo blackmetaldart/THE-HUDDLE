@@ -23,6 +23,11 @@ public class UserController {
         return userService.login(username, password);
     }
 
+    @PutMapping("/{username}/{postId}")
+    public User addPost(@PathVariable String username, @PathVariable Long postId){
+        return userService.addPost(username, postId);
+    }
+
     //GET COMMENT BY USER ID
     //@GetMapping("/{username}/comment")
 

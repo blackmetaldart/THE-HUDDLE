@@ -1,6 +1,7 @@
 package com.example.projecttwobase.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,7 +20,7 @@ public class Post {
 
     public Post(){}
 
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH,
                     CascadeType.MERGE, CascadeType.REFRESH})
     @JoinTable(name = "user_post",
@@ -31,6 +32,13 @@ public class Post {
 
     public void setUsers(List<User> users) { this.users = users; }
 
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "post_id")
+    private List<Comment> comments = new ArrayList<>();
+
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
 
@@ -39,4 +47,5 @@ public class Post {
 
     public String getDescription() {return description;}
     public void setDescription(String description) {this.description = description;}
+
 }
