@@ -2,6 +2,7 @@ package com.example.projecttwobase.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.interceptor.CacheableOperation;
 import org.springframework.http.ResponseEntity;
 
 import com.example.projecttwobase.model.Comment;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @Service
-public class CommentServiceImpl {
+public class CommentServiceImpl implements CommentService {
 
     @Autowired
     private PostRepository postRepository;
@@ -33,11 +34,16 @@ public class CommentServiceImpl {
         return commentRepository.findByUsername(username);
     }
 
-    public ResponseEntity<Object> deleteCommentByCommentId (Long commentId){
-        return commentRepository.findById(commentId).map(comment ->{
-            commentRepository.delete(comment);
-            return ResponseEntity.ok().build();
-        }).orElseThrow(() -> new ResourceNotFoundException("Comment not found with id " + commentId));
+    @Override
+    public void deleteCommentByCommentId(Long commentId) {
 
     }
+
+//    public ResponseEntity<Object> deleteCommentByCommentId (Long commentId){
+//        return commentRepository.findById(commentId).map(comment ->{
+//            commentRepository.delete(comment);
+//            return ResponseEntity.ok().build();
+//        }).orElseThrow(() -> new ResourceNotFoundException("Comment not found with id " + commentId));
+//
+//    }
 }
