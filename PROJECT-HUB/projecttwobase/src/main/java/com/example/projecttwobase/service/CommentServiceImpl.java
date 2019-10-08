@@ -27,7 +27,7 @@ public class CommentServiceImpl {
         return postRepository.findById(postId).map(post -> {
             comment.setPost(post);
             return commentRepository.save(comment);
-        }).orElse(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }
 
     public Comment getCommentByUser (User user){
