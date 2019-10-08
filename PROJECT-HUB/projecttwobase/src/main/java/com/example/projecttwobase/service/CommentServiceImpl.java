@@ -11,6 +11,8 @@ import com.example.projecttwobase.repository.PostRepository;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+
 public class CommentServiceImpl {
 
     @Autowired
@@ -26,12 +28,12 @@ public class CommentServiceImpl {
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }
 
-    public Comment getCommentByUser (User user){
-        return null;
+    public List<Comment> getCommentByUsername (String username){
+        return commentRepository.findByUsername(username);
     }
 
-    public Comment getCommentByPostId (Long postId){
-        return null;
+    public List<Comment> getCommentByPostId (Long postId){
+        return commentRepository.findByPostId(postId);
     }
 
     public ResponseEntity<Object> deleteCommentByCommentId (Long commentId){
