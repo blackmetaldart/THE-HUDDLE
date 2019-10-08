@@ -2,7 +2,6 @@ package com.example.projecttwobase.service;
 
 import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.model.Post;
-import com.example.projecttwobase.model.User;
 import com.example.projecttwobase.repository.CommentRepository;
 import com.example.projecttwobase.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +32,7 @@ public class PostServiceImpl implements PostService{
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }
 
-    public List<Post> getPostByUser(User user) {
-        String username = user.getUsername();
+    public List<Post> getPostByUsername(String username) {
         return postRepository.findPostByUsername(username);
     }
 

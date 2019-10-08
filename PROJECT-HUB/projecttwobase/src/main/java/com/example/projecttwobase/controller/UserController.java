@@ -1,6 +1,7 @@
 package com.example.projecttwobase.controller;
 
 import com.example.projecttwobase.model.Comment;
+import com.example.projecttwobase.model.Post;
 import com.example.projecttwobase.model.User;
 import com.example.projecttwobase.service.CommentService;
 import com.example.projecttwobase.service.UserService;
@@ -40,5 +41,9 @@ public class UserController {
     }
 
     //GET POST BY USER ID
-    //@GetMapping("/{username}/post")
+    @GetMapping("/{username}/post")
+    public List<Post> postByUsername (@PathVariable String username) {
+        Object postService = null;
+        return postService.getPostByUsername (username);
+    }
 }
