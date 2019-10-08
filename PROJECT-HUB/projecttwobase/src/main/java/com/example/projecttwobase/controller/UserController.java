@@ -29,6 +29,7 @@ public class UserController {
         return userService.login(username, password);
     }
 
+    //MAKE POST
     @PutMapping("/{username}/{postId}")
     public User addPost(@PathVariable String username, @PathVariable Long postId){
         return userService.addPost(username, postId);
