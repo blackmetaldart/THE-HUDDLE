@@ -29,8 +29,8 @@ public class PostController {
 
     //GET POST BY POST ID
     @GetMapping("/{id}")
-    public List<Post> postsById(@Valid @PathVariable Long postId) {
-        return postService.getPostByPostId()
+    public Post postsById(@Valid @PathVariable Long postId) {
+        return postService.getPostByPostId(postId);
     }
 
     //GET COMMENT BY POST ID
