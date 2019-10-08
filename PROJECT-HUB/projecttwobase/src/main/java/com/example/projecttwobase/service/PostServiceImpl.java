@@ -8,6 +8,8 @@ import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PostServiceImpl implements PostService{
 
@@ -26,7 +28,7 @@ public class PostServiceImpl implements PostService{
         }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }
 
-    public Post getPostByUser(User user) {
+    public List<Post> getPostByUser(User user) {
         String username = user.getUsername();
         return postRepository.findPostByUsername(username);
     }
