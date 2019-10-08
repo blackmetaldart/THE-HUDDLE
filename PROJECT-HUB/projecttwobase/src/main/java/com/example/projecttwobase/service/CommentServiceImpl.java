@@ -4,11 +4,9 @@ package com.example.projecttwobase.service;
 import com.example.projecttwobase.config.ExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-
 import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.repository.CommentRepository;
 import com.example.projecttwobase.repository.PostRepository;
-import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -31,7 +29,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     public List<Comment> getCommentByUsername (String username){
-        return commentRepository.findByUsername(username);
+        return commentRepository.findAllByUsername(username);
     }
 
     @Override

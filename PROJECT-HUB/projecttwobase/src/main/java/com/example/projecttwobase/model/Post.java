@@ -28,6 +28,14 @@ public class Post {
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private User user;
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
 
     @OneToMany(
             cascade = CascadeType.ALL,

@@ -20,6 +20,14 @@ public class Comment {
     @Column
     private String text;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property="id")
+    @JsonIdentityReference(alwaysAsId=true)
+    @JsonProperty("user_id")
+    private User user;
+
     public Comment(){}
 
     public Long getId() {return id;}
@@ -35,6 +43,14 @@ public class Comment {
     @JsonIdentityReference(alwaysAsId=true)
     @JsonProperty("post_id")
     private Post post;
+
+    public void setUser(User user){
+        this.user = user;
+    }
+
+    public User getUser(){
+        return user;
+    }
 
     public Post getPost() {
         return post;
