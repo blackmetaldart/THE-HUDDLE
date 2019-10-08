@@ -34,13 +34,6 @@ public class UserController {
         return userService.addPost(username, postId);
     }
 
-    //GET COMMENT BY USER NAME
-    @GetMapping("/{username}/comment")
-    public List<Comment> getCommentByUsername (@PathVariable String username) {
-        CommentService commentService = null;
-        return commentService.getCommentByUsername(username);
-    }
-
     //GET POST BY USER ID
     @GetMapping("/{username}/post")
     public List<Post> postByUsername (@PathVariable String username) {

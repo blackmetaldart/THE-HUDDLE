@@ -30,4 +30,5 @@ public class CommentController {
     public ResponseEntity<Object> deleteCommentByCommentId(@PathVariable Long commentId) {
         return commentService.deleteCommentByCommentId(commentId);
     }
+
 }
