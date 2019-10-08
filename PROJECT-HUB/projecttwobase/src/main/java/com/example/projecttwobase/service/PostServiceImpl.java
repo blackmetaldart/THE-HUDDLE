@@ -1,5 +1,6 @@
 package com.example.projecttwobase.service;
 
+import com.example.projecttwobase.config.ExceptionHandler;
 import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.model.Post;
 import com.example.projecttwobase.repository.CommentRepository;
@@ -29,7 +30,7 @@ public class PostServiceImpl implements PostService{
        return postRepository.findById(postId).map (post -> {
             postRepository.delete(post);
            return ResponseEntity.ok().build();
-        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
+        }).orElseThrow(() -> new ExceptionHandler("PostId " + postId + " not found"));
     }
 
     public List<Post> getPostByUsername(String username) {

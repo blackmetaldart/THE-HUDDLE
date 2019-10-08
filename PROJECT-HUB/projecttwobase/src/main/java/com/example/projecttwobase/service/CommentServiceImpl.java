@@ -1,6 +1,7 @@
 package com.example.projecttwobase.service;
 
 
+import com.example.projecttwobase.config.ExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.interceptor.CacheableOperation;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,7 @@ public class CommentServiceImpl implements CommentService {
         return postRepository.findById(postId).map(post -> {
             comment.setPost(post);
             return commentRepository.save(comment);
-        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
+        }).orElseThrow(() -> new ExceptionHandler("PostId " + postId + " not found"));
     }
 
     public List<Comment> getCommentByUsername (String username){
