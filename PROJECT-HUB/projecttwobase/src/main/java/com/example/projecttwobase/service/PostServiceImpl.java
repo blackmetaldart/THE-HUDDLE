@@ -26,7 +26,7 @@ public class PostServiceImpl implements PostService{
     public Post getPostByPostId (Long postId) {
         return postRepository.getPostByPostId(postId);}
 
-    public ResponseEntity<?> deletePostByPostId(Long postId){
+    public ResponseEntity<Object> deletePostByPostId(Long postId){
        return postRepository.findById(postId).map (post -> {
             postRepository.delete(post);
            return ResponseEntity.ok().build();
