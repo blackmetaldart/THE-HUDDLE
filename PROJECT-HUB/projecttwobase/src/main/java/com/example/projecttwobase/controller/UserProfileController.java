@@ -13,9 +13,12 @@ public class UserProfileController {
 
     //CREATE
     @PostMapping
+    public UserProfile makeUserProfile(@RequestBody UserProfile userProfile) {
+        return userProfileService.createUserProfile(userProfile);
+    }
 
     //UPDATE
-    //@PostMapping("/{username}")
+    @PostMapping("/{username}")
 
     //GET
     @GetMapping("/{username}")
