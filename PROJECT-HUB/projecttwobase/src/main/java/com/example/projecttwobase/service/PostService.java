@@ -14,5 +14,4 @@ public interface PostService {
     public Post getPostByPostId (Long postId);
     public List<Comment> getCommentByPostId (Long postId);
     public Iterable<Post> listAllPosts();
-
 }
