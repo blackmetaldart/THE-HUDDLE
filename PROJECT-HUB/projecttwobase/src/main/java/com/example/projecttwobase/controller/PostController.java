@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/post")
@@ -26,9 +27,11 @@ public class PostController {
         return postService.listAllPosts();
     }
 
-
     //GET POST BY POST ID
-    //@GetMapping("/{id}")
+    @GetMapping("/{id}")
+    public List<Post> postsById(@Valid @PathVariable Long postId) {
+        return postService.getPostByUser()
+    }
 
     //GET COMMENT BY POST ID
     //@GetMapping("/{id}/comment")

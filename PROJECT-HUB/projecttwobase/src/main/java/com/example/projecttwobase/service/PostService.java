@@ -10,6 +10,7 @@ public interface PostService {
     public Post createPost(Post post);
     public ResponseEntity deletePostByPostId(Long postId);
     public List<Post> getPostByUser(User user);
+    public Post getPostByPostId (Long postId);
     public Iterable<Post> listAllPosts();
 
 }
