@@ -4,6 +4,7 @@ import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.model.Post;
 import com.example.projecttwobase.model.User;
 import com.example.projecttwobase.service.CommentService;
+import com.example.projecttwobase.service.PostService;
 import com.example.projecttwobase.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +44,7 @@ public class UserController {
     //GET POST BY USER ID
     @GetMapping("/{username}/post")
     public List<Post> postByUsername (@PathVariable String username) {
-        Object postService = null;
+        PostService postService= null;
         return postService.getPostByUsername(username);
     }
 }
