@@ -5,6 +5,8 @@ import com.example.projecttwobase.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class CommentController {
     @Autowired
@@ -17,7 +19,10 @@ public class CommentController {
     }
 
     //GET COMMENT
-    //@GetMapping("/{id}")
+    @GetMapping("/{username}")
+    public List<Comment> getCommentByUsername(@PathVariable String username) {
+        return commentService.getCommentByUsername(username);
+    }
 
     //DELETE COMMENT
     //@DeleteMapping("/{id}")
