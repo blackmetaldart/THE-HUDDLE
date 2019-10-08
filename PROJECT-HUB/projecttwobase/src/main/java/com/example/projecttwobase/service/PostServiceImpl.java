@@ -27,7 +27,8 @@ public class PostServiceImpl implements PostService{
     }
 
     public Post getPostByUser(User user) {
-        return null;
+        String username = user.getUsername();
+        return postRepository.findPostByUsername(username);
     }
 
     @Override
