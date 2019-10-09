@@ -79,8 +79,9 @@ public class UserServiceImpl implements UserService {
         return authorities;
     }
 
-//    public List<User> findAllUsers(){
-//        return userRepository.
-//    }
+        @Override
+        public Iterable<User> listUsers() {
+        return userRepository.findAll();
+    }
 
 }

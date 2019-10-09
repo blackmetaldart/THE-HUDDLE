@@ -10,5 +10,5 @@ public interface UserService extends UserDetailsService {
     User login(String username, String password);
     User getUser(String username);
     User addPost(String username, Long postId);
-    //List<User> findAll();
+    public Iterable<User> listUsers();
 }
