@@ -30,15 +30,18 @@ public class JwtUtil implements Serializable {
         return claimsResolver.apply(claims);
     }
 
+    //TO GET USERNAME FROM TOKEN
     private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
 
+    //CHECK EXPIRY AND USERNAME FROM TOKEN TO VALILDATE
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
+    //VERIFY IF TOKEN HAS EXPIRED
     private Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
         return expiration.before(new Date());
