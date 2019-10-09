@@ -3,6 +3,7 @@ package com.example.projecttwobase.controller;
 import com.example.projecttwobase.model.User;
 import com.example.projecttwobase.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,9 +22,9 @@ public class UserController {
     }
 
     //LOG IN
-    @GetMapping("/login/{username}/{password}")
-    public User login(@PathVariable String username, @PathVariable String password) {
-        return userService.login(username, password);
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody User user) {
+        return ResponseEntity.ok(new JwtResponse(userService.login(user)));
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")

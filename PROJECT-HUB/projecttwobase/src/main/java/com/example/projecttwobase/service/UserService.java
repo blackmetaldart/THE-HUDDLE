@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserService extends UserDetailsService {
     User createUser(User newUser);
-    User login(String username, String password);
+    String login(User user);
     User getUser(String username);
     User addPost(String username, Long postId);
     public Iterable<User> listUsers();

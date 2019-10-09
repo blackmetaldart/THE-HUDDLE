@@ -1,5 +1,6 @@
 package com.example.projecttwobase.service;
 
+import com.example.projecttwobase.config.JwtUtil;
 import com.example.projecttwobase.model.Post;
 import com.example.projecttwobase.model.User;
 import com.example.projecttwobase.model.UserRole;
@@ -21,6 +22,9 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
+    JwtUtil jwtUtil;
+
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -37,8 +41,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User login(String username, String password) {
-        return userRepository.login(username, password);
+    public String login(User user){
+        if(userRepository.login(user.getUsername(), user.getPassword()) != null){
+            UserDetails userDetails = loadUserByUsername(user.getUsername());
+            return jwtUtil.generateToken(userDetails);
+        }
+        return null;
     }
 
     @Override
