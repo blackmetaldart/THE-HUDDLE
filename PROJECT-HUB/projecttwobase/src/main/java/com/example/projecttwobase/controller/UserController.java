@@ -17,7 +17,7 @@ public class UserController {
 
     //SIGN UP
     @PostMapping("/signup")
-    public User createUser(@RequestBody User newUser) {
+    public String createUser(@RequestBody User newUser) {
         return userService.createUser(newUser);
     }
 
