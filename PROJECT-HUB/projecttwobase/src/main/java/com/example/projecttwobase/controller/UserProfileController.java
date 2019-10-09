@@ -14,7 +14,7 @@ public class UserProfileController {
     //CREATE
     @PostMapping("/{username}/profile")
     public UserProfile makeUserProfile(@RequestBody UserProfile userProfile, @PathVariable String username) {
-        return userProfileService.createUserProfile(username, userProfile);
+        return userProfileService.createUserProfile(userProfile, username);
     }
 
     //UPDATE
@@ -23,7 +23,7 @@ public class UserProfileController {
     //GET
     @GetMapping("/{username}/profile")
     public UserProfile getUserProfile(@PathVariable String username) {
-        return userProfileService.getUserProfile(username);
+        return userProfileService.findByUsername(username);
     }
 
 }
