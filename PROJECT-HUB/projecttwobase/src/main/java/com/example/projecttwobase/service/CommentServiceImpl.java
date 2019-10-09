@@ -32,11 +32,14 @@ public class CommentServiceImpl implements CommentService {
 //        return commentRepository.findAllByUsername(username);
 //    }
     @Override
-    public ResponseEntity<Object> deleteCommentByCommentId (Long commentId){
-        return commentRepository.findById(commentId).map(comment ->{
-            commentRepository.delete(comment);
-            return ResponseEntity.ok().build();
-        }).orElseThrow(() -> new ExceptionHandler("Comment not found with id " + commentId));
+    public void deleteCommentByCommentId (Long commentId){
+        Comment comment = commentRepository.getCommentById(commentId);
+        commentRepository.delete(comment);
+
+//        return commentRepository.findById(commentId).map(comment ->{
+//            commentRepository.delete(comment);
+//            return ResponseEntity.ok().build();
+//        }).orElseThrow(() -> new ExceptionHandler("Comment not found with id " + commentId));
 
     }
 }
