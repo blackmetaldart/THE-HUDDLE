@@ -25,7 +25,6 @@ public class CommentServiceImpl implements CommentService {
     public Comment createComment(@RequestBody Comment comment, Long postId ){
        Post post =  postRepository.getPostById(postId);
        comment.setPost(post);
-       comment.setUser(post.getUser());
        return commentRepository.save(comment);
 
 //        return postRepository.getPostById(postId).map(post -> {
@@ -34,9 +33,9 @@ public class CommentServiceImpl implements CommentService {
 //        }).orElseThrow(() -> new ExceptionHandler("PostId " + postId + " not found"));
     }
 
-    public List<Comment> getCommentByUsername (String username){
-        return commentRepository.findAllByUsername(username);
-    }
+//    public List<Comment> getCommentByUsername (String username){
+//        return commentRepository.findAllByUsername(username);
+//    }
 
     @Override
     public ResponseEntity<Object> deleteCommentByCommentId (Long commentId){
