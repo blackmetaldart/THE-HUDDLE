@@ -3,6 +3,7 @@ package com.example.projecttwobase.controller;
 import com.example.projecttwobase.model.User;
 import com.example.projecttwobase.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,11 +26,11 @@ public class UserController {
         return userService.login(username, password);
     }
 
-    //LIST ALL USERS
-//    @GetMapping("/user/list")
-//    public List<User> listUsers(){
-//        return userService.findAll();
-//    }
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("/user/list")
+    public Iterable<User> listUsers(){
+        return userService.listUsers();
+    }
 
 //    //MAKE POST
 //    @PutMapping("/{username}/{postId}")
