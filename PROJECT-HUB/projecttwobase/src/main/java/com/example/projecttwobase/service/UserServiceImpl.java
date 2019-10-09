@@ -34,16 +34,21 @@ public class UserServiceImpl implements UserService {
     PostRepository postRepository;
 
     @Override
-    public User createUser(User newUser) {
+    public String createUser(User newUser) {
         UserRole userRole = userRoleService.getRole(newUser.getUserRole().getName());
         newUser.setUserRole(userRole);
-        return userRepository.save(newUser);
+        newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
+        if(userRepository.save(newUser) != null){
+            UserDetails userDetails = loadUserByUsername(newUser.getUsername());
+            return jwtUtil.generateToken(userDetails);
+        }
+        return null;
     }
-
     @Override
     public String login(User user){
-        if(userRepository.login(user.getUsername(), user.getPassword()) != null){
-            UserDetails userDetails = loadUserByUsername(user.getUsername());
+        User newUser = userRepository.findByUsername(user.getUsername());
+        if(newUser != null && bCryptPasswordEncoder.matches(user.getPassword(), newUser.getPassword())){
+            UserDetails userDetails = loadUserByUsername(newUser.getUsername());
             return jwtUtil.generateToken(userDetails);
         }
         return null;
