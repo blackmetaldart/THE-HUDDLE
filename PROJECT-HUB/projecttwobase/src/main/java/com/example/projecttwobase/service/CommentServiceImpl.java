@@ -26,17 +26,11 @@ public class CommentServiceImpl implements CommentService {
        Post post =  postRepository.getPostById(postId);
        comment.setPost(post);
        return commentRepository.save(comment);
-
-//        return postRepository.getPostById(postId).map(post -> {
-//            comment.setPost(post);
-//            return commentRepository.save(comment);
-//        }).orElseThrow(() -> new ExceptionHandler("PostId " + postId + " not found"));
     }
 
 //    public List<Comment> getCommentByUsername (String username){
 //        return commentRepository.findAllByUsername(username);
 //    }
-
     @Override
     public ResponseEntity<Object> deleteCommentByCommentId (Long commentId){
         return commentRepository.findById(commentId).map(comment ->{
