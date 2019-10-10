@@ -9,9 +9,10 @@ public class UserServiceStub implements UserService {
 
     @Override
     public User getUser(String username) {
-        return null;
+        User user = new User();
+        user.setUsername(username);
+        return user;
     }
-
     @Override
     public User addPost(String username, Long postId) {
         return null;
