@@ -1,6 +1,5 @@
 package com.example.projecttwobase.controller;
 
-import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.model.Post;
 import com.example.projecttwobase.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;

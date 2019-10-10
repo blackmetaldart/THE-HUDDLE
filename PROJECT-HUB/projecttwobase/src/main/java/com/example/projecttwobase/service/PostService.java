@@ -1,6 +1,5 @@
 package com.example.projecttwobase.service;
 
-import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.model.Post;
 import org.springframework.http.ResponseEntity;
 

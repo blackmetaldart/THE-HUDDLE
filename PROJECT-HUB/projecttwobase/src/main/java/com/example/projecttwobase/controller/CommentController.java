@@ -20,9 +20,9 @@ public class CommentController {
         return commentService.createComment(comment, postId);
     }
 
-    //GET COMMENT BY POST ID
-    @GetMapping("/post/{postId}/comment")
-    public List<Comment> getCommentByPostId(@PathVariable Long postId) { return commentService.getCommentByPostId(postId);
+    //GET COMMENTS BY POST ID
+    @GetMapping("/post/{postId}/comments")
+    public List<Comment> getCommentByPostId(@PathVariable Long postId) { return commentService.getCommentsByPostId(postId);
    }
 
     //GET COMMENT BY USERNAME
