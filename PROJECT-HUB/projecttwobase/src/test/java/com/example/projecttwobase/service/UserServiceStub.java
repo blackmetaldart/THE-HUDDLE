@@ -33,16 +33,6 @@ public class UserServiceStub implements UserService {
     }
 
     @Override
-    public HttpStatus deleteById(Long userId) {
-        return null;
-    }
-
-    @Override
-    public User addSong(String username, Long songId) {
-        return null;
-    }
-
-    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return null;
     }
