@@ -13,6 +13,11 @@ public class UserServiceStub implements UserService {
     }
 
     @Override
+    public User addPost(String username, Long postId) {
+        return null;
+    }
+
+    @Override
     public Iterable<User> listUsers() {
         return null;
     }
