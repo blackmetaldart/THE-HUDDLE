@@ -39,7 +39,7 @@ public class UserControllerTest {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/signup")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(createUserInJson("joe","abc"));
+                .content(createUserInJson("x","abc"));
 
         when(userService.createUser(any())).thenReturn("123456");
 
