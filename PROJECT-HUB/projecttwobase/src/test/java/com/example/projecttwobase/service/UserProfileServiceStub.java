@@ -19,4 +19,12 @@ public class UserProfileServiceStub implements UserProfileService {
         return null;
     }
 
+    @Override
+    public UserProfile createUserProfile(String username, UserProfile newProfile) {
+        UserProfile userProfile = new UserProfile();
+        userProfile.setEmail("batman@superhero.com");
+
+        return userProfile;
+    }
+
 }
