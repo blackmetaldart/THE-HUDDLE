@@ -14,7 +14,7 @@ public class UserProfileController {
     //CREATE
     @PostMapping("/{username}")
     public UserProfile makeUserProfile(@RequestBody UserProfile userProfile, @PathVariable String username) {
-        return userProfileService.createUserProfile(userProfile, username);
+        return userProfileService.createUserProfile(username, userProfile);
     }
 
     //UPDATE
