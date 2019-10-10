@@ -52,5 +52,6 @@ public class UserProfile {
     }
 
     public Long getEmail() {
+        return null;
     }
 }
