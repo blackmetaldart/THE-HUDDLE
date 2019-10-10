@@ -34,8 +34,9 @@ public class UserController {
     }
 
     @GetMapping("/hello")
-    public String helloWorld(){
+    public String helloWorld() {
         return "Hello World!!";
+    }
 
 //    //MAKE POST
 //    @PutMapping("/{username}/{postId}")
