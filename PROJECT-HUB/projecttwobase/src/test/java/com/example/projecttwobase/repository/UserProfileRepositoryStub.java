@@ -10,7 +10,10 @@ public class UserProfileRepositoryStub implements UserProfileRepository {
 
     @Override
     public <S extends UserProfile> S save(S entity) {
-        return null;
+        UserProfile userProfile = new UserProfile();
+        userProfile.setEmail("batman@superhero.com");
+
+        return (S)userProfile;
     }
 
     @Override
