@@ -14,7 +14,7 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    //POST(create) COMMENT
+    //CREATE A COMMENT FOR A POST
     @PostMapping("/{postId}/comment")
     public Comment createComment(@RequestBody Comment comment, @PathVariable Long postId) {
         return commentService.createComment(comment, postId);
@@ -31,7 +31,7 @@ public class CommentController {
 //        return commentService.getCommentByUsername(username);
 //    }
 
-    //DELETE COMMENT
+    //DELETE A COMMENT
     @DeleteMapping("/{commentId}")
     public ResponseEntity<Object> deleteCommentByCommentId(@PathVariable Long commentId) {
         return commentService.deleteCommentByCommentId(commentId);
