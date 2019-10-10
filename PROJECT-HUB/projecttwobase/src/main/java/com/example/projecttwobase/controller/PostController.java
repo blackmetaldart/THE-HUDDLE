@@ -38,10 +38,9 @@ public class PostController {
     public ResponseEntity<Object> deletePostByPostId(@PathVariable Long postId) { return postService.deletePostByPostId(postId);
     }
 
-    //GET POST BY USER ID
-    @GetMapping("/{username}/post")
+    //GET ALL POSTS BY USER ID
+    @GetMapping("/{username}/posts")
     public List<Post> getPostsByUsername (@PathVariable String username) {
         return postService.getPostsByUsername(username);
     }
 }
-
