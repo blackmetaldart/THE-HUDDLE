@@ -21,8 +21,8 @@ public class PostController {
         return postService.createPost(username, post);
     }
 
-    //GET POST LIST
-    @GetMapping("/post/list")
+    //GET LIST OF ALL POSTS
+    @GetMapping("/posts/list")
     public Iterable<Post> listPosts(){
         return postService.listAllPosts();
     }
@@ -33,7 +33,7 @@ public class PostController {
         return postService.getPostByPostId(postId);
     }
 
-    //DELETE POST BY ID
+    //DELETE POST BY POST ID
     @DeleteMapping ("/post/{postId}")
     public ResponseEntity<Object> deletePostByPostId(@PathVariable Long postId) { return postService.deletePostByPostId(postId);
     }
