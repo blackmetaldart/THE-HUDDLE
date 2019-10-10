@@ -1,8 +1,6 @@
 package com.example.projecttwobase.repository;
 
 import com.example.projecttwobase.model.UserProfile;
-import com.example.projecttwobase.repository.UserProfileRepositoryStub;
-
 import com.example.projecttwobase.service.UserProfileServiceImpl;
 import com.example.projecttwobase.service.UserServiceStub;
 import org.junit.Assert;
@@ -29,5 +27,10 @@ public class UserProfileServiceTest {
 
         Assert.assertNotNull(newProfile);
         Assert.assertEquals(newProfile.getEmail(), userProfile.getEmail());
+    }
+
+    @Test
+    public void getUserProfile_RetrievesProfileByUsername_Success(){
+
     }
 }
