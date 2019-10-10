@@ -17,7 +17,7 @@ public class UserProfileServiceImpl implements UserProfileService{
     UserService userService;
 
     @Override
-    public UserProfile createUserProfile(UserProfile newProfile, String username) {
+    public UserProfile createUserProfile(String username, UserProfile newProfile) {
         User user = userService.getUser(username);
         user.setUserProfile(newProfile);
         return user.getUserProfile();
