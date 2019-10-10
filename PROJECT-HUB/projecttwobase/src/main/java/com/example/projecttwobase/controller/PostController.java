@@ -34,11 +34,6 @@ public class PostController {
         return postService.getPostByPostId(postId);
     }
 
-    //GET COMMENT BY POST ID
-    @GetMapping("/post/{postId}/comment")
-    public List<Comment> getCommentByPostId(@PathVariable Long postId) { return postService.getCommentByPostId(postId);
-    }
-
     //DELETE POST BY ID
     @DeleteMapping ("/post/{postId}")
     public ResponseEntity<Object> deletePostByPostId(@PathVariable Long postId) { return postService.deletePostByPostId(postId);

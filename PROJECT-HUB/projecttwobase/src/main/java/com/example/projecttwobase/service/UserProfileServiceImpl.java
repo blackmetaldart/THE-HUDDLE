@@ -17,18 +17,17 @@ public class UserProfileServiceImpl implements UserProfileService{
     UserService userService;
 
     @Override
-    public UserProfile createUserProfile(UserProfile newProfile, String username) {
+    public UserProfile createUserProfile(String username, UserProfile newProfile) {
         User user = userService.getUser(username);
+        newProfile.setUser(user);
         user.setUserProfile(newProfile);
-        return user.getUserProfile();
+        return userProfileRepository.save(newProfile);
     }
 
     @Override
     public UserProfile getUserProfile(String username) {
-        return userProfileRepository.findByUsername(username);
+        return userProfileRepository.findProfileByUsername(username);
     }
 
     public UserProfile updateUserProfile (String unknown) { return null; }
-
-
 }

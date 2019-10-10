@@ -10,6 +10,8 @@ import com.example.projecttwobase.repository.PostRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+
 @Service
 public class CommentServiceImpl implements CommentService {
 
@@ -23,6 +25,10 @@ public class CommentServiceImpl implements CommentService {
        Post post =  postRepository.getPostById(postId);
        comment.setPost(post);
        return commentRepository.save(comment);
+    }
+
+    public List<Comment> getCommentByPostId (Long postId){
+        return commentRepository.findByPostId(postId);
     }
 
 //    public List<Comment> getCommentByUsername (String username){

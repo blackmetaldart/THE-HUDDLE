@@ -11,6 +11,5 @@ public interface PostService {
     ResponseEntity<Object> deletePostByPostId(Long postId);
     List<Post> getPostByUsername(String username);
     Post getPostByPostId (Long postId);
-    List<Comment> getCommentByPostId (Long postId);
     Iterable<Post> listAllPosts();
 }
