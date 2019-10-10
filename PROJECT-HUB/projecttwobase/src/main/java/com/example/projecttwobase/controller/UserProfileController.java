@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/profile")
 public class UserProfileController {
-    @Autowired
-    UserProfileService userProfileService;
+//    @Autowired
+//    UserProfileService userProfileService;
 
     //CREATE PROFILE
     @PostMapping("/{username}")
@@ -17,13 +17,17 @@ public class UserProfileController {
         return userProfileService.createUserProfile(username, userProfile);
     }
 
-    //UPDATE
-    //@PostMapping("/{username}")
-
     //GET PROFILE
     @GetMapping("/{username}")
     public UserProfile getUserProfile(@PathVariable String username) {
         return userProfileService.getUserProfile(username);
+    }
+
+    private UserProfileService userProfileService;
+
+    @Autowired
+    public void setUserProfileService(UserProfileService userProfileService){
+        this.userProfileService = userProfileService;
     }
 
 }
