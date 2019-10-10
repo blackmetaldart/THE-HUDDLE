@@ -25,6 +25,9 @@ public class UserServiceImpl implements UserService {
     JwtUtil jwtUtil;
 
     @Autowired
+    UserProfileService userProfileService;
+
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
