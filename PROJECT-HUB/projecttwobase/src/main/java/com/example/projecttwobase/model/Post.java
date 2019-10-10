@@ -1,9 +1,6 @@
 package com.example.projecttwobase.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name="post")

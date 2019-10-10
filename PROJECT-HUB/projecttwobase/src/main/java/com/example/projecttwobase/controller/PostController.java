@@ -1,6 +1,5 @@
 package com.example.projecttwobase.controller;
 
-import com.example.projecttwobase.model.Comment;
 import com.example.projecttwobase.model.Post;
 import com.example.projecttwobase.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +15,14 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    //POST
-    @PostMapping("{username}/makePost")
+    //CREATE POST
+    @PostMapping("{username}/makepost")
     public Post createPost(@Valid @RequestBody Post post, @Valid @PathVariable String username){
         return postService.createPost(username, post);
     }
 
-    //GET POST LIST
-    @GetMapping("/post/list")
+    //GET LIST OF ALL POSTS
+    @GetMapping("/posts/list")
     public Iterable<Post> listPosts(){
         return postService.listAllPosts();
     }
@@ -34,7 +33,7 @@ public class PostController {
         return postService.getPostByPostId(postId);
     }
 
-    //DELETE POST BY ID
+    //DELETE POST BY POST ID
     @DeleteMapping ("/post/{postId}")
     public ResponseEntity<Object> deletePostByPostId(@PathVariable Long postId) { return postService.deletePostByPostId(postId);
     }

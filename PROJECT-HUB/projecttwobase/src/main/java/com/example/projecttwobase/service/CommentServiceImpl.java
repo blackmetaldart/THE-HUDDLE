@@ -27,8 +27,9 @@ public class CommentServiceImpl implements CommentService {
        return commentRepository.save(comment);
     }
 
-    public List<Comment> getCommentByPostId (Long postId){
-        return commentRepository.findByPostId(postId);
+    public List<Comment> getCommentsByPostId (Long postId){
+        System.out.println("asd");
+        return commentRepository.findAllByPostId(postId);
     }
 
 //    public List<Comment> getCommentByUsername (String username){

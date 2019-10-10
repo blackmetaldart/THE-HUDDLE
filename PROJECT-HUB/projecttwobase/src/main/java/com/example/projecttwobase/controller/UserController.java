@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping("/user/list")
+    @GetMapping("/users/list")
     public Iterable<User> listUsers(){
         return userService.listUsers();
     }
