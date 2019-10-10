@@ -1,5 +1,6 @@
 package com.example.projecttwobase.controller;
 
+import com.example.projecttwobase.config.JwtUtil;
 import com.example.projecttwobase.service.UserService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,4 +36,7 @@ public class UserControllerTest {
 
     @MockBean
     private UserService userService;
+
+    @MockBean
+    private JwtUtil jwtUtil;
 }
