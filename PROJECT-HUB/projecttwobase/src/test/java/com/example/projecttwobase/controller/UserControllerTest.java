@@ -1,6 +1,5 @@
-package com.example.projecttwobase.Controller;
+package com.example.projecttwobase.controller;
 
-import com.example.projecttwobase.controller.UserController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
