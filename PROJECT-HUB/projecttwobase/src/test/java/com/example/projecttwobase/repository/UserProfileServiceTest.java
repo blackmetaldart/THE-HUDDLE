@@ -10,6 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class UserProfileServiceTest {
+
+    private UserProfileServiceImpl userProfileService;
+
     @Before
     public void initializeUserProfile(){
         UserProfileServiceImpl userProfileService = new UserProfileServiceImpl(new UserServiceStub(), new UserProfileRepositoryStub());
@@ -21,7 +24,7 @@ public class UserProfileServiceTest {
         UserProfile userProfile = new UserProfile();
         userProfile.setEmail("batman@superhero.com");
 
-        UserProfileServiceImpl userProfileService = null;
+
         UserProfile newProfile = userProfileService.createUserProfile("batman", userProfile);
 
         Assert.assertNotNull(newProfile);
