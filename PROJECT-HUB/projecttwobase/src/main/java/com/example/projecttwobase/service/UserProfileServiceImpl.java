@@ -9,13 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserProfileServiceImpl implements UserProfileService{
 
-
-    @Autowired
-    UserProfileRepository userProfileRepository;
-
-    @Autowired
-    UserService userService;
-
     @Override
     public UserProfile createUserProfile(String username, UserProfile newProfile) {
         User user = userService.getUser(username);
@@ -30,4 +23,14 @@ public class UserProfileServiceImpl implements UserProfileService{
     }
 
     public UserProfile updateUserProfile (String unknown) { return null; }
+
+    private UserProfileRepository userProfileRepository;
+
+    private UserService userService;
+
+    @Autowired
+    public UserProfileServiceImpl(UserService userService, UserProfileRepository userProfileRepository){
+        this.userService = userService;
+        this.userProfileRepository = userProfileRepository;
+    }
 }
