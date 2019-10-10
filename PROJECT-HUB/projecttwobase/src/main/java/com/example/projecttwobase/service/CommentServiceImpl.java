@@ -1,7 +1,6 @@
 package com.example.projecttwobase.service;
 
 
-import com.example.projecttwobase.config.ExceptionHandler;
 import com.example.projecttwobase.model.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +9,6 @@ import com.example.projecttwobase.repository.CommentRepository;
 import com.example.projecttwobase.repository.PostRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
-
-import java.util.List;
 
 @Service
 public class CommentServiceImpl implements CommentService {
@@ -32,7 +29,7 @@ public class CommentServiceImpl implements CommentService {
 //        return commentRepository.findAllByUsername(username);
 //    }
     @Override
-    public void deleteCommentByCommentId (Long commentId){
+    public ResponseEntity<Object> deleteCommentByCommentId (Long commentId){
         Comment comment = commentRepository.getCommentById(commentId);
         commentRepository.delete(comment);
 
@@ -41,5 +38,6 @@ public class CommentServiceImpl implements CommentService {
 //            return ResponseEntity.ok().build();
 //        }).orElseThrow(() -> new ExceptionHandler("Comment not found with id " + commentId));
 
+        return null;
     }
 }

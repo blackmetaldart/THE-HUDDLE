@@ -13,11 +13,11 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+
     @Column
     private String title;
 
-    @NotNull
+
     @Column
     private String description;
 
