@@ -1,7 +1,6 @@
 package com.example.projecttwobase.service;
 
 import com.example.projecttwobase.model.User;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
