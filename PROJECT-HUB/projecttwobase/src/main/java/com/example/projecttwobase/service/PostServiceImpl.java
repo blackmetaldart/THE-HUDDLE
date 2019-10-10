@@ -31,8 +31,8 @@ public class PostServiceImpl implements PostService{
         }).orElseThrow(() -> new ExceptionHandler("PostId " + postId + " not found"));
     }
 
-    public List<Post> getPostByUsername(String username) {
-        return postRepository.findAllByUser(username);
+    public List<Post> getPostsByUsername(String username) {
+        return postRepository.findAllByUsername(username);
     }
 
     @Override

@@ -41,8 +41,7 @@ public class PostController {
     //GET POST BY USER ID
     @GetMapping("/{username}/post")
     public List<Post> postByUsername (@PathVariable String username) {
-        PostService postService= null;
-        return postService.getPostByUsername(username);
+        return postService.getPosstByUsername(username);
     }
 }
 

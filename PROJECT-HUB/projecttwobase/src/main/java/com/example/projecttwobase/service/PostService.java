@@ -8,7 +8,7 @@ import java.util.List;
 public interface PostService {
     Post createPost(String username, Post post);
     ResponseEntity<Object> deletePostByPostId(Long postId);
-    List<Post> getPostByUsername(String username);
+    List<Post> getPostsByUsername(String username);
     Post getPostByPostId (Long postId);
     Iterable<Post> listAllPosts();
 }

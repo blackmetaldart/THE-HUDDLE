@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PostRepository extends CrudRepository<Post, Long> {
     @Query("FROM Post popo WHERE popo.username = ?1")
-    List<Post> findAllByUser (String username);
+    List<Post> findAllByUsername(String username);
 
     @Query("FROM Post popo WHERE popo.id = ?1")
     Post getPostById (Long postId);
