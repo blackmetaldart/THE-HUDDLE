@@ -1,5 +1,6 @@
 package com.example.projecttwobase.controller;
 
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -13,4 +14,9 @@ public class UserControllerTest {
     /**Main entry point for server-side Spring MVC test support.**/
     @Autowired
     private MockMvc mockMvc;
+
+    @Test
+    public void helloWorld_ReturnsString_Success() throws Exception {
+    }
+
 }
