@@ -33,6 +33,10 @@ public class UserController {
         return userService.listUsers();
     }
 
+    @GetMapping("/hello")
+    public String helloWorld(){
+        return "Hello World!!";
+
 //    //MAKE POST
 //    @PutMapping("/{username}/{postId}")
 //    public User addPost(@PathVariable String username, @PathVariable Long postId){
