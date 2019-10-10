@@ -68,7 +68,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
-
     @Autowired
     @Qualifier("encoder")
     PasswordEncoder bCryptPasswordEncoder;
@@ -86,9 +85,7 @@ public class UserServiceImpl implements UserService {
 
     private List<GrantedAuthority> getGrantedAuthorities(User user){
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-
         authorities.add(new SimpleGrantedAuthority(user.getUserRole().getName()));
-
         return authorities;
     }
 

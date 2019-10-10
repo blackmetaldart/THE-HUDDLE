@@ -15,16 +15,16 @@ public class CommentController {
     private CommentService commentService;
 
     //POST(create) COMMENT
-    @PostMapping("/post/{postId}/comment")
+    @PostMapping("/{postId}/comment")
     public Comment createComment(@RequestBody Comment comment, @PathVariable Long postId) {
         return commentService.createComment(comment, postId);
     }
 
     //GET COMMENT BY USERNAME
-    @GetMapping("/{username}/comment")
-    public List<Comment> getCommentByUsername(@PathVariable String username) {
-        return commentService.getCommentByUsername(username);
-    }
+//    @GetMapping("/{username}/comment")
+//    public List<Comment> getCommentByUsername(@PathVariable String username) {
+//        return commentService.getCommentByUsername(username);
+//    }
 
     //DELETE COMMENT
     @DeleteMapping("/{commentId}")

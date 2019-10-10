@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface CommentService {
     Comment createComment(Comment comment, Long postId);
-    List<Comment> getCommentByUsername (String username);
-    ResponseEntity<Object> deleteCommentByCommentId (Long commentId);
+   // List<Comment> getCommentByUsername (String username);
+    void deleteCommentByCommentId (Long commentId);
 }
