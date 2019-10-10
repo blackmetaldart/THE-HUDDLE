@@ -13,4 +13,9 @@ public class UserProfileServiceStub implements UserProfileService {
     public UserProfile getUserProfile(String username) {
         return null;
     }
+
+    @Override
+    public UserProfile updateUserProfile(String unknown) {
+        return null;
+    }
 }
