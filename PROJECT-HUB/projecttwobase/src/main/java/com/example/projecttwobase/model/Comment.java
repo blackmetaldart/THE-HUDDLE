@@ -18,11 +18,11 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+
     @Column
     private String text;
 
-    @NotNull
+
     @Column
     private String username;
 
