@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-attachment: fixed;
+  background: linear-gradient(rgba(255,255,255, 0.3), rgba(255,255,255,0.5)), url('../images/About-Mobile.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+/* Header/Blog Title/Blog Classes */
+header {
+  padding: 50px;
+  text-align: center;
+  padding: 0 50px;
+}
+
+.small-caps {
+  font-size: 60px;
+}
+
+.flex {
+  display:flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.none {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+  font-size: 35px;
+}
+
+#updateProfileDirections {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* STYLE LINKS INSIDE NAV BAR */
+.flex a {
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  margin: 3px;
+  padding: 3px;
+}
+
+nav {
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+}
+
+a {
+  font-family: 'Abel', sans-serif;
+  text-decoration: none;
+  color: rgba(255,255,255,0.9);
+  font-size:1.5em;
+  margin: 3px;
+  padding: 3px;
+  font-variant: small-caps;
+
+}
+.flex a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/*===MAIN===*/
+main {
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* CREATE PROFILE */
+.createProfileSection {
+  flex-flow:column nowrap;
+  justify-content: space-between;
+  margin-left: 1%;
+  margin-right: 60%;
+}
+
+#createProfileForm {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.create {
+  width: 68%;
+  height: 100vh;
+}
+
+.border1 {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000;
+  margin: 40px;
+  margin-top: 180px;
+  width: 400px;
+  height: 300px;
+  padding: 10px;
+}
+
+#createProfileForm > label {
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+#createProfileBtn {
+  width: 200px;
+  margin: 0 auto;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* DISPLAY PROFILE */
+.profileDisplaySection {
+  flex-flow:column nowrap;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 50%;
+}
+
+.display {
+  margin-top: 110px;
+}
+
+.border2 {
+  display: flex;
+  align-self: flex-start;
+  border: 2px solid #000;
+  margin: 50px;
+  height: 310px;
+  width: 380px;
+  padding: 25px;
+}
+
+p {
+  font-size: 20px;
+}
+/*===FOOTER===*/
+footer {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.media-links {
+  width: 100%;
+  justify-content: flex-end;
+  align-items: baseline;
+  margin-top: 50px;
+  padding-right: 50px;
+}
+
+li {
+  list-style: none;
+}
+
+.media-link > i {
+  font-size: 1em;
+  color: #fff;
+}
+
+/* MEDIA QUERIES */
+/* DESKTOP/TABLET  */
+@media only screen and (min-device-width : 768px) {
+  body {
+    background: linear-gradient(rgba(0,0,0, 0.1), rgba(0,0,0,0.3)), url('../images/About-Desktop.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
+
+}

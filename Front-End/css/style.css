@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(rgba(0,0,0, 0.3), rgba(0,0,0,0.5)), url('../images/footballCloseUp.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/***Misc***/
+.flex {
+  display: flex;
+}
+
+.none {
+  display: none;
+}
+
+/*BUTTON*/
+.btn {
+  font-size: 1.5em;
+  padding: 5px;
+  border-radius: 3px;
+  font-variant: small-caps;
+  font-family: 'Abel', sans-serif;
+  color: #fff;
+}
+
+.submit {
+  margin: 15px auto;
+  background-color: rgba(1,35,82, 0.5);
+  padding: 5px 15px;
+}
+
+/*TEXT*/
+/* font-family: 'Radley', serif;
+font-family: 'Abel', sans-serif;
+*/
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+/*ALERT MESSAGES*/
+.message {
+  color: rgb(163,13,45);
+}
+
+/*===HEADER===*/
+header {
+  justify-content: space-between;
+  align-items: center;
+  padding:20px 100px 0px;
+}
+
+#brand {
+  font-size: 2em;
+  color: rgba: (155,161,162, 0.5);
+}
+
+/* NAV */
+nav {
+  justify-content: space-between;
+  width: 10%;
+}
+
+a {
+  font-family: 'Abel', sans-serif;
+  text-decoration: none;
+  color: rgba(255,255,255,0.9);
+  font-size:1.5em;
+  margin: 3px;
+  padding: 3px;
+}
+
+/*===MAIN===*/
+main {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Abel', sans-serif;
+  height: 55%;
+}
+
+/*FORM*/
+.formDirections {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 2.5em;
+}
+
+#logInBtn, #signUpBtn {
+  width: 250px;
+  margin-bottom: 20px;
+  background-color: rgba(163,13,45, 0.5);
+}
+
+#signUpForm, #logInForm {
+  flex-direction: column;
+}
+
+#logInDiv, #signUpDiv {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 50px;
+  margin: 0 70px;
+}
+
+#signUpDiv {
+  margin-bottom: 50px;
+  padding: 20px;
+}
+
+.formInputDiv {
+  color: #fff;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  font-variant: small-caps;
+  font-size: 1.5em;
+}
+
+input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px dashed #fff;
+  text-align: left;
+  padding-left: 5px;
+  font-size: 1em;
+  width: 200px;
+  color: #fff;
+  padding-bottom: 5px;
+}
+
+::placeholder {
+  color: #fff;
+
+}
+/*===FOOTER===*/
+footer {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.tagline {
+  display: none;
+}
+
+.media-links {
+  width: 100%;
+  justify-content: flex-end;
+  align-items: baseline;
+  margin-top: 50px;
+  padding-right: 50px;
+}
+
+li {
+  list-style: none;
+}
+
+i {
+  font-size: 1em;
+  color: #fff;
+}
+
+/* MEDIA QUERIES */
+/* DESKTOP/TABLET  */
+@media only screen and (min-device-width : 768px) {
+  body {
+    background: linear-gradient(rgba(0,0,0, 0.1), rgba(0,0,0,0.3)), url('../images/helmet.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+  }
+
+  main {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+    padding: 20px;
+    font-family: 'Abel', sans-serif;
+
+  }
+
+  .tagline {
+    display: block;
+    color: #fff;
+    font-family: 'Abel', sans-serif;
+    font-size: 2.5em;
+    text-shadow: 1px 1px rgba(0, 0, 0,0.5);
+    position: relative;
+    bottom:50;
+  }
+
+#logInBtn:hover, #signUpBtn:hover {
+  background-color: rgb(163,13,45);
+  }
+
+a:hover {
+    color: rgb(163,13,45);
+    font-size: 1.6em;
+  }
+
+.submit:hover {
+    background-color: rgb(1,35,82);
+  }
+
+.media-link > i:hover {
+    font-size: 1.1em;
+    color: rgb(163,13,45);
+    /* color: rgba(1,35,82); */
+  }
+}

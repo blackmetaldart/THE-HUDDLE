@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(rgba(255,255,255, 0.3), rgba(255,255,255,0.3)), url('../images/About-Mobile.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Header/Title/Fonts*/
+header {
+  padding: 50px;
+  text-align: center;
+}
+.small-caps {
+  font-size: 65px;
+}
+
+.flex {
+  display:flex;
+}
+
+h2 {
+  font-size: 35px;
+}
+
+p {
+  font-size: 20px;
+  color: #A5ACAF;
+}
+
+/* STYLE LINKS INSIDE NAV BAR */
+.flex a {
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  margin: 3px;
+  padding: 3px;
+}
+
+nav {
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+}
+
+a {
+  font-family: 'Abel', sans-serif;
+  text-decoration: none;
+  color: rgba(255,255,255,0.9);
+  font-size:1.5em;
+  margin: 3px;
+  padding: 3px;
+  font-variant: small-caps;
+
+}
+
+.flex a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/*===MAIN===*/
+main {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.us {
+  flex-flow:column nowrap;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 50%;
+}
+
+/* JUDY */
+.judy {
+  justify-content: space-around;
+  margin-bottom: 10%;
+}
+.judyPic {
+  display: flex;
+}
+img {
+  width: 150px;
+  height: 150px;
+  margin-right: 6%;
+}
+
+#newbie {
+  color: #0B2265;
+}
+
+/* ZAINAB */
+.zainab {
+  justify-content: space-around;
+}
+.zainabPic {
+  display: flex;
+}
+
+#fan {
+  color: #0B2265;
+}
+
+/*===FOOTER===*/
+footer {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.media-links {
+  width: 100%;
+  justify-content: flex-end;
+  align-items: baseline;
+  margin-top: 50px;
+  padding-right: 50px;
+}
+
+li {
+  list-style: none;
+}
+
+.media-link > i {
+  font-size: 1em;
+  color: #fff;
+}

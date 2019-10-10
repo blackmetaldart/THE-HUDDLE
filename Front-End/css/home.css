@@ -1,0 +1,319 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(rgba(255,255,255, 0.6), rgba(255,255,255,0.6)), url('../images/home-desktop.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  background-attachment: fixed;
+}
+
+.border {
+  border: 1px solid #000;
+}
+
+/* Header/Blog Title/Blog Classes */
+header {
+  padding: 50px;
+  text-align: center;
+}
+
+.small-caps {
+  font-size: 80px;
+}
+
+.flex {
+  display:flex;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.none {
+  display: none;
+}
+
+.marginTop {
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+button {
+  border-radius: 5px;
+}
+
+button, p {
+  font-size: 1.2em;
+  font-family: 'Abel', sans-serif;
+}
+
+#brand {
+  font-family: 'Radley', serif;
+  font-size: 4.5em;
+  color: rgba: (155,161,162, 0.5);
+}
+
+/* STYLE LINKS INSIDE NAV BAR */
+.flex a {
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+  font-size: 25px;
+  margin: 3px;
+  padding: 3px;
+}
+
+nav {
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+}
+
+
+a {
+  font-family: 'Abel', sans-serif;
+  text-decoration: none;
+  color: rgba(255,255,255,0.9);
+  font-size:1.5em;
+  margin: 3px;
+  padding: 3px;
+  font-variant: small-caps;
+
+}
+
+.flex a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/*===MAIN===*/
+main {
+  justify-content: space-around;
+  align-items: center;
+}
+
+#goToNewPost {
+  color: #000;
+  position:fixed;
+  top: 300px;
+  right: 30px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.5)
+}
+/* ASIDE POSTS */
+aside {
+  align-self: flex-start;
+  flex-grow: 2;
+  border: 5px solid #708090;
+  margin: 0 10px;
+  padding: 20px;
+}
+
+/* TEAM IMAGES */
+.team {
+  width: 55px;
+  height: 40px;
+  margin-right: 10px;
+  margin-bottom: 22px;
+  object-fit: cover;
+}
+
+/* TEAM INFO */
+.teamName {
+  font-size: 0.7em;
+}
+
+.topTeam, .bottomTeam {
+  align-items: center;
+  justify-content: space-around;
+  font-family: 'Abel', sans-serif;
+}
+
+.gameDay {
+  font-family: 'Radley', serif;
+}
+
+.bottomTeam, .gameDay {
+  border-bottom: 2px solid #000;
+  margin: 10px;
+  padding-bottom: 10px;
+}
+
+.borderEqual {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  margin: 10px 0 30px;
+  padding: 10px 0;
+  font-family: 'Radley', serif;
+}
+
+.teamImgName {
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px;
+  margin: 1px;
+}
+
+/* TEAM SCORES */
+.score{
+  text-align: right;
+  margin-left: 20px;
+  font-weight: lighter;
+  font-size: 0.7em;
+}
+
+.bold {
+  font-weight: 900;
+  font-size: 0.75em;
+}
+
+
+/* SECTION POSTS */
+#newPostsDiv, #prevUserPostsDiv, .randomPostsSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.topic {
+  width: 90%;
+}
+
+.title {
+  font-family: 'Radley', serif;
+  font-size: 1.5em;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #000;
+  font-variant: small-caps;
+}
+
+.postsSections {
+  align-self: flex-start;
+  flex-grow: 3;
+  margin: 0 10px;
+  padding: 20px;
+}
+
+.postDivStyle {
+  margin: 5px 5px 10px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  width: 50%;
+}
+
+.newPostBtn {
+  margin-top: 20px;
+  margin-right: 15px;
+  padding: 5px;
+}
+
+textarea {
+  padding: 5px;
+}
+
+.description {
+  margin-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  font-size: 1.2em;
+}
+
+/*===COMMENT SUBMISSION BOX===*/
+
+.commentAreaDiv {
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
+
+.commentSubmit {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.commentBox, .newPostDes {
+  font-family: 'Abel', sans-serif;
+  font-variant: small-caps;
+  font-size: 1.25em;
+  margin: 10px;
+}
+
+.comment {
+  padding-left: 50px;
+  margin: 5px;
+  color: rgb(1,35,82);
+}
+
+.postCreateForm {
+  margin-top: 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postCreateForm > label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 1.4em;
+  font-family: 'Abel', sans-serif;
+  font-variant: small-caps;
+}
+
+input {
+  font-family: 'Abel', sans-serif;
+  font-variant: small-caps;
+  font-size: 1.2em;
+  padding: 3px;
+  margin: 5px;
+}
+
+/* COMMENTS SECTION */
+.delete {
+  font-size: 15px;
+  color: red;
+}
+
+
+/*===FOOTER===*/
+footer {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.media-links {
+  width: 100%;
+  justify-content: flex-end;
+  align-items: baseline;
+  margin-top: 50px;
+  padding-right: 50px;
+}
+
+li {
+  list-style: none;
+}
+
+.media-link > i {
+  font-size: 1em;
+  color: #000;
+}

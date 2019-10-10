@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>The Huddle</title>
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Abel|Radley&display=swap" rel="stylesheet">
+
+    <!--FONT AWESOME CDN-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!--External Stylesheet - LANDING -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+
+    <header class="flex">
+      <a href="./home.html"><h1 class="small-caps" id="brand">The Huddle</h1></a>
+
+      <nav class="flex small-caps">
+
+        <a href="./home.html" class="nav-link" id="home-link">home</a>
+
+        <a href="./about.html" class="nav-link" id="about">about</a>
+      </nav>
+
+    </header>
+
+    <main class="flex">
+
+        <div class="flex" id="signUpDiv">
+
+          <button id="signUpBtn" class="btn">register</button>
+
+          <form id="signUpForm" class="flex none" method="post" >
+            <h1 class="small-caps formDirections">Create An Account</h1>
+
+            <div class="userNameDiv formInputDiv flex">
+              <label for="signUp-userName"><i class="fa fa-user"></i>
+              <input type="text" id="signUp-userName" class="userName" name="userName"
+              placeholder="username"/>
+               </label>
+              <p class="message none" id="signUp-errUserName">Username Unacceptable.</p>
+            </div>
+
+            <div class="pwDiv formInputDiv flex">
+              <label for="signUp-pw"><i class="fa fa-key"></i>
+              <input type="password" id="signUp-pw" class="password" name="password"
+              placeholder="password"/>
+              </label>
+              <p class="message none" id="signUp-errPassword">Password Not Accepted. Try Again!</p>
+            </div>
+
+            <div class="emailDiv formInputDiv flex">
+              <label for="signUp-email"><i class="fa fa-envelope"></i>
+              <input type="text" id="signUp-email" class="email" name="email" placeholder="email"/>
+              </label>
+              <p class="message none" id="signUp-errEmail">Email Unacceptable.</p>
+            </div>
+
+            <button type="submit" class="signUpSubmit submit  btn">submit</button>
+          </form>
+        </div>
+
+        <div class="flex" id="logInDiv">
+
+          <button id="logInBtn" class="btn">log in</button>
+
+          <form id="logInForm" class="flex none" method="post" onsubmit="checkInputs(e)">
+            <h1 class="small-caps formDirections">Welcome Back!</h1>
+
+            <div class="emailDiv formInputDiv flex">
+              <label for="logIn-email"><i class="fa fa-envelope"></i>
+              <input type="text" id="logIn-email" class="logInEmail" name="email" placeholder="email"/>
+              </label>
+              <p class="message none" id="logIn-errEmail">Email Not Accepted. Try Again.</p>
+            </div>
+
+            <div class="pwDiv formInputDiv flex">
+              <label for="logIn-pw"><i class="fa fa-key"></i>
+              <input type="password" id="logIn-pw" class="logInPassword" name="password"
+              placeholder="password"/>
+              </label>
+              <p class="message none" id="logIn-errPassword">Password Incorrect. Try Again.</p>
+            </div>
+
+            <button type="submit" class="logInSubmit submit  btn">submit</button>
+          </form>
+        </div>
+
+    </main>
+
+    <footer class="flex">
+
+      <h1 class="tagline">Hustle and heart will set you apart.</h1>
+
+      <ul class="media-links flex">
+        <li><a href="https://www.facebook.com/NFL/" class="media-link"><i class="fa fa-facebook-square"></i></a></li>
+        <li><a href="https://www.instagram.com/nfl/?hl=en" class="media-link"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://twitter.com/NFL?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" class="media-link"><i class="fa fa-twitter-square"></i></a></li>
+      </ul>
+
+    </footer>
+
+    <!--EXTERNAL JS FILE-->
+    <script src="js/script.js" lang="js" type="text/javascript"></script>
+  </body>
+</html>
