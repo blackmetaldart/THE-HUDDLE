@@ -26,7 +26,7 @@ public class CommentController {
    }
 
     //GET COMMENT BY USERNAME
-//    @GetMapping("/{username}/comment")
+//    @GetMapping("/{username}/comment")t
 //    public List<Comment> getCommentByUsername(@PathVariable String username) {
 //        return commentService.getCommentByUsername(username);
 //    }
