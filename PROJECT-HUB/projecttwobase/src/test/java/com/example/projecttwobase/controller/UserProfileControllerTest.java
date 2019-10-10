@@ -1,12 +1,13 @@
 package com.example.projecttwobase.controller;
 
-import com.example.projecttwobase.model.UserProfile;
-import com.example.projecttwobase.service.UserProfileServiceStub;
+import com.example.springbootmonolith.models.UserProfile;
+import com.example.springbootmonolith.service.UserProfileServiceStub;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class UserProfileControllerTest {
+
     private UserProfileController userProfileController;
 
     @Before
@@ -25,5 +26,4 @@ public class UserProfileControllerTest {
         Assert.assertNotNull(newProfile);
         Assert.assertEquals(newProfile.getEmail(), userProfile.getEmail());
     }
-
 }
