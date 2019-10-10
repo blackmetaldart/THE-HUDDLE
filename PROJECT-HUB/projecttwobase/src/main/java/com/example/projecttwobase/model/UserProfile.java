@@ -51,6 +51,6 @@ public class UserProfile {
     public void setEmail(String s) {
     }
 
-    public long getEmail() {
+    public Long getEmail() {
     }
 }

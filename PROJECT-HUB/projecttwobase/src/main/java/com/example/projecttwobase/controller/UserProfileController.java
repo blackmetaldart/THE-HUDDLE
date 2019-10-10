@@ -31,5 +31,6 @@ public class UserProfileController {
     }
 
     public UserProfile createUserProfile(String batman, UserProfile userProfile) {
+        return null;
     }
 }
