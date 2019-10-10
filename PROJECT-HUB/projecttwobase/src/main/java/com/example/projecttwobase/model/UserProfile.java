@@ -48,4 +48,9 @@ public class UserProfile {
     public String getAddress() {return address;}
     public void setAddress(String address) {this.address = address;}
 
+    public void setEmail(String s) {
+    }
+
+    public long getEmail() {
+    }
 }

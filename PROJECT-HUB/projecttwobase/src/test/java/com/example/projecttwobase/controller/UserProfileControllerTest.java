@@ -2,6 +2,7 @@ package com.example.projecttwobase.controller;
 
 import com.example.projecttwobase.model.UserProfile;
 import com.example.projecttwobase.service.UserProfileServiceStub;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 

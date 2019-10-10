@@ -30,4 +30,6 @@ public class UserProfileController {
         this.userProfileService = userProfileService;
     }
 
+    public UserProfile createUserProfile(String batman, UserProfile userProfile) {
+    }
 }
