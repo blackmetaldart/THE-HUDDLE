@@ -25,7 +25,7 @@ public class UserProfileServiceImpl implements UserProfileService{
 
     @Override
     public UserProfile getUserProfile(String username) {
-        return userProfileRepository.findProfileByUsername(username);
+        return userProfileRepository.findByUsername(username);
     }
 
     public UserProfile updateUserProfile (String unknown) { return null; }
