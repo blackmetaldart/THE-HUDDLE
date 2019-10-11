@@ -12,7 +12,7 @@ public class UserServiceStub implements UserService {
         user.setUsername(username);
         return user;
     }
-    @Override
+
     public User addPost(String username, Long postId) {
         return null;
     }

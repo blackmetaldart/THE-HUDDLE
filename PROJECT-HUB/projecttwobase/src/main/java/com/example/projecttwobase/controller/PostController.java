@@ -27,7 +27,7 @@ public class PostController {
         return postService.listAllPosts();
     }
 
-    //ENDPOIT THAT ALLOWS A USER TO GET A POST BY POST ID / REFER TO POST SERVICE
+    //ENDPOINT THAT ALLOWS A USER TO GET A POST BY POST ID / REFER TO POST SERVICE
     @GetMapping("/post/{postId}")
     public Post postsById(@Valid @PathVariable Long postId) {
         return postService.getPostByPostId(postId);
