@@ -1,7 +1,7 @@
 //THIS SECTION WILL HOLD ALL OF THE EVENT LISTENERS TO AFFECT THE DISPLAY OF THE APPLICATION
-signUpSubmit.addEventListener("click", createUser);
-signUpBtn.addEventListener("click", signUpToggle);
-logInBtn.addEventListener("click", logInToggle);
+signUpSubmit.addEventListener('click', createUser);
+signUpBtn.addEventListener('click', signUpToggle);
+logInBtn.addEventListener('click', logInToggle);
 logInSubmit.addEventListener('click', returningUser);
 
 //VARIABLE FOR THE JSON WEB TOKEN
