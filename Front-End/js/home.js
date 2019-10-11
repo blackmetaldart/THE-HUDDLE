@@ -192,7 +192,7 @@ function addPostsToDom() {
 
 }
 
-///////CREATE COMMENTS///////
+//THIS FUNCTION ALLOWS THE USER TO MAKE COMMENTS
 function createComment(postId) {
 
   fetch(`localhost:8080/comment/${postId}` , {
