@@ -13,80 +13,53 @@
     <link rel="stylesheet" type="text/css" href="css/account.css">
   </head>
   <body>
-
-    <header>
-
-      <h1 class="small-caps" id="brand">The Huddle</h1>
-
-      <nav class="flex">
-
-        <a href="./home.html" class="nav-link" id="home-link">HOME</a>
-
-        <a href="./about.html" class="nav-link" id="about">ABOUT</a>
-
-        <a href="./account.html" class="nav-link" id="account">PROFILE</a>
-      </nav>
-
-    </header>
+     <header>
+        <h1 class="small-caps" id="brand">The Huddle</h1>
+        <nav class="flex">
+           <a href="./home.html" class="nav-link" id="home-link">HOME</a>
+           <a href="./about.html" class="nav-link" id="about">ABOUT</a>
+           <a href="./account.html" class="nav-link" id="account">PROFILE</a>
+        </nav>
+     </header>
 
     <main>
 
 <div class="flex info">
-<div class="flex create">
 
-      <section class="createProfileSection">
-
+  <!--THIS IS THE SECTION FOR CREATING THE PROFILE-->
+   <div class="flex create">
       <section class="createProfileSection border">
+         <form class="flex createProfile border1" id="createProfileForm">
+         <h1 id="updateProfileDirections">Update Your Profile</h1>
 
-        <form class="flex createProfile border1" id="createProfileForm">
-          <h1 id="updateProfileDirections">Update Your Profile</h1>
+           <label for="addProfileEmail">Additional Email :
+             <input type="email" id="addEmail" placeholder="address@football.com"/>
+           </label>
+           <label for="addMobileNum">Mobile Number :
+             <input type="text" id="mobile" placeholder="123-345-6789"/>
+           </label>
+           <label for="addAddress">Address :
+             <input type="text" id="addy" placeholder="HOME ADDRESS"/>
+           </label>
+           <button class="btn" id="createProfileBtn">Submit Updated Profile</button>
+         </form>
+       </section>
+     </div>
 
-          <label for="addProfileEmail">Additional Email :
-            <input type="email" id="addEmail" placeholder="address@football.com"/>
-          </label>
+     <!--THIS IS THE SECTION FOR DISPLAYING THE PROFILE-->
+     <div class=" flex display">
+        <section class="flex profileDisplaySection border2">
+        <h1>Welcome<span id="displayUserName"></span>!</h1>
+           <p>Primary Email: <span id="displayPrimaryEmail"></span></p>
+           <p>Additional Email:<span id="displayAddEmail"></span></p>
+           <p>Mobile Number:<span id="displayMobile"></span></p>
+           <p>Address:<span id="displayAddy"></span></p>
+        </section>
+     </div>
+  </div>
+     </main>
 
-          <label for="addMobileNum">Mobile Number :
-            <input type="text" id="mobile" placeholder="123-345-6789"/>
-          </label>
-
-          <label for="addAddress">Address :
-            <input type="text" id="addy" placeholder="HOME ADDRESS"/>
-          </label>
-
-          <button class="btn" id="createProfileBtn">Submit Updated Profile</button>
-
-        </form>
-
-      </section>
-</div>
-<div class=" flex display">
-      <section class="flex profileDisplaySection border2">
-
-        <h1>Welcome
-          <span id="displayUserName"></span>!
-        </h1>
-
-        <p>Primary Email:
-          <span id="displayPrimaryEmail"></span>
-        </p>
-
-        <p>Additional Email:
-          <span id="displayAddEmail"></span>
-        </p>
-
-        <p>Mobile Number:
-          <span id="displayMobile"></span>
-        </p>
-
-        <p>Address:
-          <span id="displayAddy"></span>
-        </p>
-
-      </section>
-    </div>
-</div>
-    </main>
-
+<!--THE FOOTER WILL DISPLAY THE ICONS THAT LINK TO THE NFL SOCIAL MEDIA ACCOUNTS-->
     <footer>
       <ul class="media-links flex">
         <li><a href="https://www.facebook.com/NFL/" class="media-link"><i class="fa fa-facebook-square"></i></a></li>
