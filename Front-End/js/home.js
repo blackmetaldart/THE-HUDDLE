@@ -1,6 +1,6 @@
 //===HOME===//
 
-//displays username in nav
+//DISPLAYS USERNAME IN NAV
 let accountLink = document.querySelector('#account');
 
 let usernameDisplay = localStorage.getItem('username');
@@ -10,7 +10,7 @@ accountLink.style.borderBottom = "3px double rgb(163,13,45)";
 
 ///////RANDOM POSTS SECTION///////
 
-//displays only first 7 posts from API
+//DISPLAYS ONLY FIRST SEVEN POSTS FROM API
 listAllPosts();
 
 function listAllPosts () {
@@ -25,14 +25,14 @@ function listAllPosts () {
   //console.log("list posts", res);
   const randomPosts = document.querySelector('.randomPostsSection');
 
-  //creates div to hold post title and description & have res.id
+  //CREATES DIV TO HOLD POST TITLE AND DESCRIPTION AND HAVE THE RESPONSE IDs
   for(let i = 0; i < 5; i++) {
 
   const randomPost = document.createElement('div');
   const title = document.createElement('h2');
   const description = document.createElement('p');
 
-  //comment box creation
+  //CREATE COMMENT BOXES
   const commentArea = document.createElement('div');
   const commentBox = document.createElement('textarea');
   const commentSubmit = document.createElement('button');
@@ -43,7 +43,7 @@ function listAllPosts () {
   commentBox.setAttribute("cols", "50");
   commentBox.setAttribute("placeholder", "Your response to the post?");
 
-  //provides id of post for comment
+  //PROVIDES ID OF POST FOR COMMENT
   commentBox.setAttribute("postIdForComments", res[i].id);
 
   title.innerText = res[i].title;
@@ -60,18 +60,14 @@ function listAllPosts () {
   commentSubmit.classList.add('commitSubmit');
   commentBox.classList.add('commentBox');
 
-  viewComments(res[i].id);
-  }
-  })
+  viewComments(res[i].id);}})
 
-  .catch((err) => {
-  console.log(err);
-  })
+  .catch((err) => {console.log(err);})
 }
 
 ///////USER POSTS SECTION///////
 
-//get posts from user
+//GET POSTS FROM USER
 displayUserPosts();
 
 function displayUserPosts() {
@@ -79,16 +75,14 @@ function displayUserPosts() {
       method: 'GET',
       headers: {
           "Authorization": "Bearer " + localStorage.getItem('user')
-      }
-  })
+      }})
 
-  .then((res)=> {
+  .then((res) => {
     //console.log("res from user posts", res);
-    return res.json();
-  })
+    return res.json();})
 
-  .then((res)=>{
-    //display user posts
+  .then((res) => {
+    //DISPLAY USER POSTS
     const userPosts = document.getElementById('prevUserPostsDiv');
     console.log("res from previous posts", res);
 
@@ -97,7 +91,8 @@ function displayUserPosts() {
       const prevPost = document.createElement('div');
       const prevTitle = document.createElement('h2');
       const prevDescription = document.createElement('p');
-      //comment box creation
+
+      //CREATES COMMENT BOXES
       const commentArea = document.createElement('div');
       const commentBox = document.createElement('textarea');
       const commentSubmit = document.createElement('button');
@@ -111,7 +106,8 @@ function displayUserPosts() {
       commentBox.setAttribute("rows", "3");
       commentBox.setAttribute("cols", "50");
       commentBox.setAttribute("placeholder", "Your response to the post?");
-      //provides id of post for comment
+
+      //PROVIDES ID OF POST FOR COMMENTS
       commentBox.setAttribute("postIdForComments", res[i].id);
 
       commentArea.append(commentBox, commentSubmit);
@@ -129,24 +125,22 @@ function displayUserPosts() {
   }
 })
 
-  .then((res)=> {
-  viewComments(res);
-  })
+//CALLS THE FUNCTION TO VIEW THE COMMENTS
+  .then((res) => {viewComments(res);})
 
-  .catch((err) => {
-      console.log(err);
-  })
+//CONSOLE LOG ERROR RESPONSE
+  .catch((err) => {console.log(err);})
 }
 
-//new post button
+//CREATES VARIABLE FOR THE NEW POST BUTTON
 const newPostBtn = document.querySelector('.newPostBtn');
 newPostBtn.addEventListener('click', createPost);
 
-//create posts
+//FUNCTION TO CREATE POSTS
 function createPost(e) {
     e.preventDefault();
 
-    //create post variables
+    //VARIABLES TO STORE ELEMENTS USED FOR CREATING A NEW POST
     const newPostsDiv = document.querySelector('.newPostsDiv');
     const title = document.querySelector('.newPostTitle');
     const des = document.querySelector('.newPostDes');
@@ -163,18 +157,16 @@ function createPost(e) {
         })
     })
 
-    //add new post to dom
+    //ADD A NEW POST TO THE DOM
     .then((res) => {
         console.log('res from create post', res);
-        addPostsToDom();
-    })
+        addPostsToDom();})
 
-    .catch((err) => {
-        console.log(err);
-    })
+    //LOG ANY ERRORS IN THE CONSOLE WINDOW
+    .catch((err) => {console.log(err);})
 }
 
-//attaches new post to dom
+//ATTACHED NEW POSTS TO DOM
 function addPostsToDom() {
 
   fetch("http://thesi.generalassemb.ly:8080/user/post", {
@@ -185,8 +177,7 @@ function addPostsToDom() {
 
   .then((res) => {
     console.log("res from add posts", res);
-    return res.json();
-  })
+    return res.json();})
 
   .then((res)=>{
 
@@ -196,7 +187,8 @@ function addPostsToDom() {
     const newPost = document.createElement('div');
     const newTitle = document.createElement('h2');
     const newDescription = document.createElement('p');
-    //comment box creation
+
+    //VARIABLES FOR ELEMENTS USED FOR "CREATE COMMENT" BOX
     const commentArea = document.createElement('div');
     const commentBox = document.createElement('textarea');
     const commentSubmit = document.createElement('button');
