@@ -12,6 +12,7 @@ accountLink.style.borderBottom = "3px double rgb(163,13,45)";
 //DISPLAYS ONLY FIRST SEVEN POSTS FROM API
 listAllPosts();
 
+//THIS FUNCTION LISTS ALL THE POSTS FROM THE API
 function listAllPosts () {
 
  fetch('localhost:8080/posts/list')
@@ -54,18 +55,16 @@ function listAllPosts () {
       commentSubmit.classList.add('commitSubmit');
       commentBox.classList.add('commentBox');
 
-      viewComments(res[i].id);}
-
-})
+      viewComments(res[i].id);}})
 
   .catch((err) => {console.log(err);})
-}
 
-///////USER POSTS SECTION///////
+}
 
 //GET POSTS FROM USER
 displayUserPosts();
 
+//THIS FUNCTION DISPLAYS ALL THE POSTS FROM THE USER
 function displayUserPosts() {
   fetch("localhost:8080/user/post", {
       method: 'GET',
@@ -195,15 +194,12 @@ function addPostsToDom() {
 
   //console.log("newPost", newPost);
 })
+  .catch((err) => {console.log(err);})
 
-  .catch((err) => {
-      console.log(err);
-  })
 }
 
 ///////CREATE COMMENTS///////
 function createComment(postId) {
-  console.log('resId in createComment', resId);
 
   fetch(`localhost:8080/comment/${postId}` , {
     method: "POST",
@@ -214,19 +210,16 @@ function createComment(postId) {
     body: JSON.stringify({
       text: document.querySelector((`[postIdForComments="${postId}"]`)).value
     })})
-  .then(res => {viewComments(resId);})
+  .then(res => {viewComments(postId);})
   .catch(err => {console.log(err);});
 }
 
-///////DISPLAY COMMENTS///////
+//THIS FUNCTION WILL DISPLAY THE COMMENTS WITH A POST ID
+function viewComments(postId) {
 
-function viewComments(resId) {
-  //console.log('res Id passed of post: ', resId)
-
-  fetch(`localhost:8080/post/${resId}/comment/`)
+  fetch(`localhost:8080/post/${postId}/comment/`)
   .then((res) => {return res.json();})
   .then((res) => {
-    //console.log('res from viewComments', res);
 
     if(res !== []) {
     for(let i= 0; i < res.length; i++) {
@@ -245,5 +238,3 @@ function viewComments(resId) {
     }}})
   .catch((err) => {console.log(err);})
 }
-
-///////DELETE POSTS///////
