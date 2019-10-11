@@ -28,7 +28,6 @@ public class UserController {
         return ResponseEntity.ok(new JwtResponse(userService.login(user)));
     }
 
-
     //ENDPOINT THAT SHOWS A USER LIST / REFER TO USER SERVICE
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/users/list")
@@ -42,11 +41,4 @@ public class UserController {
     public String helloWorld() {
         return "Hello World!!";
     }
-
-//    //MAKE POST
-//    @PutMapping("/{username}/{postId}")
-//    public User addPost(@PathVariable String username, @PathVariable Long postId){
-//        return userService.addPost(username, postId);
-//    }
-
 }

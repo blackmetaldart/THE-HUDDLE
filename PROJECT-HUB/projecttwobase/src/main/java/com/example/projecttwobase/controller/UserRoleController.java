@@ -23,6 +23,4 @@ public class UserRoleController {
     public UserRole getRole(@PathVariable String rolename) {
         return roleService.getRole(rolename);
     }
-
-
 }
