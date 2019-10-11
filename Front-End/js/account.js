@@ -1,36 +1,37 @@
-//DISPLAYS USERNAME IN NAV
-let accountLink = document.querySelector('#account');
-let usernameDisplay = localStorage.getItem('username');
-
-accountLink.innerText = usernameDisplay;
-accountLink.style.borderBottom = "3px double rgb(163,13,45)";
-
-//===ACCOUNT/PROFILE===//
-//CREATE PROFILE FORM VARIABLES
-let addEmail = document.getElementById('addEmail');
-let mobile = document.getElementById('mobile');
-let addy = document.getElementById('addy');
-
+//ADDS THE EVENT LISTENERS TO CREATE THE PROFILE
+const createProfileBtn = document.getElementById("createProfileBtn");
+createProfileBtn.addEventListener("click", createProfile);
 //DISPLAY PROFLIE VARIABLES
 const displayUserName = document.getElementById('displayUserName');
 const displayPrimaryEmail = document.getElementById('displayPrimaryEmail');
 const displayAddEmail = document.getElementById('displayAddEmail');
 const displayMobile = document.getElementById('displayMobile');
 const displayAddy = document.getElementById('displayAddy');
+//CREATE PROFILE FORM VARIABLES
+let addEmail = document.getElementById('addEmail');
+let mobile = document.getElementById('mobile');
+let addy = document.getElementById('addy');
+//CREATE VARIABLES FOR DISPLAYING USERNAME
+let accountLink = document.querySelector('#account');
+let usernameDisplay = localStorage.getItem('username');
 
+//DISPLAYS THE USERNAME
+accountLink.innerText = usernameDisplay;
+accountLink.style.borderBottom = "3px double rgb(163,13,45)";
+
+//THIS FUNCTION SHOWS PROFILE INFORMATION
 displayProfile();
 
-//SHOWS PROFILE INFORMATION
 function displayProfile() {
 
-  fetch('localhost:8080/profile', {
+  fetch('localhost:8080/' + `${usernameDisplay}`, {
     method: 'GET',
     headers: {
       "Authorization": "Bearer " + localStorage.getItem('user'),
       "Content-Type": "application/json"}})
   .then((res) => {return res.json();})
   .then((res) => {
-    displayUserName.innerHTML = localStorage.getItem('username');
+    displayUserName.innerHTML = `${usernameDisplay}`;
     displayPrimaryEmail.innerHTML = localStorage.getItem('primaryEmail');
 
     //DISPLAYS THE USER'S EMAIL IF THERE IS ONE
@@ -68,12 +69,7 @@ function displayProfile() {
 
 }
 
-//CREATE PROFILE FUNCTION - USED ALSO AS A WORKAROUND FOR THE UPDATE PROFILE
-  //CREATE PROFILE BUTTON
-const createProfileBtn = document.getElementById("createProfileBtn");
-createProfileBtn.addEventListener("click", createProfile);
-
-  //CREATE PROFILE FUNCTION
+//THIS FUNCTION ALLOWS THE USER TO CREATE PROFILE FUNCTION
 function createProfile(e){
   e.preventDefault();
 
@@ -97,7 +93,7 @@ function createProfile(e){
 
 }
 
-  //UPDATES PROFILE FUNCTION
+//THIS FUNCTION UPDATES PROFILE FUNCTION
 function updateProfile(res) {
 
   //IF INPUT VALUE FOR THE USER'S ADDITIONAL EMAIL IS AN EMPTY STRING OR NULL, THEN DON'T UPDATE FORM
@@ -123,5 +119,4 @@ function updateProfile(res) {
   } else {
     displayAddy.innerHTML = res.address;
   }
-
 }
