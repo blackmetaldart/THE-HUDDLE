@@ -175,7 +175,7 @@ function addPostsToDom() {
     console.log("res from add posts", res);
     return res.json();})
 
-  .then((res)=>{
+  .then((res) => {
 
     const newPosts = document.getElementById('newPostsDiv');
     const userPosts = document.getElementById('prevUserPostsDiv');
@@ -249,11 +249,8 @@ function viewComments(resId) {
 
   fetch(`http:localhost:8080/post/${resId}/comment/`)
 
-  .then((res)=>{
-    return res.json();
-  })
-
-  .then((res)=>{
+  .then((res) => {return res.json();})
+  .then((res) => {
     //console.log('res from viewComments', res);
 
     if(res !== []) {
@@ -279,9 +276,7 @@ function viewComments(resId) {
   //console.log('res post id of comment', res.id);
   })
 
-  .catch((err) => {
-      console.log(err);
-  })
+  .catch((err) => {console.log(err);})
 }
 
 ///////DELETE POSTS///////
