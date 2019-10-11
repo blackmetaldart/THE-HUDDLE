@@ -80,5 +80,4 @@ public class User {
 
         return posts;
     }
-
 }
