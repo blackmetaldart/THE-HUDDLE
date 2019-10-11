@@ -45,6 +45,7 @@ public class User {
                     CascadeType.MERGE, CascadeType.REFRESH}, mappedBy="user")
     private List<Post> posts;
 
+    //EMPTY USER CONSTRUCTOR
     public User(){}
 
     public UserProfile getUserProfile() {
