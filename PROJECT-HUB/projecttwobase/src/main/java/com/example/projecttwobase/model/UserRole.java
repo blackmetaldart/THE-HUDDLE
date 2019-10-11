@@ -12,10 +12,12 @@ import java.util.List;
 @Entity
 @Table(name = "user_role")
 public class UserRole {
-    //Role 1 = Admin
-    //Role 2 = General
-    //Role 3 = DBA
 
+    //Role 1 = ROLE_ADMIN
+    //Role 2 = ROLE_GENERAL
+    //Role 3 = ROLE_DBA
+
+    // ID / NAME COLUMNS FOR TABLE
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,20 +26,20 @@ public class UserRole {
     @Column(unique = true)
     private String name;
 
-    public UserRole() {}
-
+    //MAPPING THE ROLES TO THE USERS
     @OneToMany(mappedBy = "userRole",
             cascade = CascadeType.ALL)
     private List<User> users;
 
-    public void setUsers(List<User> users){ this.users = users; }
+    //EMPTY USERROLE CONSTRUCTOR
+    public UserRole() {}
 
+    public void setUsers(List<User> users){ this.users = users; }
     public List<User> getUsers(){ return users; }
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -45,7 +47,6 @@ public class UserRole {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
