@@ -12,9 +12,6 @@ public class UserProfileServiceImpl implements UserProfileService{
     private UserProfileRepository userProfileRepository;
 
     private UserService userService;
-
-
-    //SETS A USER FOR A PROFILE BASED ON A USERNAME AND SAVES THE PROFILE IN THE REPOSITORY
     @Override
     public UserProfile createUserProfile(String username, UserProfile newProfile) {
         User user = userService.getUser(username);
@@ -28,7 +25,6 @@ public class UserProfileServiceImpl implements UserProfileService{
     public UserProfile getUserProfile(String username) {
         return userProfileRepository.findProfileByUsername(username);
     }
-
 
     @Autowired
     public UserProfileServiceImpl(UserService userService, UserProfileRepository userProfileRepository){
