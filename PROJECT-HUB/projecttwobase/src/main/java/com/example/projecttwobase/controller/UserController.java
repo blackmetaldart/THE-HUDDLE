@@ -15,21 +15,21 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    //ALLOWS A USER TO SIGN UP / REFER TO USER SERVICE
+    //ENDPOINT THAT ALLOWS A USER TO SIGN UP / REFER TO USER SERVICE
     @PostMapping("/signup")
     public ResponseEntity<?> createUser(@RequestBody User newUser) {
         //return userService.createUser(newUser);
         return ResponseEntity.ok(new JwtResponse(userService.createUser(newUser)));
     }
 
-    //ALLOWS A USER TO LOG IN / REFER TO USER SERVICE
+    //ENDPOINT THAT ALLOWS A USER TO LOG IN / REFER TO USER SERVICE
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
         return ResponseEntity.ok(new JwtResponse(userService.login(user)));
     }
 
 
-    //SHOWS A USER LIST / REFER TO USER SERVICE
+    //ENDPOINT THAT SHOWS A USER LIST / REFER TO USER SERVICE
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/users/list")
     public Iterable<User> listUsers(){
@@ -37,7 +37,7 @@ public class UserController {
     }
 
 
-    //THE ALMIGHTY HELLO WORLD / REFER TO 101
+    //ENDPOINT TO THE ALMIGHTY HELLO WORLD / REFER TO 101
     @GetMapping("/hello")
     public String helloWorld() {
         return "Hello World!!";
