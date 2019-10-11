@@ -2,7 +2,6 @@
 
 //DISPLAYS USERNAME IN NAV
 let accountLink = document.querySelector('#account');
-
 let usernameDisplay = localStorage.getItem('username');
 
 accountLink.innerText = usernameDisplay;
@@ -16,51 +15,49 @@ listAllPosts();
 function listAllPosts () {
 
  fetch('http://thesi.generalassemb.ly:8080/post/list')
-
+ .then((res) => {return res.json();})
  .then((res) => {
-   return res.json();
-  })
-
-.then((res) => {
   //console.log("list posts", res);
   const randomPosts = document.querySelector('.randomPostsSection');
 
   //CREATES DIV TO HOLD POST TITLE AND DESCRIPTION AND HAVE THE RESPONSE IDs
   for(let i = 0; i < 5; i++) {
 
-  const randomPost = document.createElement('div');
-  const title = document.createElement('h2');
-  const description = document.createElement('p');
+      const randomPost = document.createElement('div');
+      const title = document.createElement('h2');
+      const description = document.createElement('p');
 
-  //CREATE COMMENT BOXES
-  const commentArea = document.createElement('div');
-  const commentBox = document.createElement('textarea');
-  const commentSubmit = document.createElement('button');
+      //CREATE COMMENT BOXES
+      const commentArea = document.createElement('div');
+      const commentBox = document.createElement('textarea');
+      const commentSubmit = document.createElement('button');
 
-  randomPost.setAttribute("id", res[i].id);
-  title.setAttribute("class", "title");
-  commentBox.setAttribute("rows", "3");
-  commentBox.setAttribute("cols", "50");
-  commentBox.setAttribute("placeholder", "Your response to the post?");
+      randomPost.setAttribute("id", res[i].id);
+      title.setAttribute("class", "title");
+      commentBox.setAttribute("rows", "3");
+      commentBox.setAttribute("cols", "50");
+      commentBox.setAttribute("placeholder", "Your response to the post?");
 
-  //PROVIDES ID OF POST FOR COMMENT
-  commentBox.setAttribute("postIdForComments", res[i].id);
+      //PROVIDES ID OF POST FOR COMMENT
+      commentBox.setAttribute("postIdForComments", res[i].id);
 
-  title.innerText = res[i].title;
-  description.innerText = res[i].description;
-  commentSubmit.innerText = "Submit Comment";
+      title.innerText = res[i].title;
+      description.innerText = res[i].description;
+      commentSubmit.innerText = "Submit Comment";
 
-  commentArea.append(commentBox, commentSubmit);
-  randomPost.append(title, description, commentArea);
-  randomPosts.appendChild(randomPost);
+      commentArea.append(commentBox, commentSubmit);
+      randomPost.append(title, description, commentArea);
+      randomPosts.appendChild(randomPost);
 
-  randomPost.classList.add('postDivStyle');
-  description.classList.add('description');
-  commentArea.classList.add('commentAreaDiv');
-  commentSubmit.classList.add('commitSubmit');
-  commentBox.classList.add('commentBox');
+      randomPost.classList.add('postDivStyle');
+      description.classList.add('description');
+      commentArea.classList.add('commentAreaDiv');
+      commentSubmit.classList.add('commitSubmit');
+      commentBox.classList.add('commentBox');
 
-  viewComments(res[i].id);}})
+      viewComments(res[i].id);}
+
+})
 
   .catch((err) => {console.log(err);})
 }
@@ -88,42 +85,41 @@ function displayUserPosts() {
 
     for(let i = 0; i < res.length; i++) {
 
-      const prevPost = document.createElement('div');
-      const prevTitle = document.createElement('h2');
-      const prevDescription = document.createElement('p');
+        const prevPost = document.createElement('div');
+        const prevTitle = document.createElement('h2');
+        const prevDescription = document.createElement('p');
 
-      //CREATES COMMENT BOXES
-      const commentArea = document.createElement('div');
-      const commentBox = document.createElement('textarea');
-      const commentSubmit = document.createElement('button');
+        //CREATES COMMENT BOXES
+        const commentArea = document.createElement('div');
+        const commentBox = document.createElement('textarea');
+        const commentSubmit = document.createElement('button');
 
-      prevTitle.innerText = res[i].title;
-      prevDescription.innerText = res[i].description;
-      commentSubmit.innerText = "Submit Comment";
+        prevTitle.innerText = res[i].title;
+        prevDescription.innerText = res[i].description;
+        commentSubmit.innerText = "Submit Comment";
 
-      prevTitle.setAttribute("class", "title");
-      prevPost.setAttribute("id", res[i].id);
-      commentBox.setAttribute("rows", "3");
-      commentBox.setAttribute("cols", "50");
-      commentBox.setAttribute("placeholder", "Your response to the post?");
+        prevTitle.setAttribute("class", "title");
+        prevPost.setAttribute("id", res[i].id);
+        commentBox.setAttribute("rows", "3");
+        commentBox.setAttribute("cols", "50");
+        commentBox.setAttribute("placeholder", "Your response to the post?");
 
-      //PROVIDES ID OF POST FOR COMMENTS
-      commentBox.setAttribute("postIdForComments", res[i].id);
+        //PROVIDES ID OF POST FOR COMMENTS
+        commentBox.setAttribute("postIdForComments", res[i].id);
 
-      commentArea.append(commentBox, commentSubmit);
-      prevPost.append(prevTitle, prevDescription, commentArea);
-      userPosts.appendChild(prevPost);
+        commentArea.append(commentBox, commentSubmit);
+        prevPost.append(prevTitle, prevDescription, commentArea);
+        userPosts.appendChild(prevPost);
 
-      prevPost.classList.add('postDivStyle');
-      prevDescription.classList.add('description');
-      commentSubmit.classList.add('commentSubmit');
-      commentBox.classList.add('commentBox');
-      commentArea.classList.add('commentAreaDiv');
-
+        prevPost.classList.add('postDivStyle');
+        prevDescription.classList.add('description');
+        commentSubmit.classList.add('commentSubmit');
+        commentBox.classList.add('commentBox');
+        commentArea.classList.add('commentAreaDiv');
       // //passes post id
       // viewComments(res[i].id);
-  }
-})
+     }
+  })
 
 //CALLS THE FUNCTION TO VIEW THE COMMENTS
   .then((res) => {viewComments(res);})
