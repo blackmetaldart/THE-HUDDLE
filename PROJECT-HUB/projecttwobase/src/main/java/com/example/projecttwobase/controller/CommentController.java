@@ -14,13 +14,13 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    //CREATE A COMMENT FOR A POST
+    //CREATE A COMMENT FOR A POST / REFER TO COMMENT SERVICE
     @PostMapping("/{postId}/comment")
     public Comment createComment(@RequestBody Comment comment, @PathVariable Long postId) {
         return commentService.createComment(comment, postId);
     }
 
-    //GET COMMENTS BY POST ID
+    //GET COMMENTS BY POST ID / REFER TO COMMENT SERVICE
     @GetMapping("/post/{postId}/comments")
     public List<Comment> getCommentByPostId(@PathVariable Long postId) { return commentService.getCommentsByPostId(postId);
    }
@@ -31,7 +31,7 @@ public class CommentController {
 //        return commentService.getCommentByUsername(username);
 //    }
 
-    //DELETE A COMMENT
+    //DELETE A COMMENT / REFER TO COMMENT SERVICE
     @DeleteMapping("/comment/{commentId}")
     public ResponseEntity<Object> deleteCommentByCommentId(@PathVariable Long commentId) {
         return commentService.deleteCommentByCommentId(commentId);
