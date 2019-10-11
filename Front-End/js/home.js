@@ -66,7 +66,7 @@ displayUserPosts();
 
 //THIS FUNCTION DISPLAYS ALL THE POSTS FROM THE USER
 function displayUserPosts() {
-  fetch('localhost:8080/user/post', {
+  fetch('localhost:8080/' + `${usernameDisplay}`+ '/posts', {
       method: 'GET',
       headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('user')
@@ -128,7 +128,7 @@ function createPost(e) {
     const title = document.querySelector('.newPostTitle');
     const des = document.querySelector('.newPostDes');
 
-    fetch('localhost:8080/post', {
+    fetch('localhost:8080/' + `${usernameDisplay}` + '/makepost', {
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('user'),
@@ -195,7 +195,7 @@ function addPostsToDom() {
 //THIS FUNCTION ALLOWS THE USER TO MAKE COMMENTS
 function createComment(postId) {
 
-  fetch(`localhost:8080/comment/${postId}` , {
+  fetch('localhost:8080/' +`${postId}` + '/comment' , {
     method: 'POST',
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('user'),
@@ -211,7 +211,7 @@ function createComment(postId) {
 //THIS FUNCTION WILL DISPLAY THE COMMENTS WITH A POST ID
 function viewComments(postId) {
 
-  fetch(`localhost:8080/post/${postId}/comment/`)
+  fetch(`localhost:8080/post/${postId}/comments`)
   .then((res) => {return res.json();})
   .then((res) => {
 
