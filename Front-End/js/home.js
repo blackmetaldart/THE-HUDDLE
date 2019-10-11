@@ -1,4 +1,6 @@
-//===HOME===//
+//CREATES VARIABLE FOR THE NEW POST BUTTON
+const newPostBtn = document.querySelector('.newPostBtn');
+newPostBtn.addEventListener('click', createPost);
 
 //DISPLAYS USERNAME IN NAV
 let accountLink = document.querySelector('#account');
@@ -7,17 +9,14 @@ let usernameDisplay = localStorage.getItem('username');
 accountLink.innerText = usernameDisplay;
 accountLink.style.borderBottom = "3px double rgb(163,13,45)";
 
-///////RANDOM POSTS SECTION///////
-
 //DISPLAYS ONLY FIRST SEVEN POSTS FROM API
 listAllPosts();
 
 function listAllPosts () {
 
- fetch('localhost:8080/post/list')
+ fetch('localhost:8080/posts/list')
  .then((res) => {return res.json();})
  .then((res) => {
-  //console.log("list posts", res);
   const randomPosts = document.querySelector('.randomPostsSection');
 
   //CREATES DIV TO HOLD POST TITLE AND DESCRIPTION AND HAVE THE RESPONSE IDs
@@ -73,11 +72,7 @@ function displayUserPosts() {
       headers: {
           "Authorization": "Bearer " + localStorage.getItem('user')
       }})
-
-  .then((res) => {
-    //console.log("res from user posts", res);
-    return res.json();})
-
+  .then((res) => {return res.json();})
   .then((res) => {
     //DISPLAY USER POSTS
     const userPosts = document.getElementById('prevUserPostsDiv');
@@ -116,8 +111,6 @@ function displayUserPosts() {
         commentSubmit.classList.add('commentSubmit');
         commentBox.classList.add('commentBox');
         commentArea.classList.add('commentAreaDiv');
-      // //passes post id
-      // viewComments(res[i].id);
      }
   })
 
@@ -128,11 +121,7 @@ function displayUserPosts() {
   .catch((err) => {console.log(err);})
 }
 
-//CREATES VARIABLE FOR THE NEW POST BUTTON
-const newPostBtn = document.querySelector('.newPostBtn');
-newPostBtn.addEventListener('click', createPost);
-
-//FUNCTION TO CREATE POSTS
+//THIS FUNCTION ALLOWS USERS TO CREATE POSTS
 function createPost(e) {
     e.preventDefault();
 
@@ -152,31 +141,25 @@ function createPost(e) {
             description: des.value
         })
     })
-
-    //ADD A NEW POST TO THE DOM
     .then((res) => {
         console.log('res from create post', res);
+        //ADD A NEW POST TO THE DOM
         addPostsToDom();})
-
     //LOG ANY ERRORS IN THE CONSOLE WINDOW
     .catch((err) => {console.log(err);})
 }
 
-//ATTACHED NEW POSTS TO DOM
+//THIS FUNCTION ATTACHES NEW POSTS TO
 function addPostsToDom() {
 
   fetch("localhost:8080/user/post", {
       headers: {
         "Authorization": "Bearer " + localStorage.getItem('user')
-      }
-  })
-
+      }})
   .then((res) => {
     console.log("res from add posts", res);
     return res.json();})
-
   .then((res) => {
-
     const newPosts = document.getElementById('newPostsDiv');
     const userPosts = document.getElementById('prevUserPostsDiv');
 
@@ -229,17 +212,10 @@ function createComment(postId) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      text: document.querySelector((`[postIdForComments="${resId}"]`)).value
-    })
-  })
-
-  .then(res => {
-    viewComments(resId);
-  })
-
-  .catch(err => {
-    console.log(err);
-  });
+      text: document.querySelector((`[postIdForComments="${postId}"]`)).value
+    })})
+  .then(res => {viewComments(resId);})
+  .catch(err => {console.log(err);});
 }
 
 ///////DISPLAY COMMENTS///////
@@ -248,34 +224,25 @@ function viewComments(resId) {
   //console.log('res Id passed of post: ', resId)
 
   fetch(`localhost:8080/post/${resId}/comment/`)
-
   .then((res) => {return res.json();})
   .then((res) => {
     //console.log('res from viewComments', res);
 
     if(res !== []) {
     for(let i= 0; i < res.length; i++) {
-      //creates an element to hold the comment
+      //CREATES THE ELEMENT TO HOLD THE COMMENT
       const commented = document.createElement('p');
 
-      //sets p to have the comment text
+      //SETS P TO HAVE THE COMMENT TEXT
       commented.innerHTML = res[i].text;
 
-      //styles comments
+      //STYLES COMMENTS
       commented.setAttribute("class", "comment");
-      //console.log('res[i].text', res[i].text);
-      // console.log('existing comments for post', commented);
 
-      //targets the post div to hold the comments
+      //TARGETS THE POST DIV TO HOLD THE COMMENTS
       const commentsPart = document.getElementById(res[i].post.id);
       commentsPart.appendChild(commented);
-    }
-  }
-
-  //console.log('res text', res.text);
-  //console.log('res post id of comment', res.id);
-  })
-
+    }}})
   .catch((err) => {console.log(err);})
 }
 
