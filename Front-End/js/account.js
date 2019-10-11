@@ -1,4 +1,4 @@
-//displays username in nav
+//DISPLAYS USERNAME IN NAV
 let accountLink = document.querySelector('#account');
 
 let usernameDisplay = localStorage.getItem('username');
