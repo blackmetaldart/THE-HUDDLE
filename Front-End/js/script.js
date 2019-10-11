@@ -1,10 +1,10 @@
 //console.log("js is linked!");
 //===LANDING===//
 
-//TOKEN
+//VARIABLE FOR THE JSON WEB TOKEN
 let token;
 
-//FORM VARIABLES
+//THESE VARIABLES STORE THE ELEMENTS FOR THE LOGIN AND SIGNUP FORM
 const signUpBtn = document.querySelector('#signUpBtn');
 const logInBtn = document.querySelector('#logInBtn');
 
@@ -14,16 +14,16 @@ const logInForm = document.querySelector('#logInForm');
 const signUpSubmit = document.querySelector(".signUpSubmit");
 const logInSubmit = document.querySelector(".logInSubmit");
 
-//REGISTER USER ACCT VARIABLES
+//THESE VARIABLES STORE THE ELEMENTS THAT HOLD THE DATA FOR REGISTERING THE USER
 const email = document.querySelector('.email');
 const password = document.querySelector('.password');
 const username = document.querySelector('.userName');
 
-//LOG IN USER ACCT VARIABLES
+//THESE VARIABLES STORE THE DATA THAT THE USER LOGS IN WITH
 const logInEmail = document.querySelector('.logInEmail');
 const logInPassword = document.querySelector('.logInPassword');
 
-//TOGGLES FORMS DISPLAY
+//THESE EVENT LISTENERS TOGGLE THE LOGIN AND SIGNUP DISPLAY
 signUpBtn.addEventListener("click", signUpToggle);
 logInBtn.addEventListener("click", logInToggle);
 
@@ -78,13 +78,9 @@ function createUser(e) {
     //allows for data persistence between html pages
     localStorage.setItem('user', token); //stores token as a cookie
 
-    //redirects user to homepage
-    redirectHome();
-  })
-  .catch((err) => {
-      console.log(err);
-  })
-
+    //REDIRECTS USER TO HOMEPAGE
+    redirectHome();})
+  .catch((err) => {console.log(err);})
 }
 
 //===LOGIN FUNCTION===//
