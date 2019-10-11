@@ -42,7 +42,7 @@ function logInToggle() {
   }
 }
 
-//THIS FUNCTION ALLOWS THE USERS TO SIGNUP
+//THIS FUNCTION ALLOWS THE USERS TO BE CREATED THROUGH SIGNUP
 function createUser(e) {
   e.preventDefault();
 
@@ -69,7 +69,7 @@ function createUser(e) {
   .catch((err) => {console.log(err);})
 }
 
-//THIS FUNCTION RETURNS A USER
+//THIS FUNCTION RETURNS A USER UPON LOGIN
 function returningUser(e) {
     e.preventDefault();
 
