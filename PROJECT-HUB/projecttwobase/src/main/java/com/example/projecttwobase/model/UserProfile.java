@@ -7,6 +7,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "user_profile")
 public class UserProfile {
+
+    // ID / ADDTEMAIL / MOBILE / ADDRESS COLUMNS FOR TABLE
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,17 +23,19 @@ public class UserProfile {
     @Column
     private String address;
 
-    public UserProfile(){}
-
+    //MAPPING THE PROFILES TO THE USERS
     @JsonIgnore
     @OneToOne(mappedBy = "userProfile", fetch = FetchType.LAZY, cascade={CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private User user;
 
+    //EMPTY CONSTRUCTOR FOR USER PROFILE
+    public UserProfile(){}
+
+    //GETTERS AND SETTERS FOR FIELDS
     public User getUser() {
         return user;
     }
-
     public void setUser(User user) {
         this.user = user;
     }
