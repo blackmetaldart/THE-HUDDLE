@@ -5,6 +5,8 @@ import javax.persistence.*;
 @Entity
 @Table(name="post")
 public class Post {
+
+    // ID / TITLE / DESCRIPTION / USERNAME COLUMNS FOR TABLE
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,12 +18,10 @@ public class Post {
     @Column
     private String description;
 
-    public Post() {
-    }
-
     @Column
     private String username;
 
+    //MAPPING THE POSTS TO THE USERS
     @ManyToOne(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH,
                     CascadeType.MERGE, CascadeType.REFRESH})
@@ -29,6 +29,8 @@ public class Post {
             joinColumns = {@JoinColumn(name = "post_id")},
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private User user;
+
+    public Post(){}
 
     public User getUser(){return user;}
     public void setUser(User user){this.user = user;}
