@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "comment")
 public class Comment {
+
+    // ID / TEXT COLUMNS FOR COMMENT TABLE
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +23,7 @@ public class Comment {
     @Column
     private String text;
 
-    public Comment(){}
-
-    public Long getId() {return id;}
-    public void setId(Long id) {this.id = id;}
-
-    public String getText() {return text;}
-    public void setText(String text) {this.text = text;}
-
+    //MAPPING TO POSTS
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "post_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -36,6 +31,17 @@ public class Comment {
     @JsonIdentityReference(alwaysAsId=true)
     @JsonProperty("post_id")
     private Post post;
+
+    //COMMENT CONSTRUCTOR
+    public Comment(){}
+
+    //GETTERS AND SETTERS
+    public Long getId() {return id;}
+    public void setId(Long id) {this.id = id;}
+
+    public String getText() {return text;}
+    public void setText(String text) {this.text = text;}
+
 
     public Post getPost() {
         return post;
