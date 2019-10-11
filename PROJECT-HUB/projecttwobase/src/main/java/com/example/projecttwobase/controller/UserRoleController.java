@@ -12,11 +12,13 @@ public class UserRoleController {
     @Autowired
     UserRoleService roleService;
 
+    //ENDPOINT THAT ALLOWS A USER TO CREATE A ROLE
     @PostMapping
     public UserRole createRole(@RequestBody UserRole role) {
         return roleService.createRole(role);
     }
 
+    //ENDPOINT THAT ALLOWS A USER TO GET A ROLE
     @GetMapping("/{rolename}")
     public UserRole getRole(@PathVariable String rolename) {
         return roleService.getRole(rolename);
