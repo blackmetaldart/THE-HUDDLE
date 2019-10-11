@@ -23,7 +23,7 @@ displayProfile();
 //SHOWS PROFILE INFORMATION
 function displayProfile() {
 
-  fetch('http:localhost:8080/profile', {
+  fetch('localhost:8080/profile', {
     method: 'GET',
     headers: {
       "Authorization": "Bearer " + localStorage.getItem('user'),
@@ -77,7 +77,7 @@ createProfileBtn.addEventListener("click", createProfile);
 function createProfile(e){
   e.preventDefault();
 
-  fetch('http:localhost:8080/profile', {
+  fetch('localhost:8080/profile', {
     method: 'POST',
     headers: {
       "Authorization": "Bearer " + localStorage.getItem('user'),

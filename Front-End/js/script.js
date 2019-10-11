@@ -54,7 +54,7 @@ function createUser(e) {
   localStorage.setItem('username', username.value);
   localStorage.setItem('primaryEmail', email.value);
 
-  fetch('http:localhost:8080/signup', {
+  fetch('localhost:8080/signup', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'

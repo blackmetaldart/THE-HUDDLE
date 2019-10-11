@@ -14,7 +14,7 @@ listAllPosts();
 
 function listAllPosts () {
 
- fetch('http://thesi.generalassemb.ly:8080/post/list')
+ fetch('localhost:8080/post/list')
  .then((res) => {return res.json();})
  .then((res) => {
   //console.log("list posts", res);
@@ -68,7 +68,7 @@ function listAllPosts () {
 displayUserPosts();
 
 function displayUserPosts() {
-  fetch("http:localhost:8080/user/post", {
+  fetch("localhost:8080/user/post", {
       method: 'GET',
       headers: {
           "Authorization": "Bearer " + localStorage.getItem('user')
@@ -141,7 +141,7 @@ function createPost(e) {
     const title = document.querySelector('.newPostTitle');
     const des = document.querySelector('.newPostDes');
 
-    fetch("http:localhost:8080/post", {
+    fetch("localhost:8080/post", {
         method: 'POST',
         headers: {
           "Authorization": "Bearer " + localStorage.getItem('user'),
@@ -165,7 +165,7 @@ function createPost(e) {
 //ATTACHED NEW POSTS TO DOM
 function addPostsToDom() {
 
-  fetch("http://thesi.generalassemb.ly:8080/user/post", {
+  fetch("localhost:8080/user/post", {
       headers: {
         "Authorization": "Bearer " + localStorage.getItem('user')
       }
@@ -219,35 +219,35 @@ function addPostsToDom() {
 }
 
 ///////CREATE COMMENTS///////
-// function createComment(resId) {
-//   console.log('resId in createComment', resId);
-//
-//   fetch(`http://thesi.generalassemb.ly:8080/comment/${resId}` , {
-//     method: "POST",
-//     headers: {
-//       "Authorization": "Bearer " + localStorage.getItem("user"),
-//       "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify({
-//       text: document.querySelector((`[postIdForComments="${resId}"]`)).value
-//     })
-//   })
-//
-//   .then(res => {
-//     viewComments(resId);
-//   })
-//
-//   .catch(err => {
-//     console.log(err);
-//   });
-// }
+function createComment(postId) {
+  console.log('resId in createComment', resId);
+
+  fetch(`localhost:8080/comment/${postId}` , {
+    method: "POST",
+    headers: {
+      "Authorization": "Bearer " + localStorage.getItem("user"),
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      text: document.querySelector((`[postIdForComments="${resId}"]`)).value
+    })
+  })
+
+  .then(res => {
+    viewComments(resId);
+  })
+
+  .catch(err => {
+    console.log(err);
+  });
+}
 
 ///////DISPLAY COMMENTS///////
 
 function viewComments(resId) {
   //console.log('res Id passed of post: ', resId)
 
-  fetch(`http:localhost:8080/post/${resId}/comment/`)
+  fetch(`localhost:8080/post/${resId}/comment/`)
 
   .then((res) => {return res.json();})
   .then((res) => {
