@@ -123,11 +123,10 @@ aside {
 
 /* TEAM IMAGES */
 .team {
-  width: 55px;
-  height: 40px;
-  margin-right: 10px;
-  margin-bottom: 22px;
-  object-fit: cover;
+  max-height : 6vh;
+  object-fit: contain;
+  height : 6vh;
+  
 }
 
 /* TEAM INFO */
@@ -165,6 +164,8 @@ aside {
   padding: 5px;
   margin: 1px;
 }
+
+
 
 /* TEAM SCORES */
 .score{
