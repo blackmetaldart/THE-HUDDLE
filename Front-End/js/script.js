@@ -4,9 +4,6 @@ signUpBtn.addEventListener("click", signUpToggle);
 logInBtn.addEventListener("click", logInToggle);
 logInSubmit.addEventListener('click', returningUser);
 
-//console.log("js is linked!");
-//===LANDING===//
-
 //VARIABLE FOR THE JSON WEB TOKEN
 let token;
 
@@ -25,6 +22,7 @@ const username = document.querySelector('.userName');
 const logInEmail = document.querySelector('.logInEmail');
 const logInPassword = document.querySelector('.logInPassword');
 
+//THIS FUNCTION ALLOWS THE SIGNUP MENU TO TOGGLE
 function signUpToggle() {
   signUpForm.classList.toggle('none');
   if(signUpForm.classList.contains('none')) {
@@ -34,6 +32,7 @@ function signUpToggle() {
   }
 }
 
+//THIS FUNCTION ALLOWS THE LOGIN MENU TO TOGGLE
 function logInToggle() {
   logInForm.classList.toggle('none');
   if(logInForm.classList.contains('none')) {
@@ -42,8 +41,6 @@ function logInToggle() {
     logInBtn.innerHTML = 'x';
   }
 }
-
-//===REGISTER FUNCTION===//
 
 //THIS FUNCTION ALLOWS THE USERS TO SIGNUP
 function createUser(e) {
@@ -72,8 +69,6 @@ function createUser(e) {
   .catch((err) => {console.log(err);})
 }
 
-//===LOGIN FUNCTION===//
-
 //THIS FUNCTION RETURNS A USER
 function returningUser(e) {
     e.preventDefault();
@@ -85,16 +80,14 @@ function returningUser(e) {
             username: logInUsername.value,
             password: logInPassword.value
           })})
-
       .then(res => {return res.json();})
       .then(res => {token = res.token;
         localStorage.setItem('user', token);
         redirectHome();})
-
       .catch(error => {console.error(error);});
   }
 
-//===REDIRECT FUNCTION TO HOMEPAGE===//
+//THIS FUNCTION REDIRECTS A USER TO THE HOMEPAGE
 function redirectHome() {
     if (token != null) {
     window.location.href = "./home.html";
