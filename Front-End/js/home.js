@@ -75,7 +75,6 @@ function displayUserPosts() {
   .then((res) => {
     //DISPLAY USER POSTS
     const userPosts = document.getElementById('prevUserPostsDiv');
-    console.log("res from previous posts", res);
 
     for(let i = 0; i < res.length; i++) {
 
@@ -141,7 +140,6 @@ function createPost(e) {
         })
     })
     .then((res) => {
-        console.log('res from create post', res);
         //ADD A NEW POST TO THE DOM
         addPostsToDom();})
     //LOG ANY ERRORS IN THE CONSOLE WINDOW
@@ -155,9 +153,7 @@ function addPostsToDom() {
       headers: {
         "Authorization": "Bearer " + localStorage.getItem('user')
       }})
-  .then((res) => {
-    console.log("res from add posts", res);
-    return res.json();})
+  .then((res) => {return res.json();})
   .then((res) => {
     const newPosts = document.getElementById('newPostsDiv');
     const userPosts = document.getElementById('prevUserPostsDiv');
@@ -191,8 +187,6 @@ function addPostsToDom() {
     commentArea.classList.add('commentAreaDiv');
     commentSubmit.classList.add('commentSubmit');
     commentBox.classList.add('commentBox');
-
-  //console.log("newPost", newPost);
 })
   .catch((err) => {console.log(err);})
 
