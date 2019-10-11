@@ -13,10 +13,6 @@ import java.util.List;
 @Table(name = "user_role")
 public class UserRole {
 
-    //Role 1 = ROLE_ADMIN
-    //Role 2 = ROLE_GENERAL
-    //Role 3 = ROLE_DBA
-
     // ID / NAME COLUMNS FOR TABLE
     @Id
     @Column
