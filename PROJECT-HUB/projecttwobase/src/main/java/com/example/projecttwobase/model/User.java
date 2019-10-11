@@ -3,7 +3,6 @@ package com.example.projecttwobase.model;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,52 +12,52 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 public class User {
+
+    // ID / USERNAME / EMAIL COLUMNS FOR TABLE
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column (unique = true)
     private String username;
-
 
     @Column
     private String password;
 
-
     @Column
     private String email;
 
-    public User(){}
-
+    //MAPPING THE USERS TO THE USERPROFILE
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="user_profile_id")
     private UserProfile userProfile;
 
-    public UserProfile getUserProfile() {
-        return userProfile;
-    }
-
-    public void setUserProfile(UserProfile userProfile) {
-        this.userProfile = userProfile;
-    }
-
+    //MAPPING THE USERS TO ROLES
     @ManyToOne(cascade = {CascadeType.DETACH,
             CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "user_role_id", nullable = false)
     private UserRole userRole;
 
-    public UserRole getUserRole() { return userRole; }
-    public void setUserRole(UserRole userRole) { this.userRole = userRole; }
-
+    //MAPPING THE USERS TO THE POSTS
     @OneToMany(fetch = FetchType.LAZY,
             cascade = {CascadeType.DETACH,
                     CascadeType.MERGE, CascadeType.REFRESH}, mappedBy="user")
     private List<Post> posts;
 
-    public List<Post> getPosts(){ return posts; }
+    public User(){}
 
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
+    }
+
+    public UserRole getUserRole() { return userRole; }
+    public void setUserRole(UserRole userRole) { this.userRole = userRole; }
+
+    public List<Post> getPosts(){ return posts; }
     public void setPosts(List<Post> posts) { this.posts = posts; }
 
     public Long getId() {return id;}
