@@ -1,3 +1,9 @@
+//THIS SECTION WILL HOLD ALL OF THE EVENT LISTENERS TO AFFECT THE DISPLAY OF THE APPLICATION
+signUpSubmit.addEventListener("click", createUser);
+signUpBtn.addEventListener("click", signUpToggle);
+logInBtn.addEventListener("click", logInToggle);
+logInSubmit.addEventListener('click', returningUser);
+
 //console.log("js is linked!");
 //===LANDING===//
 
@@ -7,25 +13,17 @@ let token;
 //THESE VARIABLES STORE THE ELEMENTS FOR THE LOGIN AND SIGNUP FORM
 const signUpBtn = document.querySelector('#signUpBtn');
 const logInBtn = document.querySelector('#logInBtn');
-
 const signUpForm = document.querySelector('#signUpForm');
 const logInForm = document.querySelector('#logInForm');
-
 const signUpSubmit = document.querySelector(".signUpSubmit");
 const logInSubmit = document.querySelector(".logInSubmit");
-
 //THESE VARIABLES STORE THE ELEMENTS THAT HOLD THE DATA FOR REGISTERING THE USER
 const email = document.querySelector('.email');
 const password = document.querySelector('.password');
 const username = document.querySelector('.userName');
-
 //THESE VARIABLES STORE THE DATA THAT THE USER LOGS IN WITH
 const logInEmail = document.querySelector('.logInEmail');
 const logInPassword = document.querySelector('.logInPassword');
-
-//THESE EVENT LISTENERS TOGGLE THE LOGIN AND SIGNUP DISPLAY
-signUpBtn.addEventListener("click", signUpToggle);
-logInBtn.addEventListener("click", logInToggle);
 
 function signUpToggle() {
   signUpForm.classList.toggle('none');
@@ -34,7 +32,7 @@ function signUpToggle() {
   } else {
     signUpBtn.innerHTML = 'x';
   }
-};
+}
 
 function logInToggle() {
   logInForm.classList.toggle('none');
@@ -46,7 +44,7 @@ function logInToggle() {
 };
 
 //===REGISTER FUNCTION===//
-signUpSubmit.addEventListener("click", createUser);
+
 
 function createUser(e) {
   e.preventDefault();
@@ -65,11 +63,8 @@ function createUser(e) {
               email: email.value
           })
   })
-  .then((res) => {
-      return res.json();
-  })
-  .then((res) => {
-    token = res.token;//store token value to variable token
+  .then((res) => {return res.json();})
+  .then((res) => {token = res.token;//store token value to variable token
     //console.log("token - create user", token);
     //console.log("res - create user", res);
     //console.log("username input value", username.value);
@@ -84,7 +79,7 @@ function createUser(e) {
 }
 
 //===LOGIN FUNCTION===//
-logInSubmit.addEventListener('click', returningUser);
+
 
 function returningUser(e) {
     e.preventDefault();
