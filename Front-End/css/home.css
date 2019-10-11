@@ -126,7 +126,6 @@ aside {
   max-height : 6vh;
   object-fit: contain;
   height : 6vh;
-  
 }
 
 /* TEAM INFO */
@@ -136,7 +135,7 @@ aside {
 
 .topTeam, .bottomTeam {
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   font-family: 'Abel', sans-serif;
 }
 
