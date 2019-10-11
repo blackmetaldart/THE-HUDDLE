@@ -1,7 +1,6 @@
 package com.example.projecttwobase.service;
 
 import com.example.projecttwobase.config.JwtUtil;
-import com.example.projecttwobase.model.Post;
 import com.example.projecttwobase.model.User;
 import com.example.projecttwobase.model.UserRole;
 import com.example.projecttwobase.repository.PostRepository;
@@ -36,6 +35,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     PostRepository postRepository;
 
+    @Autowired
+    @Qualifier("encoder")
+    PasswordEncoder bCryptPasswordEncoder;
+
+    //CREATES A USER AND GENERATES A JWT TOKEN FOR AUTHENTICATION
     @Override
     public String createUser(User newUser) {
         UserRole userRole = userRoleService.getRole(newUser.getUserRole().getName());
@@ -47,6 +51,9 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
+    //COMPARES THE USER PASSED AS A PARAMETER TO THE INFORMATION IN THE USER REPOSITORY AND
+    // GENERATES A JWT TOKEN ON APPROVAL
     @Override
     public String login(User user){
         User newUser = userRepository.findByUsername(user.getUsername());
@@ -57,24 +64,13 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    //FINDS A PROFILE BY THE USERNAME FROM THE USER REPOSITORY
     @Override
     public User getUser(String username) {
         return userRepository.findByUsername(username);
     }
 
-    @Override
-    public User addPost(String username, Long postId) {
-        Post post = postRepository.findById(postId).get();
-        User user = getUser(username);
-        user.addPost(post);
-
-        return userRepository.save(user);
-    }
-
-    @Autowired
-    @Qualifier("encoder")
-    PasswordEncoder bCryptPasswordEncoder;
-
+    //FINDS A USER BY THE USERNAME
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = getUser(username);
@@ -86,14 +82,16 @@ public class UserServiceImpl implements UserService {
                 true, true, true, true, new ArrayList<>());
     }
 
+    //GRANTS A USER AUTHORITY
     private List<GrantedAuthority> getGrantedAuthorities(User user){
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         authorities.add(new SimpleGrantedAuthority(user.getUserRole().getName()));
         return authorities;
     }
 
-        @Override
-        public Iterable<User> listUsers() {
+    //FINDS ALL THE USERS IN THE USER REPOSITORY
+    @Override
+    public Iterable<User> listUsers() {
         return userRepository.findAll();
     }
 

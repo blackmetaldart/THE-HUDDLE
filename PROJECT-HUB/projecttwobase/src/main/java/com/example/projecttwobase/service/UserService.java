@@ -9,6 +9,5 @@ public interface UserService extends UserDetailsService {
     String createUser(User newUser);
     String login(User user);
     User getUser(String username);
-    User addPost(String username, Long postId);
     public Iterable<User> listUsers();
 }
