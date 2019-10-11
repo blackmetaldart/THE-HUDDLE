@@ -32,14 +32,14 @@ function listAllPosts () {
       const commentBox = document.createElement('textarea');
       const commentSubmit = document.createElement('button');
 
-      randomPost.setAttribute("id", res[i].id);
-      title.setAttribute("class", "title");
-      commentBox.setAttribute("rows", "3");
-      commentBox.setAttribute("cols", "50");
-      commentBox.setAttribute("placeholder", "Your response to the post?");
+      randomPost.setAttribute('id', res[i].id);
+      title.setAttribute('class', 'title');
+      commentBox.setAttribute('rows', '3');
+      commentBox.setAttribute('cols', '50');
+      commentBox.setAttribute('placeholder', 'Your response to the post?');
 
       //PROVIDES ID OF POST FOR COMMENT
-      commentBox.setAttribute("postIdForComments", res[i].id);
+      commentBox.setAttribute('postIdForComments', res[i].id);
 
       title.innerText = res[i].title;
       description.innerText = res[i].description;
@@ -66,10 +66,10 @@ displayUserPosts();
 
 //THIS FUNCTION DISPLAYS ALL THE POSTS FROM THE USER
 function displayUserPosts() {
-  fetch("localhost:8080/user/post", {
+  fetch('localhost:8080/user/post', {
       method: 'GET',
       headers: {
-          "Authorization": "Bearer " + localStorage.getItem('user')
+          'Authorization': 'Bearer ' + localStorage.getItem('user')
       }})
   .then((res) => {return res.json();})
   .then((res) => {
@@ -91,14 +91,14 @@ function displayUserPosts() {
         prevDescription.innerText = res[i].description;
         commentSubmit.innerText = "Submit Comment";
 
-        prevTitle.setAttribute("class", "title");
-        prevPost.setAttribute("id", res[i].id);
-        commentBox.setAttribute("rows", "3");
-        commentBox.setAttribute("cols", "50");
-        commentBox.setAttribute("placeholder", "Your response to the post?");
+        prevTitle.setAttribute('class', 'title');
+        prevPost.setAttribute('id', res[i].id);
+        commentBox.setAttribute('rows', '3');
+        commentBox.setAttribute('cols', '50');
+        commentBox.setAttribute('placeholder', 'Your response to the post?');
 
         //PROVIDES ID OF POST FOR COMMENTS
-        commentBox.setAttribute("postIdForComments", res[i].id);
+        commentBox.setAttribute('postIdForComments', res[i].id);
 
         commentArea.append(commentBox, commentSubmit);
         prevPost.append(prevTitle, prevDescription, commentArea);
@@ -128,11 +128,11 @@ function createPost(e) {
     const title = document.querySelector('.newPostTitle');
     const des = document.querySelector('.newPostDes');
 
-    fetch("localhost:8080/post", {
+    fetch('localhost:8080/post', {
         method: 'POST',
         headers: {
-          "Authorization": "Bearer " + localStorage.getItem('user'),
-          "Content-Type": "application/json"
+          'Authorization': 'Bearer ' + localStorage.getItem('user'),
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             title: title.value,
@@ -149,9 +149,9 @@ function createPost(e) {
 //THIS FUNCTION ATTACHES NEW POSTS TO
 function addPostsToDom() {
 
-  fetch("localhost:8080/user/post", {
+  fetch('localhost:8080/user/post', {
       headers: {
-        "Authorization": "Bearer " + localStorage.getItem('user')
+        'Authorization': 'Bearer ' + localStorage.getItem('user')
       }})
   .then((res) => {return res.json();})
   .then((res) => {
@@ -169,13 +169,13 @@ function addPostsToDom() {
 
     newTitle.innerText = res[res.length-1].title;
     newDescription.innerText = res[res.length-1].description;
-    commentSubmit.innerText = "Submit Comment";
+    commentSubmit.innerText = 'Submit Comment';
 
-    newPost.setAttribute("id", `newPostId ${res.length-1}`);
-    commentBox.setAttribute("rows", "3");
-    commentBox.setAttribute("cols", "50");
-    commentBox.setAttribute("placeholder", "Your response to the post?");
-    commentBox.setAttribute("postIdForComments", `newPostId ${res.length-1}`);
+    newPost.setAttribute('id', `newPostId ${res.length-1}`);
+    commentBox.setAttribute('rows', '3');
+    commentBox.setAttribute('cols', '50');
+    commentBox.setAttribute('placeholder', 'Your response to the post?');
+    commentBox.setAttribute('postIdForComments', `newPostId ${res.length-1}`);
 
     commentArea.append(commentBox, commentSubmit);
     newPost.append(newTitle, newDescription, commentArea);
@@ -196,10 +196,10 @@ function addPostsToDom() {
 function createComment(postId) {
 
   fetch(`localhost:8080/comment/${postId}` , {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Authorization": "Bearer " + localStorage.getItem("user"),
-      "Content-Type": "application/json"
+      'Authorization': 'Bearer ' + localStorage.getItem('user'),
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       text: document.querySelector((`[postIdForComments="${postId}"]`)).value
@@ -224,7 +224,7 @@ function viewComments(postId) {
       commented.innerHTML = res[i].text;
 
       //STYLES COMMENTS
-      commented.setAttribute("class", "comment");
+      commented.setAttribute('class', 'comment');
 
       //TARGETS THE POST DIV TO HOLD THE COMMENTS
       const commentsPart = document.getElementById(res[i].post.id);
