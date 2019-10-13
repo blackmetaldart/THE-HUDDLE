@@ -33,7 +33,7 @@ CREATE USER [ENTER THE USERNAME YOU CHOSE] WITH PASSWORD '[ENTER THE PASSWORD YO
 ```
 GRANT ALL PRIVILEGES ON DATABASE [NAME OF THE DATABASE YOU ARE USING] TO [ENTER THE USERNAME YOU CHOSE];
 ```
-*For everything in brackets : You choose the word and the casing, but no spaces!
+* For everything in brackets : You choose the word and the casing, but no spaces!
 
 The rest of the code is commented for your understanding.
 
