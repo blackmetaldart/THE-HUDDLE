@@ -15,7 +15,7 @@ listAllPosts();
 //THIS FUNCTION LISTS ALL THE POSTS FROM THE API
 function listAllPosts () {
 
- fetch('localhost:8080/posts/list')
+ fetch('http://localhost:8080/posts/list')
  .then((res) => {return res.json();})
  .then((res) => {
   const randomPosts = document.querySelector('.randomPostsSection');
@@ -66,7 +66,7 @@ displayUserPosts();
 
 //THIS FUNCTION DISPLAYS ALL THE POSTS FROM THE USER
 function displayUserPosts() {
-  fetch('localhost:8080/' + `${usernameDisplay}`+ '/posts', {
+  fetch('http://localhost:8080/' + `${usernameDisplay}`+ '/posts', {
       method: 'GET',
       headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('user')
@@ -128,7 +128,7 @@ function createPost(e) {
     const title = document.querySelector('.newPostTitle');
     const des = document.querySelector('.newPostDes');
 
-    fetch('localhost:8080/' + `${usernameDisplay}` + '/makepost', {
+    fetch('http://localhost:8080/' + `${usernameDisplay}` + '/makepost', {
         method: 'POST',
         headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('user'),
@@ -195,7 +195,7 @@ function addPostsToDom() {
 //THIS FUNCTION ALLOWS THE USER TO MAKE COMMENTS
 function createComment(postId) {
 
-  fetch('localhost:8080/' +`${postId}` + '/comment' , {
+  fetch('http://localhost:8080/' +`${postId}` + '/comment' , {
     method: 'POST',
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('user'),
@@ -211,7 +211,7 @@ function createComment(postId) {
 //THIS FUNCTION WILL DISPLAY THE COMMENTS WITH A POST ID
 function viewComments(postId) {
 
-  fetch(`localhost:8080/post/${postId}/comments`)
+  fetch(`http://localhost:8080/post/${postId}/comments`)
   .then((res) => {return res.json();})
   .then((res) => {
 

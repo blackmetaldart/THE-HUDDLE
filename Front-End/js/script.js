@@ -50,7 +50,7 @@ function createUser(e) {
   localStorage.setItem('username', username.value);
   localStorage.setItem('primaryEmail', email.value);
 
-  fetch('localhost:8080/signup', {
+  fetch('http://localhost:8080/signup', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ function createUser(e) {
 function returningUser(e) {
     e.preventDefault();
 
-    fetch('localhost:8080/login', {
+    fetch('http://localhost:8080/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
