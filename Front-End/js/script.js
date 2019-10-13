@@ -1,9 +1,3 @@
-//THIS SECTION WILL HOLD ALL OF THE EVENT LISTENERS TO AFFECT THE DISPLAY OF THE APPLICATION
-signUpSubmit.addEventListener('click', createUser);
-signUpBtn.addEventListener('click', signUpToggle);
-logInBtn.addEventListener('click', logInToggle);
-logInSubmit.addEventListener('click', returningUser);
-
 //VARIABLE FOR THE JSON WEB TOKEN
 let token;
 
@@ -21,6 +15,13 @@ const username = document.querySelector('.userName');
 //THESE VARIABLES STORE THE DATA THAT THE USER LOGS IN WITH
 const logInEmail = document.querySelector('.logInEmail');
 const logInPassword = document.querySelector('.logInPassword');
+
+//THIS SECTION WILL HOLD ALL OF THE EVENT LISTENERS TO AFFECT THE DISPLAY OF THE APPLICATION
+signUpSubmit.addEventListener('click', createUser);
+signUpBtn.addEventListener('click', signUpToggle);
+logInBtn.addEventListener('click', logInToggle);
+logInSubmit.addEventListener('click', returningUser);
+
 
 //THIS FUNCTION ALLOWS THE SIGNUP MENU TO TOGGLE
 function signUpToggle() {
