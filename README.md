@@ -5,6 +5,10 @@
 ### PROJECT TWO BASE - A REDDIT CLONE USING JAVA AND SPRING FRAMEWORK
 
 ### BRIEF DESCRIPTION
+
+American football isn’t just a game. It is a battle between 22 evenly divided players. It requires immense strength, explosive power, agility, speed, and mental toughness. The sport is held dear by beloved fans that span the globe. And now, with The Huddle, fans can come together to share their opinions on the teams they champion.
+
+
 This project was written to produce the back-end for a blog-like site. It provides the ability to create/save a user along with a user profile. It also provides log-in functionality with the ability to create, save, and delete posts and comments.
 
 
