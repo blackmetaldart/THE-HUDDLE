@@ -25,12 +25,6 @@ public class CommentController {
     public List<Comment> getCommentByPostId(@PathVariable Long postId) { return commentService.getCommentsByPostId(postId);
    }
 
-    //GET COMMENT BY USERNAME
-//    @GetMapping("/{username}/comment")
-//    public List<Comment> getCommentByUsername(@PathVariable String username) {
-//        return commentService.getCommentByUsername(username);
-//    }
-
     //ENDPOINT THAT ALLOWS A USER TO DELETE A COMMENT / REFER TO COMMENT SERVICE
     @DeleteMapping("/comment/{commentId}")
     public ResponseEntity<Object> deleteCommentByCommentId(@PathVariable Long commentId) {
