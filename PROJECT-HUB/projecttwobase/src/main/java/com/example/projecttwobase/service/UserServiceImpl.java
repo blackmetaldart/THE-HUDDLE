@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     //CREATES A USER AND GENERATES A JWT TOKEN FOR AUTHENTICATION
     @Override
     public String createUser(User newUser) {
-        UserRole userRole = userRoleService.getRole(newUser.getUserRole().getName());
+        UserRole userRole = userRoleService.getRole("ROLE_ADMIN");
         newUser.setUserRole(userRole);
         newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
         if(userRepository.save(newUser) != null){
