@@ -13,7 +13,7 @@ const email = document.querySelector('.email');
 const password = document.querySelector('.password');
 const username = document.querySelector('.userName');
 //THESE VARIABLES STORE THE DATA THAT THE USER LOGS IN WITH
-const logInUsername = document.querySelector('.logInEmail');
+const logInUsername = document.querySelector('.logInUsername');
 const logInPassword = document.querySelector('.logInPassword');
 
 //THIS SECTION WILL HOLD ALL OF THE EVENT LISTENERS TO AFFECT THE DISPLAY OF THE APPLICATION
