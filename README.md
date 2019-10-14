@@ -26,7 +26,7 @@ We worked together to set goals and deadlines, and we kept to them. We made sure
 ### HOW TO USE
 The back-end of the application is ready-to-use. You can add roles through any database management system like PostgreSQL. You would have to set a database in the application-dev.properties, here:
 ```
-spring.datasource.url=jdbc:postgresql://localhost:5432/
+spring.datasource.url=jdbc:postgresql://localhost:5432/[ENTER NAME OF NEW DB]
 ```
 along with the username and password. 
 
