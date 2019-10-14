@@ -35,7 +35,7 @@ public class JwtUtil implements Serializable {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
 
-    //CHECK EXPIRY AND USERNAME FROM TOKEN TO VALILDATE
+    //CHECK EXPIRY AND USERNAME FROM TOKEN TO VALIDATE
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = getUsernameFromToken(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
