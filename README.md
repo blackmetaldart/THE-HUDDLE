@@ -41,7 +41,8 @@ GRANT ALL PRIVILEGES ON DATABASE [NAME OF THE DATABASE YOU ARE USING] TO [ENTER 
 
 The rest of the code is commented for your understanding.
 
-### UNSOLVED PROBLEMS
+### USER STORIES
+[USER STORIES](https://docs.google.com/document/d/1tQ0M42U-i7CZ78qQF0Fsv2D8o2_AJXg62cdJCH9b0bQ/edit?usp=sharing)
 
 
 ### AUTHORS
