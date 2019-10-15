@@ -13,7 +13,7 @@ This project was written to produce the back-end for a blog-like site. It provid
 
 
 ### TECHNOLOGIES USED
-* [INTELLIJ](https://www.jetbrains.com/idea/) - The IDE used for the Java
+* [INTELLIJ](https://www.jetbrains.com/idea/) - The IDE used to write the Java
 * [POSTGRESQL](https://www.postgresql.org) The object-relational database system used with SQL
 * [MAVEN](https://maven.apache.org/) - Dependency Management 
 * [ATOM](https://atom.io) - The cool text editor used to write the HTML, CSS, and JavaScript files.
