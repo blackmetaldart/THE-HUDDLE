@@ -16,12 +16,12 @@ listAllPosts();
 function listAllPosts () {
 
  fetch('http://localhost:8080/posts/list')
- .then((res) => {return res.json();})
- .then((res) => {
+ .then((response) => {return response.json();})
+ .then((response) => {
   const randomPosts = document.querySelector('.randomPostsSection');
 
   //CREATES DIV TO HOLD POST TITLE AND DESCRIPTION AND HAVE THE RESPONSE IDs
-  for(let i = 0; i < 5; i++) {
+  for(let i = 0; i < response.length-1; i++) {
 
       const randomPost = document.createElement('div');
       const title = document.createElement('h2');
@@ -32,17 +32,17 @@ function listAllPosts () {
       const commentBox = document.createElement('textarea');
       const commentSubmit = document.createElement('button');
 
-      randomPost.setAttribute('id', res[i].id);
+      randomPost.setAttribute('id', response[i].id);
       title.setAttribute('class', 'title');
       commentBox.setAttribute('rows', '3');
       commentBox.setAttribute('cols', '50');
       commentBox.setAttribute('placeholder', 'Your response to the post?');
 
       //PROVIDES ID OF POST FOR COMMENT
-      commentBox.setAttribute('postIdForComments', res[i].id);
+      commentBox.setAttribute('postIdForComments', response[i].id);
 
-      title.innerText = res[i].title;
-      description.innerText = res[i].description;
+      title.innerText = response[i].title;
+      description.innerText = response[i].description;
       commentSubmit.innerText = "Submit Comment";
 
       commentArea.append(commentBox, commentSubmit);
@@ -55,9 +55,9 @@ function listAllPosts () {
       commentSubmit.classList.add('commitSubmit');
       commentBox.classList.add('commentBox');
 
-      viewComments(res[i].id);}})
+      viewComments(response[i].id);}})
 
-  .catch((err) => {console.log(err);})
+  .catch((error) => {console.log(error);})
 
 }
 
@@ -71,12 +71,12 @@ function displayUserPosts() {
       headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('user')
       }})
-  .then((res) => {return res.json();})
-  .then((res) => {
+  .then((response) => {return response.json();})
+  .then((response) => {
     //DISPLAY USER POSTS
     const userPosts = document.getElementById('prevUserPostsDiv');
 
-    for(let i = 0; i < res.length; i++) {
+    for(let i = 0; i < response.length; i++) {
 
         const prevPost = document.createElement('div');
         const prevTitle = document.createElement('h2');
@@ -87,18 +87,18 @@ function displayUserPosts() {
         const commentBox = document.createElement('textarea');
         const commentSubmit = document.createElement('button');
 
-        prevTitle.innerText = res[i].title;
-        prevDescription.innerText = res[i].description;
+        prevTitle.innerText = response[i].title;
+        prevDescription.innerText = response[i].description;
         commentSubmit.innerText = "Submit Comment";
 
         prevTitle.setAttribute('class', 'title');
-        prevPost.setAttribute('id', res[i].id);
+        prevPost.setAttribute('id', response[i].id);
         commentBox.setAttribute('rows', '3');
         commentBox.setAttribute('cols', '50');
         commentBox.setAttribute('placeholder', 'Your response to the post?');
 
         //PROVIDES ID OF POST FOR COMMENTS
-        commentBox.setAttribute('postIdForComments', res[i].id);
+        commentBox.setAttribute('postIdForComments', response[i].id);
 
         commentArea.append(commentBox, commentSubmit);
         prevPost.append(prevTitle, prevDescription, commentArea);
@@ -113,10 +113,10 @@ function displayUserPosts() {
   })
 
 //CALLS THE FUNCTION TO VIEW THE COMMENTS
-  .then((res) => {viewComments(res);})
+  .then((response) => {viewComments(response);})
 
 //CONSOLE LOG ERROR RESPONSE
-  .catch((err) => {console.log(err);})
+  .catch((error) => {console.log(error);})
 }
 
 //THIS FUNCTION ALLOWS USERS TO CREATE POSTS
@@ -147,50 +147,50 @@ function createPost(e) {
 }
 
 //THIS FUNCTION ATTACHES NEW POSTS TO
-function addPostsToDom() {
-
-  fetch('localhost:8080/user/post', {
-      headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem('user')
-      }})
-  .then((res) => {return res.json();})
-  .then((res) => {
-    const newPosts = document.getElementById('newPostsDiv');
-    const userPosts = document.getElementById('prevUserPostsDiv');
-
-    const newPost = document.createElement('div');
-    const newTitle = document.createElement('h2');
-    const newDescription = document.createElement('p');
-
-    //VARIABLES FOR ELEMENTS USED FOR "CREATE COMMENT" BOX
-    const commentArea = document.createElement('div');
-    const commentBox = document.createElement('textarea');
-    const commentSubmit = document.createElement('button');
-
-    newTitle.innerText = res[res.length-1].title;
-    newDescription.innerText = res[res.length-1].description;
-    commentSubmit.innerText = 'Submit Comment';
-
-    newPost.setAttribute('id', `newPostId ${res.length-1}`);
-    commentBox.setAttribute('rows', '3');
-    commentBox.setAttribute('cols', '50');
-    commentBox.setAttribute('placeholder', 'Your response to the post?');
-    commentBox.setAttribute('postIdForComments', `newPostId ${res.length-1}`);
-
-    commentArea.append(commentBox, commentSubmit);
-    newPost.append(newTitle, newDescription, commentArea);
-    newPosts.appendChild(newPost);
-
-    newPost.classList.add('postDivStyle');
-    newTitle.classList.add('title');
-    newDescription.classList.add('description');
-    commentArea.classList.add('commentAreaDiv');
-    commentSubmit.classList.add('commentSubmit');
-    commentBox.classList.add('commentBox');
-})
-  .catch((err) => {console.log(err);})
-
-}
+// function addPostsToDom() {
+//
+//   fetch('localhost:8080/user/post', {
+//       headers: {
+//         'Authorization': 'Bearer ' + localStorage.getItem('user')
+//       }})
+//   .then((res) => {return res.json();})
+//   .then((res) => {
+//     const newPosts = document.getElementById('newPostsDiv');
+//     const userPosts = document.getElementById('prevUserPostsDiv');
+//
+//     const newPost = document.createElement('div');
+//     const newTitle = document.createElement('h2');
+//     const newDescription = document.createElement('p');
+//
+//     //VARIABLES FOR ELEMENTS USED FOR "CREATE COMMENT" BOX
+//     const commentArea = document.createElement('div');
+//     const commentBox = document.createElement('textarea');
+//     const commentSubmit = document.createElement('button');
+//
+//     newTitle.innerText = res[res.length-1].title;
+//     newDescription.innerText = res[res.length-1].description;
+//     commentSubmit.innerText = 'Submit Comment';
+//
+//     newPost.setAttribute('id', `newPostId ${res.length-1}`);
+//     commentBox.setAttribute('rows', '3');
+//     commentBox.setAttribute('cols', '50');
+//     commentBox.setAttribute('placeholder', 'Your response to the post?');
+//     commentBox.setAttribute('postIdForComments', `newPostId ${res.length-1}`);
+//
+//     commentArea.append(commentBox, commentSubmit);
+//     newPost.append(newTitle, newDescription, commentArea);
+//     newPosts.appendChild(newPost);
+//
+//     newPost.classList.add('postDivStyle');
+//     newTitle.classList.add('title');
+//     newDescription.classList.add('description');
+//     commentArea.classList.add('commentAreaDiv');
+//     commentSubmit.classList.add('commentSubmit');
+//     commentBox.classList.add('commentBox');
+// })
+//   .catch((err) => {console.log(err);})
+//
+// }
 
 //THIS FUNCTION ALLOWS THE USER TO MAKE COMMENTS
 function createComment(postId) {
