@@ -113,12 +113,23 @@
             <section class="postsSections">
                <a href="#newPostArea" id="goToNewPost">NEW POST</a>
             <section>
-               <div class="flex">
-                  <h1 class="topic borderEqual">TOPICS OF WEEK 1<h1>
-               </div>
+
+<!--THIS IS A SECTION TO CREATE A NEW POST-->
+              <div class="createNewPost">
+                 <h1 id="newPostArea" class="borderEqual">CREATE NEW POST</h1>
+                 <form class="postCreateForm">
+                    <label for="postTitleInput">Post Title:
+                       <input type="text" class="newPostTitle" placeholder="Post Title" />
+                    </label>
+                    <label for="postDesInput">Post Content:
+                       <textarea rows = "3" cols = "30" class="newPostDes" placeholder="Post Content"></textarea>
+                    </label>
+                       <button class="newPostBtn">Create new post</button>
+                 </form>
+              </div>
 
                <!--THE FIRST STATIC POST-->
-               <div class="postDiv gameOne">
+            <!--   <div class="postDiv gameOne">
                  <div class="flex postTop">
                     <h2 class="title">Odell's $350k watch</h2>
                 </div>
@@ -133,10 +144,10 @@
                    <textarea class="commentBox" name="textarea" rows="3" cols="50" placeholder = "Your response to the post?"></textarea>
                    <button type=submit class="commentSubmit">Submit Comment</button>
                 </div>
-            </div>
+            </div>-->
 
             <!--THE SECOND STATIC POST-->
-            <div class="postDiv gameFour">
+          <!--  <div class="postDiv gameFour">
                <div class="flex postTop">
                   <h2 class="title">Patriots to Superbowl LIV (54)?</h2>
                </div>
@@ -153,10 +164,10 @@
                </div>
                </div>
             </div>
-         </section>
+         </section>-->
 
 <!--THIS SECTION WILL HOLD RANDOM COMMENTS / WILL BE POPULATED THROUGH API-->
-      <h1 class="borderEqual title">RANDOM COMMENTARY</h1>
+      <h1 class="borderEqual title">POST HISTORY</h1>
       <section class="randomPostsSection marginTop"></section>
 
 <!--THIS SECTION WILL HOLD USER POSTS / WILL BE POPULATED THROUGH API-->
@@ -170,18 +181,7 @@
       <section class="recentPostArea">
         <div id="newPostsDiv"></div>
 
-        <div class="createNewPost">
-           <h1 id="newPostArea" class="borderEqual">CREATE NEW POST</h1>
-           <form class="postCreateForm">
-              <label for="postTitleInput">Post Title:
-                 <input type="text" class="newPostTitle" placeholder="Post Title" />
-              </label>
-              <label for="postDesInput">Post Content:
-                 <textarea rows = "3" cols = "30" class="newPostDes" placeholder="Post Content"></textarea>
-              </label>
-                 <button class="newPostBtn">Create new post</button>
-           </form>
-        </div>
+
       </section>
     </section>
     </main>
