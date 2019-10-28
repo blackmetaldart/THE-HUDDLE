@@ -188,6 +188,11 @@ aside {
   align-items: center;
 }
 
+.randomPostsSection {
+  height : 60vh;
+  overflow-y: scroll;
+}
+
 .topic {
   width: 90%;
 }

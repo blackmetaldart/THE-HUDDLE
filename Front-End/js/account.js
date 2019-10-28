@@ -29,43 +29,43 @@ function displayProfile() {
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('user'),
       'Content-Type': 'application/json'}})
-  .then((res) => {return res.json();})
-  .then((res) => {
+  .then((response) => {return response.json();})
+  .then((response) => {
     displayUserName.innerHTML = `${usernameDisplay}`;
     displayPrimaryEmail.innerHTML = localStorage.getItem('primaryEmail');
 
     //DISPLAYS THE USER'S EMAIL IF THERE IS ONE
-    if(res.additionalEmail === undefined || !localStorage.getItem('secondaryEmail')) {
+    if(res.addtEmail === undefined || !localStorage.getItem('secondaryEmail')) {
       displayAddEmail.innerHTML = '<em>Add Secondary Email</em>';
-    } else if(res.additionalEmail) {
-      displayAddEmail.innerHTML = res.additionalEmail;
-      localStorage.setItem('secondaryEmail', res.additionalEmail);
-    } else if (!res.additionalEmail) {
+    } else if(response.addtEmail) {
+      displayAddEmail.innerHTML = response.addtEmail;
+      localStorage.setItem('secondaryEmail', response.tEmail);
+    } else if (!response.addtEmail) {
       displayAddEmail.innerHTML = localStorage.getItem('secondaryEmail');
     }
 
     //DISPLAYS THE USER'S MOBILE IF THERE IS ONE
-    if(res.mobile === undefined || !localStorage.getItem('mobile')) {
+    if(response.mobile === undefined || !localStorage.getItem('mobile')) {
       displayMobile.innerHTML = '<em>Add Mobile Number</em>';
-    } else if(res.mobile) {
-      displayMobile.innerHTML = res.mobile;
-      localStorage.setItem('mobile', res.mobile);
-    } else if(!res.mobile) {
+    } else if(response.mobile) {
+      displayMobile.innerHTML = response.mobile;
+      localStorage.setItem('mobile', response.mobile);
+    } else if(!response.mobile) {
       displayMobile.innerHTML = localStorage.getItem('mobile');
     }
 
     //DISPLAYS THE USER'S ADDRESS IF THERE IS ONE
-    if(res.address === undefined || !localStorage.getItem('addy')) {
+    if(response.address === undefined || !localStorage.getItem('addy')) {
       displayAddy.innerHTML = '<em>Add Home Address</em>';
-    } else if(res.address) {
-      displayAddy.innerHTML = res.address;
+    } else if(response.address) {
+      displayAddy.innerHTML = response.address;
       localStorage.setItem('addy', res.address);
-    } else if(!res.address) {
+    } else if(!response.address) {
       displayAddy.innerHTML = localStorage.getItem('addy');
     }})
 
   //LOGS ERRORS TO CONSOLE
-  .catch((err) => {console.log(err);})
+  .catch((error) => {console.log(error);})
 
 }
 
@@ -79,29 +79,29 @@ function createProfile(e){
       'Authorization': 'Bearer ' + localStorage.getItem('user'),
       'Content-Type': 'application/json'},
     body: JSON.stringify({
-      additionalEmail: addEmail.value,
+      addtEmail: addEmail.value,
       mobile: mobile.value,
       address: addy.value})})
 
-  .then((res) => {return res.json();})
+  .then((response) => {return response.json();})
 
   //CALLS UPDATEPROFILE FUNCTION TO SHOW NEW CHANGES FROM "CREATE/UPDATE" PROFILE FORM
-  .then((res)=> {updateProfile(res);})
+  .then((response)=> {updateProfile(response);})
 
   //LOGS ERRORS TO CONSOLE
-  .catch((err) => {console.log(err);})
+  .catch((error) => {console.log(error);})
 
 }
 
 //THIS FUNCTION UPDATES PROFILE FUNCTION
-function updateProfile(res) {
+function updateProfile(response) {
 
   //IF INPUT VALUE FOR THE USER'S ADDITIONAL EMAIL IS AN EMPTY STRING OR NULL, THEN DON'T UPDATE FORM
   //OTHERWISE DISPLAY THE USER'S ADDITIONAL EMAIL
   if(addEmail.value === "" || addEmail.value === null) {
     return;
   } else {
-    displayAddEmail.innerHTML = res.additionalEmail;
+    displayAddEmail.innerHTML = response.additionalEmail;
   }
 
   //IF INPUT VALUE FOR THE USER'S MOBILE IS AN EMPTY STRING OR NULL, THEN DON'T UPDATE FORM
@@ -109,7 +109,7 @@ function updateProfile(res) {
   if(mobile.value === "" || mobile.value === null) {
     return;
   } else {
-    displayMobile.innerHTML = res.mobile;
+    displayMobile.innerHTML = response.mobile;
   }
 
   //IF INPUT VALUE FOR THE USER'S ADDRESS IS AN EMPTY STRING OR NULL, THEN DON'T UPDATE FORM
@@ -117,6 +117,6 @@ function updateProfile(res) {
   if(addy.value === "" || mobile.value === null) {
     return;
   } else {
-    displayAddy.innerHTML = res.address;
+    displayAddy.innerHTML = response.address;
   }
 }
