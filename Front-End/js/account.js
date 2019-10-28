@@ -24,7 +24,7 @@ displayProfile();
 
 function displayProfile() {
 
-  fetch('http://localhost:8080/' + `${usernameDisplay}`, {
+  fetch('http://localhost:8080/profile/' + `${usernameDisplay}`, {
     method: 'GET',
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('user'),
@@ -73,7 +73,7 @@ function displayProfile() {
 function createProfile(e){
   e.preventDefault();
 
-  fetch('http://localhost:8080/' + `${usernameDisplay}`, {
+  fetch('http://localhost:8080/profile/' + `${usernameDisplay}`, {
     method: 'POST',
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('user'),
