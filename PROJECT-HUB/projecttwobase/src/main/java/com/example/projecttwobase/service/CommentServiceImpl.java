@@ -22,9 +22,10 @@ public class CommentServiceImpl implements CommentService {
 
     //SAVES A COMMENT IN THE COMMENT REPOSITORY
     public Comment createComment(@RequestBody Comment comment, Long postId ){
-       Post post =  postRepository.getPostById(postId);
-       comment.setPost(post);
-       return commentRepository.save(comment);
+        Post post =  postRepository.getPostById(postId);
+        comment.setPost(post);
+        comment.setUsername(post.getUsername());
+        return commentRepository.save(comment);
     }
 
     //FINDS ALL COMMENTS USING A POST'S ID
@@ -32,9 +33,11 @@ public class CommentServiceImpl implements CommentService {
         return commentRepository.findAllByPostId(postId);
     }
 
-//    public List<Comment> getCommentByUsername (String username){
-//        return commentRepository.findAllByUsername(username);
-//    }
+
+    //FINDS ALL THE COMMENTS USING THE USERNAME
+    public List<Comment> getCommentsByUsername (String username){
+        return commentRepository.findAllByUsername(username);
+    }
 
     //DELETES A COMMENT FROM THE COMMENT REPOSITORY
     @Override

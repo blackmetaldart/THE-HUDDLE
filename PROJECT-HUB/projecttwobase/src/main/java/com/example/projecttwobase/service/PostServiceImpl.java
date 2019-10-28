@@ -28,9 +28,9 @@ public class PostServiceImpl implements PostService{
 
     //DELETES A POST FROM THE POST REPOSITORY
     public ResponseEntity<Object> deletePostByPostId(Long postId){
-       return postRepository.findById(postId).map (post -> {
+        return postRepository.findById(postId).map (post -> {
             postRepository.delete(post);
-           return ResponseEntity.ok().build();
+            return ResponseEntity.ok().build();
         }).orElseThrow(() -> new ExceptionHandler("PostId " + postId + " not found"));
     }
 
