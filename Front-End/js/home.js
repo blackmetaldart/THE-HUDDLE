@@ -141,7 +141,7 @@ function createPost(e) {
     })
     .then((res) => {
         //ADD A NEW POST TO THE DOM
-        addPostsToDom();})
+        window.location.href = "./home.html";})
     //LOG ANY ERRORS IN THE CONSOLE WINDOW
     .catch((err) => {console.log(err);})
 }
