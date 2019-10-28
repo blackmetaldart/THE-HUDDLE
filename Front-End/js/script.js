@@ -60,14 +60,14 @@ function createUser(e) {
               password: password.value,
               email: email.value
           })})
-  .then((res) => {return res.json();})
-  .then((res) => {token = res.token;//store token value to variable token
+  .then((response) => {return response.json();})
+  .then((response) => {token = response.token;//store token value to variable token
     //allows for data persistence between html pages
     localStorage.setItem('user', token); //stores token as a cookie
 
     //REDIRECTS USER TO HOMEPAGE
     redirectHome();})
-  .catch((err) => {console.log(err);})
+  .catch((error) => {console.log(error);})
 }
 
 //THIS FUNCTION RETURNS A USER UPON LOGIN
@@ -81,8 +81,8 @@ function returningUser(e) {
             username: logInUsername.value,
             password: logInPassword.value
           })})
-      .then(res => {return res.json();})
-      .then(res => {token = res.token;
+      .then(response => {return response.json();})
+      .then(response => {token = response.token;
         localStorage.setItem('user', token);
         redirectHome();})
       .catch(error => {console.error(error);});
