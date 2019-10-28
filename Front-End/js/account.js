@@ -35,7 +35,7 @@ function displayProfile() {
     displayPrimaryEmail.innerHTML = localStorage.getItem('primaryEmail');
 
     //DISPLAYS THE USER'S EMAIL IF THERE IS ONE
-    if(res.addtEmail === undefined || !localStorage.getItem('secondaryEmail')) {
+    if(response.addtEmail === undefined || !localStorage.getItem('secondaryEmail')) {
       displayAddEmail.innerHTML = '<em>Add Secondary Email</em>';
     } else if(response.addtEmail) {
       displayAddEmail.innerHTML = response.addtEmail;
