@@ -23,7 +23,13 @@ public class CommentController {
     //ENDPOINT THAT ALLOWS A USER TO GET COMMENTS BY POST ID / REFER TO COMMENT SERVICE
     @GetMapping("/post/{postId}/comments")
     public List<Comment> getCommentByPostId(@PathVariable Long postId) { return commentService.getCommentsByPostId(postId);
-   }
+    }
+
+    // GET COMMENT BY USERNAME
+    @GetMapping("/{username}/comments")
+    public List<Comment> getCommentByUsername(@PathVariable String username) {
+        return commentService.getCommentsByUsername(username);
+    }
 
     //ENDPOINT THAT ALLOWS A USER TO DELETE A COMMENT / REFER TO COMMENT SERVICE
     @DeleteMapping("/comment/{commentId}")
