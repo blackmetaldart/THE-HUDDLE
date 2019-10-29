@@ -24,13 +24,14 @@ displayProfile();
 
 function displayProfile() {
 
-  fetch('http://localhost:8080/profile/' + `${usernameDisplay}`, {
+  fetch('http://localhost:8080/profile/' + localStorage.getItem('username'), {
     method: 'GET',
     headers: {
       'Authorization': 'Bearer ' + localStorage.getItem('user'),
       'Content-Type': 'application/json'}})
   .then((response) => {return response.json();})
   .then((response) => {
+    console.log(response);
     displayUserName.innerHTML = `${usernameDisplay}`;
     displayPrimaryEmail.innerHTML = localStorage.getItem('primaryEmail');
 
@@ -39,8 +40,8 @@ function displayProfile() {
       displayAddEmail.innerHTML = '<em>Add Secondary Email</em>';
     } else if(response.addtEmail) {
       displayAddEmail.innerHTML = response.addtEmail;
-      localStorage.setItem('secondaryEmail', response.tEmail);
-    } else if (!response.addtEmail) {
+      localStorage.setItem('secondaryEmail', response.addtEmail);
+    } else if (localStorage.getItem('secondaryEmail')) {
       displayAddEmail.innerHTML = localStorage.getItem('secondaryEmail');
     }
 
@@ -59,7 +60,7 @@ function displayProfile() {
       displayAddy.innerHTML = '<em>Add Home Address</em>';
     } else if(response.address) {
       displayAddy.innerHTML = response.address;
-      localStorage.setItem('addy', res.address);
+      localStorage.setItem('addy', response.address);
     } else if(!response.address) {
       displayAddy.innerHTML = localStorage.getItem('addy');
     }})
@@ -101,7 +102,7 @@ function updateProfile(response) {
   if(addEmail.value === "" || addEmail.value === null) {
     return;
   } else {
-    displayAddEmail.innerHTML = response.additionalEmail;
+    displayAddEmail.innerHTML = response.addtEmail;
   }
 
   //IF INPUT VALUE FOR THE USER'S MOBILE IS AN EMPTY STRING OR NULL, THEN DON'T UPDATE FORM
