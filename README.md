@@ -22,23 +22,7 @@ We began with utilizing Spring Initializer to build the project using Spring Fra
 
 We worked together to set goals and deadlines, and we kept to them. We made sure not to get caught up in the impossible by thinking about what needed to be accomplished rather than what we wanted to be accomplished. We also did a lot of pair programming, so we were able to error-check and learn from each other.
 
-### HOW TO USE
-The back-end of the application is ready-to-use. You can add roles through any database management system like PostgreSQL. You would have to set a database in the application-dev.properties, here:
-```
-spring.datasource.url=jdbc:postgresql://localhost:5432/[ENTER NAME OF NEW DB]
-```
-along with the username and password. 
 
-You also have to go into the PostgreSQL system from the terminal and enter two commands :
-```
-CREATE USER [ENTER THE USERNAME YOU CHOSE] WITH PASSWORD '[ENTER THE PASSWORD YOU CHOSE]';
-```
-```
-GRANT ALL PRIVILEGES ON DATABASE [NAME OF THE DATABASE YOU ARE USING] TO [ENTER THE USERNAME YOU CHOSE];
-```
-* For everything in brackets : You choose the word and the casing, but no spaces!
-
-The rest of the code is commented for your understanding.
 
 ### USER STORIES
 [USER STORIES](https://docs.google.com/document/d/1tQ0M42U-i7CZ78qQF0Fsv2D8o2_AJXg62cdJCH9b0bQ/edit?usp=sharing)
