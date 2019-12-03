@@ -29,6 +29,6 @@ We worked together to set goals and deadlines, and we kept to them. We made sure
 
 
 ### AUTHORS
-* **ZAINAB AKRAMI** - [GITHUB](https://github.com/zainab21)
-* **ALEXANDER BEACH** - [GITHUB](https://github.com/MrAlexBeach)
+* **ZAINAB AKRAMI** - [GITHUB](https://github.com/zainabakrami)
+* **ALEXANDER BEACH** - [GITHUB](https://github.com/blackmetaldart)
 
