@@ -9,10 +9,9 @@ let usernameDisplay = localStorage.getItem('username');
 accountLink.innerText = usernameDisplay;
 accountLink.style.borderBottom = "3px double rgb(163,13,45)";
 
-//DISPLAYS ONLY FIRST SEVEN POSTS FROM API
+//THIS FUNCTION LISTS ALL THE POSTS FROM THE API
 listAllPosts();
 
-//THIS FUNCTION LISTS ALL THE POSTS FROM THE API
 function listAllPosts () {
 
  fetch('http://localhost:8080/posts/list')
@@ -61,10 +60,9 @@ function listAllPosts () {
 
 }
 
-//GET POSTS FROM USER
+//THIS FUNCTION DISPLAYS ALL THE POSTS FROM THE USER
 displayUserPosts();
 
-//THIS FUNCTION DISPLAYS ALL THE POSTS FROM THE USER
 function displayUserPosts() {
   fetch('http://localhost:8080/' + `${usernameDisplay}`+ '/posts', {
       method: 'GET',
@@ -111,11 +109,7 @@ function displayUserPosts() {
         commentArea.classList.add('commentAreaDiv');
      }
   })
-
-//CALLS THE FUNCTION TO VIEW THE COMMENTS
   .then((response) => {viewComments(response);})
-
-//CONSOLE LOG ERROR RESPONSE
   .catch((error) => {console.log(error);})
 }
 
@@ -140,20 +134,17 @@ function createPost(e) {
         })
     })
     .then((response) => {
-        //ADD A NEW POST TO THE DOM
         window.location.href = "./home.html";})
-    //LOG ANY ERRORS IN THE CONSOLE WINDOW
     .catch((error) => {console.log(error);})
 }
 
 //THIS FUNCTION ALLOWS THE USER TO MAKE COMMENTS
 function createComment(postId) {
-
   fetch('http://localhost:8080/' +`${postId}` + '/comment' , {
     method: 'POST',
     headers: {
-      'Authorization': 'Bearer ' + localStorage.getItem('user'),
-      'Content-Type': 'application/json'
+      'Authorization' : 'Bearer ' + localStorage.getItem('user'),
+      'Content-Type' : 'application/json'
     },
     body: JSON.stringify({
       text: document.querySelector((`[postIdForComments="${postId}"]`)).value
@@ -164,24 +155,17 @@ function createComment(postId) {
 
 //THIS FUNCTION WILL DISPLAY THE COMMENTS WITH A POST ID
 function viewComments(postId) {
-
   fetch(`http://localhost:8080/post/${postId}/comments`)
   .then((response) => {return response.json();})
   .then((response) => {
 
     if(response !== []) {
     for(let i = 0; i < response.length; i++) {
-      //CREATES THE ELEMENT TO HOLD THE COMMENT
       const commented = document.createElement('p');
-
-      //SETS P TO HAVE THE COMMENT TEXT
-      commented.innerHTML = response[i].text;
-
-      //STYLES COMMENTS
-      commented.setAttribute('class', 'comment');
-
-      //TARGETS THE POST DIV TO HOLD THE COMMENTS
       const commentsPart = document.getElementById(response[i].post.id);
+
+      commented.innerHTML = response[i].text;
+      commented.setAttribute('class', 'comment');
       commentsPart.appendChild(commented);
     }}})
   .catch((error) => {console.log(error);})
