@@ -19,6 +19,7 @@ let usernameDisplay = localStorage.getItem('username');
 accountLink.innerText = usernameDisplay;
 accountLink.style.borderBottom = '3px double rgb(163,13,45)';
 displayUserName.innerHTML = usernameDisplay;
+displayPrimaryEmail.innerHTML = localStorage.getItem('primaryEmail');
 
 //THIS FUNCTION SHOWS PROFILE INFORMATION
 displayProfile();
@@ -33,9 +34,7 @@ function displayProfile() {
   .then((response) => {return response.json();})
   .then((response) => {
     console.log(response);
-    displayUserName.innerHTML = `${usernameDisplay}`;
-    displayPrimaryEmail.innerHTML = localStorage.getItem('primaryEmail');
-
+    
     //DISPLAYS THE USER'S EMAIL IF THERE IS ONE
     if(response.addtEmail === undefined || !localStorage.getItem('secondaryEmail')) {
       displayAddEmail.innerHTML = '<em>Add Secondary Email</em>';
