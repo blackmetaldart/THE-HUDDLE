@@ -34,7 +34,7 @@ function displayProfile() {
   .then((response) => {return response.json();})
   .then((response) => {
     console.log(response);
-    
+
     //DISPLAYS THE USER'S EMAIL IF THERE IS ONE
     if(response.addtEmail === undefined || !localStorage.getItem('secondaryEmail')) {
       displayAddEmail.innerHTML = '<em>Add Secondary Email</em>';
@@ -64,8 +64,6 @@ function displayProfile() {
     } else if(!response.address) {
       displayAddy.innerHTML = localStorage.getItem('addy');
     }})
-
-  //LOGS ERRORS TO CONSOLE
   .catch((error) => {console.log(error);})
 
 }
