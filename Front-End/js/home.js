@@ -169,7 +169,7 @@ function viewComments(postId) {
   .then((response) => {return response.json();})
   .then((response) => {
 
-    if(res !== []) {
+    if(response !== []) {
     for(let i = 0; i < response.length; i++) {
       //CREATES THE ELEMENT TO HOLD THE COMMENT
       const commented = document.createElement('p');
@@ -184,5 +184,5 @@ function viewComments(postId) {
       const commentsPart = document.getElementById(response[i].post.id);
       commentsPart.appendChild(commented);
     }}})
-  .catch((err) => {console.log(err);})
+  .catch((error) => {console.log(error);})
 }
