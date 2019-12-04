@@ -158,8 +158,8 @@ function createComment(postId) {
     body: JSON.stringify({
       text: document.querySelector((`[postIdForComments="${postId}"]`)).value
     })})
-  .then(response => {viewComments(postId);})
-  .catch(error => {console.log(error);});
+  .then((response) => {viewComments(postId);})
+  .catch((error) => {console.log(error);});
 }
 
 //THIS FUNCTION WILL DISPLAY THE COMMENTS WITH A POST ID
