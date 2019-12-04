@@ -86,6 +86,7 @@ function displayUserPosts() {
         const commentBox = document.createElement('textarea');
         const commentSubmit = document.createElement('button');
 
+        commentSubmit.setAttribute('value', response[i].id)
         commentSubmit.addEventListener('click', createComment);
 
         prevTitle.innerText = response[i].title;
@@ -151,9 +152,9 @@ function createComment() {
       'Content-Type' : 'application/json'
     },
     body: JSON.stringify({
-      text: document.querySelector((`[postIdForComments="${postId}"]`)).value
+      text: document.querySelector((`[postIdForComments="${this.value}"]`)).value
     })})
-  .then((response) => {viewComments(postId);})
+  .then((response) => {viewComments(this.value);})
   .catch((error) => {console.log(error);});
 }
 
@@ -166,12 +167,12 @@ function viewComments(postId) {
 
     if(response !== []) {
     for(let i = 0; i < response.length; i++) {
-      const commented = document.createElement('p');
+      const comment = document.createElement('p');
       const commentsPart = document.getElementById(response[i].post.id);
 
-      commented.innerHTML = response[i].text;
-      commented.setAttribute('class', 'comment');
-      commentsPart.appendChild(commented);
+      comment.innerHTML = response[i].text;
+      comment.setAttribute('class', 'comment');
+      commentsPart.appendChild(comment);
     }}})
   .catch((error) => {console.log(error);})
 }
