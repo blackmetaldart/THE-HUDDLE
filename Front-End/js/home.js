@@ -168,9 +168,11 @@ function viewComments(postId) {
     if(response !== []) {
     for(let i = 0; i < response.length; i++) {
       const comment = document.createElement('p');
+      const uName = document.createElement('p');
       const commentsPart = document.getElementById(postId);
 
-      comment.innerHTML = response[i].text;
+      uName.innerHTML = response[i].username + " : "
+      comment.innerHTML = uName.innerHTML + response[i].text;
       comment.setAttribute('class', 'comment');
       commentsPart.appendChild(comment);
     }}})
