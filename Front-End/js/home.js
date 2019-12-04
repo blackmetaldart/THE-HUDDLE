@@ -31,6 +31,8 @@ function listAllPosts () {
       const commentBox = document.createElement('textarea');
       const commentSubmit = document.createElement('button');
 
+      commentSubmit.addEventListener('click', createComment);
+
       randomPost.setAttribute('id', response[i].id);
       title.setAttribute('class', 'title');
       commentBox.setAttribute('rows', '3');
