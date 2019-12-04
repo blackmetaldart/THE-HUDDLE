@@ -18,6 +18,7 @@ let usernameDisplay = localStorage.getItem('username');
 //DISPLAYS THE USERNAME
 accountLink.innerText = usernameDisplay;
 accountLink.style.borderBottom = '3px double rgb(163,13,45)';
+displayUserName.innerHTML = usernameDisplay;
 
 //THIS FUNCTION SHOWS PROFILE INFORMATION
 displayProfile();
