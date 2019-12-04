@@ -11,7 +11,6 @@ accountLink.style.borderBottom = "3px double rgb(163,13,45)";
 
 //THIS FUNCTION LISTS ALL THE POSTS FROM THE API
 listAllPosts();
-
 function listAllPosts () {
 
  fetch('http://localhost:8080/posts/list')
@@ -64,7 +63,6 @@ function listAllPosts () {
 
 //THIS FUNCTION DISPLAYS ALL THE POSTS FROM THE USER
 displayUserPosts();
-
 function displayUserPosts() {
   fetch('http://localhost:8080/' + `${usernameDisplay}`+ '/posts', {
       method: 'GET',
@@ -86,6 +84,8 @@ function displayUserPosts() {
         const commentArea = document.createElement('div');
         const commentBox = document.createElement('textarea');
         const commentSubmit = document.createElement('button');
+
+        commentSubmit.addEventListener('click', createComment);
 
         prevTitle.innerText = response[i].title;
         prevDescription.innerText = response[i].description;
@@ -142,6 +142,7 @@ function createPost(e) {
 
 //THIS FUNCTION ALLOWS THE USER TO MAKE COMMENTS
 function createComment(postId) {
+
   fetch('http://localhost:8080/' +`${postId}` + '/comment' , {
     method: 'POST',
     headers: {
@@ -157,6 +158,7 @@ function createComment(postId) {
 
 //THIS FUNCTION WILL DISPLAY THE COMMENTS WITH A POST ID
 function viewComments(postId) {
+
   fetch(`http://localhost:8080/post/${postId}/comments`)
   .then((response) => {return response.json();})
   .then((response) => {
