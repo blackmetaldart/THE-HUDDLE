@@ -30,13 +30,14 @@ function listAllPosts () {
       const commentBox = document.createElement('textarea');
       const commentSubmit = document.createElement('button');
 
+      commentSubmit.setAttribute('value', response[i].id)
       commentSubmit.addEventListener('click', createComment);
 
       randomPost.setAttribute('id', response[i].id);
       title.setAttribute('class', 'title');
       commentBox.setAttribute('rows', '3');
       commentBox.setAttribute('cols', '50');
-      commentBox.setAttribute('placeholder', 'Your response to the post?');
+      commentBox.setAttribute('placeholder', 'Enter a comment to submit.');
 
       //PROVIDES ID OF POST FOR COMMENT
       commentBox.setAttribute('postIdForComments', response[i].id);
@@ -141,9 +142,9 @@ function createPost(e) {
 }
 
 //THIS FUNCTION ALLOWS THE USER TO MAKE COMMENTS
-function createComment(postId) {
+function createComment() {
 
-  fetch('http://localhost:8080/' +`${postId}` + '/comment' , {
+  fetch('http://localhost:8080/' +`${this.value}` + '/comment' , {
     method: 'POST',
     headers: {
       'Authorization' : 'Bearer ' + localStorage.getItem('user'),
