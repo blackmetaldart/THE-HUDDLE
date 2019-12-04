@@ -16,10 +16,10 @@ function listAllPosts () {
  fetch('http://localhost:8080/posts/list')
  .then((response) => {return response.json();})
  .then((response) => {
-  const randomPosts = document.querySelector('.randomPostsSection');
+  const randomPosts = document.querySelector('.postListSection');
 
   //CREATES DIV TO HOLD POST TITLE AND DESCRIPTION AND HAVE THE RESPONSE IDs
-  for(let i = 0; i < response.length-1; i++) {
+  for(let i = 0; i < response.length; i++) {
 
       const randomPost = document.createElement('div');
       const title = document.createElement('h2');
