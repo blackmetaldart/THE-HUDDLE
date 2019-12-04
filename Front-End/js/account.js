@@ -4,7 +4,7 @@ createProfileBtn.addEventListener('click', createProfile);
 //DISPLAY PROFLIE VARIABLES
 const displayUserName = document.getElementById('displayUserName');
 const displayPrimaryEmail = document.getElementById('displayPrimaryEmail');
-const displayAddEmail = document.getElementById('displayAddEmail');
+const displayAddtEmail = document.getElementById('displayAddtEmail');
 const displayMobile = document.getElementById('displayMobile');
 const displayAddy = document.getElementById('displayAddy');
 //CREATE PROFILE FORM VARIABLES
@@ -36,22 +36,22 @@ function displayProfile() {
     console.log(response);
 
     //DISPLAYS THE USER'S EMAIL IF THERE IS ONE
-    if(response.addtEmail === undefined || !localStorage.getItem('secondaryEmail')) {
-      displayAddEmail.innerHTML = '<em>Add Secondary Email</em>';
-    } else if(response.addtEmail) {
-      displayAddEmail.innerHTML = response.addtEmail;
-      localStorage.setItem('secondaryEmail', response.addtEmail);
-    } else if (localStorage.getItem('secondaryEmail')) {
-      displayAddEmail.innerHTML = localStorage.getItem('secondaryEmail');
+    if(response.addtEmail) {
+      displayAddtEmail.innerHTML = response.addtEmail;
+      localStorage.setItem('secondaryEmail', response.addtEmail);}
+    else if(response.addtEmail === undefined || !localStorage.getItem('secondaryEmail')) {
+        displayAddtEmail.innerHTML = '<em>Add Secondary Email</em>';}
+    else if (localStorage.getItem('secondaryEmail')) {
+      displayAddtEmail.innerHTML = localStorage.getItem('secondaryEmail');
     }
 
     //DISPLAYS THE USER'S MOBILE IF THERE IS ONE
-    if(response.mobile === undefined || !localStorage.getItem('mobile')) {
-      displayMobile.innerHTML = '<em>Add Mobile Number</em>';
-    } else if(response.mobile) {
+    if(response.mobile) {
       displayMobile.innerHTML = response.mobile;
-      localStorage.setItem('mobile', response.mobile);
-    } else if(!response.mobile) {
+      localStorage.setItem('mobile', response.mobile);}
+    else if(response.mobile === undefined || !localStorage.getItem('mobile')) {
+      displayMobile.innerHTML = '<em>Add Mobile Number</em>';}
+    else if(!response.mobile) {
       displayMobile.innerHTML = localStorage.getItem('mobile');
     }
 
