@@ -181,14 +181,14 @@ aside {
 
 
 /* SECTION POSTS */
-#newPostsDiv, #prevUserPostsDiv, .randomPostsSection {
+#newPostsDiv, #prevUserPostsDiv, .postListSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.randomPostsSection {
+.postListSection {
   height : 80vh;
   width : 60vw;
   overflow-y: auto;
