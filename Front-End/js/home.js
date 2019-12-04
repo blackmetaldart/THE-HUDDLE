@@ -168,7 +168,7 @@ function viewComments(postId) {
     if(response !== []) {
     for(let i = 0; i < response.length; i++) {
       const comment = document.createElement('p');
-      const commentsPart = document.getElementById(response[i].post.id);
+      const commentsPart = document.getElementById(postId);
 
       comment.innerHTML = response[i].text;
       comment.setAttribute('class', 'comment');
