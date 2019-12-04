@@ -56,12 +56,12 @@ function displayProfile() {
     }
 
     //DISPLAYS THE USER'S ADDRESS IF THERE IS ONE
-    if(response.address === undefined || !localStorage.getItem('addy')) {
-      displayAddy.innerHTML = '<em>Add Home Address</em>';
-    } else if(response.address) {
+    if(response.address) {
       displayAddy.innerHTML = response.address;
-      localStorage.setItem('addy', response.address);
-    } else if(!response.address) {
+      localStorage.setItem('addy', response.address);}
+    else if(response.address === undefined || !localStorage.getItem('addy')) {
+      displayAddy.innerHTML = '<em>Add Home Address</em>';}
+    else if(!response.address) {
       displayAddy.innerHTML = localStorage.getItem('addy');
     }})
   .catch((error) => {console.log(error);})
