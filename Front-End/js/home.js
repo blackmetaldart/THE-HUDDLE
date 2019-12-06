@@ -77,9 +77,9 @@ function displayUserPosts() {
 
     for(let i = 0; i < response.length; i++) {
 
-        const prevPost = document.createElement('div');
-        const prevTitle = document.createElement('h2');
-        const prevDescription = document.createElement('p');
+        const post = document.createElement('div');
+        const title = document.createElement('h2');
+        const description = document.createElement('p');
 
         //CREATES COMMENT BOXES
         const commentArea = document.createElement('div');
@@ -89,12 +89,12 @@ function displayUserPosts() {
         commentSubmit.setAttribute('value', response[i].id)
         commentSubmit.addEventListener('click', createComment);
 
-        prevTitle.innerText = response[i].title;
-        prevDescription.innerText = response[i].description;
+        title.innerText = response[i].title;
+        description.innerText = response[i].description;
         commentSubmit.innerText = "Submit Comment";
 
-        prevTitle.setAttribute('class', 'title');
-        prevPost.setAttribute('id', response[i].id);
+        title.setAttribute('class', 'title');
+        post.setAttribute('id', response[i].id);
         commentBox.setAttribute('rows', '3');
         commentBox.setAttribute('cols', '50');
         commentBox.setAttribute('placeholder', 'Your response to the post?');
@@ -103,11 +103,11 @@ function displayUserPosts() {
         commentBox.setAttribute('postIdForComments', response[i].id);
 
         commentArea.append(commentBox, commentSubmit);
-        prevPost.append(prevTitle, prevDescription, commentArea);
-        userPosts.appendChild(prevPost);
+        post.append(title, description, commentArea);
+        userPosts.appendChild(post);
 
-        prevPost.classList.add('postDivStyle');
-        prevDescription.classList.add('description');
+        post.classList.add('postDivStyle');
+        description.classList.add('description');
         commentSubmit.classList.add('commentSubmit');
         commentBox.classList.add('commentBox');
         commentArea.classList.add('commentAreaDiv');
