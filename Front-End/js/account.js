@@ -1,6 +1,8 @@
 //ADDS THE EVENT LISTENERS TO CREATE THE PROFILE
 const createProfileBtn = document.getElementById('createProfileBtn');
 createProfileBtn.addEventListener('click', createProfile);
+const logoutBtn = document.querySelector('.logout');
+logoutBtn.addEventListener('click', logout);
 //DISPLAY PROFLIE VARIABLES
 const displayUserName = document.getElementById('displayUserName');
 const displayPrimaryEmail = document.getElementById('displayPrimaryEmail');
