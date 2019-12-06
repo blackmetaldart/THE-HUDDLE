@@ -97,7 +97,7 @@ function displayUserPosts() {
         post.setAttribute('id', response[i].id);
         commentBox.setAttribute('rows', '3');
         commentBox.setAttribute('cols', '50');
-        commentBox.setAttribute('placeholder', 'Your response to the post?');
+        commentBox.setAttribute('placeholder', 'Enter a comment to submit.');
 
         //PROVIDES ID OF POST FOR COMMENTS
         commentBox.setAttribute('postIdForComments', response[i].id);
