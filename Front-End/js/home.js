@@ -181,4 +181,9 @@ function viewComments(postId) {
   .catch((error) => {console.log(error);})
 }
 
-//
+// THIS FUNCTION WILL LOGOUT THE USER
+function logout(){
+  localStorage.setItem('user', null);
+  localStorage.setItem('username', null);
+  localStorage.setItem('primaryEmail', null);
+}
