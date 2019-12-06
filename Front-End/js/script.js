@@ -85,6 +85,7 @@ function logIn(e) {
       .then((response) => {return response.json();})
       .then((response) => {
         token = response.token;
+        localStorage.setItem('username', logInUsername.value);
         localStorage.setItem('user', token);
         redirectHome();})
       .catch((error) => {console.error(error);});
