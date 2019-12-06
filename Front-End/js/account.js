@@ -5,7 +5,6 @@ const logoutBtn = document.querySelector('.logout');
 logoutBtn.addEventListener('click', logout);
 //DISPLAY PROFLIE VARIABLES
 const displayUserName = document.getElementById('displayUserName');
-const displayPrimaryEmail = document.getElementById('displayPrimaryEmail');
 const displayAddtEmail = document.getElementById('displayAddtEmail');
 const displayMobile = document.getElementById('displayMobile');
 const displayAddy = document.getElementById('displayAddy');
@@ -21,7 +20,6 @@ let usernameDisplay = localStorage.getItem('username');
 accountLink.innerText = usernameDisplay;
 accountLink.style.borderBottom = '3px double rgb(163,13,45)';
 displayUserName.innerHTML = usernameDisplay;
-displayPrimaryEmail.innerHTML = localStorage.getItem('primaryEmail');
 
 //THIS FUNCTION SHOWS PROFILE INFORMATION
 displayProfile();
@@ -85,11 +83,7 @@ function createProfile(e){
       address: addy.value})})
 
   .then((response) => {return response.json();})
-
-  //CALLS UPDATEPROFILE FUNCTION TO SHOW NEW CHANGES FROM "CREATE/UPDATE" PROFILE FORM
   .then((response)=> {updateProfile(response);})
-
-  //LOGS ERRORS TO CONSOLE
   .catch((error) => {console.log(error);})
 
 }
@@ -97,16 +91,12 @@ function createProfile(e){
 //THIS FUNCTION UPDATES PROFILE FUNCTION
 function updateProfile(response) {
 
-  //IF INPUT VALUE FOR THE USER'S ADDITIONAL EMAIL IS AN EMPTY STRING OR NULL, THEN DON'T UPDATE FORM
-  //OTHERWISE DISPLAY THE USER'S ADDITIONAL EMAIL
   if(addEmail.value === "" || addEmail.value === null) {
     return;
   } else {
     displayAddEmail.innerHTML = response.addtEmail;
   }
 
-  //IF INPUT VALUE FOR THE USER'S MOBILE IS AN EMPTY STRING OR NULL, THEN DON'T UPDATE FORM
-  //OTHERWISE DISPLAY THE USER'S MOBILE
   if(mobile.value === "" || mobile.value === null) {
     return;
   } else {
