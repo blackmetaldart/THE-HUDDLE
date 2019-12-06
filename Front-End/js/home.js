@@ -73,7 +73,7 @@ function displayUserPosts() {
   .then((response) => {return response.json();})
   .then((response) => {
     //DISPLAY USER POSTS
-    const userPosts = document.getElementById('prevUserPostsDiv');
+    const userPosts = document.getElementById('userPostsDiv');
 
     for(let i = 0; i < response.length; i++) {
 
