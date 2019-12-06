@@ -178,7 +178,7 @@ aside {
 }
 
 /* SECTION POSTS */
-#newPostsDiv, #userPostsDiv, .postListSection {
+#newPostsDiv, #userPostsDiv, #postHistoryDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
