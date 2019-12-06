@@ -89,7 +89,6 @@ a {
   margin: 3px;
   padding: 3px;
   font-variant: small-caps;
-
 }
 
 .flex a:hover {
@@ -112,6 +111,7 @@ main {
   border-radius: 5px;
   background-color: rgba(255,255,255,0.5)
 }
+
 /* ASIDE POSTS */
 aside {
   align-self: flex-start;
@@ -164,8 +164,6 @@ aside {
   margin: 1px;
 }
 
-
-
 /* TEAM SCORES */
 .score{
   text-align: right;
@@ -178,7 +176,6 @@ aside {
   font-weight: 900;
   font-size: 0.75em;
 }
-
 
 /* SECTION POSTS */
 #newPostsDiv, #prevUserPostsDiv, .postListSection {
@@ -207,7 +204,7 @@ aside {
   font-variant: small-caps;
 }
 
-.postsSections {
+.postSections {
   align-self: flex-start;
   flex-grow: 3;
   margin: 0 10px;
@@ -268,7 +265,6 @@ textarea {
 
 .postCreateForm {
   margin-top: 50px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
