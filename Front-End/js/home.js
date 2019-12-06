@@ -16,7 +16,7 @@ function listAllPosts () {
  fetch('http://localhost:8080/posts/list')
  .then((response) => {return response.json();})
  .then((response) => {
-  const postSection = document.querySelector('.postListSection');
+  const postSection = document.querySelector('#postHistoryDiv');
 
   //CREATES DIV TO HOLD POST TITLE AND DESCRIPTION AND HAVE THE RESPONSE IDs
   for(let i = 0; i < response.length; i++) {
