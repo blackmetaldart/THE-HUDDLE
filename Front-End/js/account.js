@@ -1,27 +1,27 @@
-//ADDS THE EVENT LISTENERS TO CREATE THE PROFILE
+// ADDS THE EVENT LISTENERS TO CREATE THE PROFILE
 const createProfileBtn = document.getElementById('createProfileBtn');
 createProfileBtn.addEventListener('click', createProfile);
 const logoutBtn = document.querySelector('.logout');
 logoutBtn.addEventListener('click', logout);
-//DISPLAY PROFLIE VARIABLES
+// DISPLAY PROFLIE VARIABLES
 const displayUserName = document.getElementById('displayUserName');
 const displayAddtEmail = document.getElementById('displayAddtEmail');
 const displayMobile = document.getElementById('displayMobile');
 const displayAddy = document.getElementById('displayAddy');
-//CREATE PROFILE FORM VARIABLES
+// CREATE PROFILE FORM VARIABLES
 let addEmail = document.getElementById('addEmail');
 let mobile = document.getElementById('mobile');
 let addy = document.getElementById('addy');
-//CREATE VARIABLES FOR DISPLAYING USERNAME
+// CREATE VARIABLES FOR DISPLAYING USERNAME
 let accountLink = document.querySelector('#account');
 let usernameDisplay = localStorage.getItem('username');
 
-//DISPLAYS THE USERNAME
+// DISPLAYS THE USERNAME
 accountLink.innerText = usernameDisplay;
 accountLink.style.borderBottom = '3px double rgb(163,13,45)';
 displayUserName.innerHTML = usernameDisplay;
 
-//THIS FUNCTION SHOWS PROFILE INFORMATION
+// THIS FUNCTION SHOWS PROFILE INFORMATION
 displayProfile();
 
 function displayProfile() {
@@ -33,9 +33,8 @@ function displayProfile() {
       'Content-Type': 'application/json'}})
   .then((response) => {return response.json();})
   .then((response) => {
-    console.log(response);
 
-    //DISPLAYS THE USER'S EMAIL IF THERE IS ONE
+    // DISPLAYS THE USER'S EMAIL IF THERE IS ONE
     if(response.addtEmail) {
       displayAddtEmail.innerHTML = response.addtEmail;
       localStorage.setItem('secondaryEmail', response.addtEmail);}
@@ -45,7 +44,7 @@ function displayProfile() {
       displayAddtEmail.innerHTML = localStorage.getItem('secondaryEmail');
     }
 
-    //DISPLAYS THE USER'S MOBILE IF THERE IS ONE
+    // DISPLAYS THE USER'S MOBILE IF THERE IS ONE
     if(response.mobile) {
       displayMobile.innerHTML = response.mobile;
       localStorage.setItem('mobile', response.mobile);}
@@ -55,7 +54,7 @@ function displayProfile() {
       displayMobile.innerHTML = localStorage.getItem('mobile');
     }
 
-    //DISPLAYS THE USER'S ADDRESS IF THERE IS ONE
+    // DISPLAYS THE USER'S ADDRESS IF THERE IS ONE
     if(response.address) {
       displayAddy.innerHTML = response.address;
       localStorage.setItem('addy', response.address);}
@@ -68,7 +67,7 @@ function displayProfile() {
 
 }
 
-//THIS FUNCTION ALLOWS THE USER TO CREATE PROFILE FUNCTION
+// THIS FUNCTION ALLOWS THE USER TO CREATE PROFILE FUNCTION
 function createProfile(e){
   e.preventDefault();
 
@@ -85,10 +84,9 @@ function createProfile(e){
   .then((response) => {return response.json();})
   .then((response)=> {updateProfile(response);})
   .catch((error) => {console.log(error);})
-
 }
 
-//THIS FUNCTION UPDATES PROFILE FUNCTION
+// THIS FUNCTION UPDATES PROFILE FUNCTION
 function updateProfile(response) {
 
   if(addEmail.value === "" || addEmail.value === null) {
@@ -103,8 +101,6 @@ function updateProfile(response) {
     displayMobile.innerHTML = response.mobile;
   }
 
-  //IF INPUT VALUE FOR THE USER'S ADDRESS IS AN EMPTY STRING OR NULL, THEN DON'T UPDATE FORM
-  //OTHERWISE DISPLAY THE USER'S ADDRESS
   if(addy.value === "" || mobile.value === null) {
     return;
   } else {
