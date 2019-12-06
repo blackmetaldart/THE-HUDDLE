@@ -1,15 +1,17 @@
-//CREATES VARIABLE FOR THE NEW POST BUTTON
+// CREATES VARIABLE FOR THE NEW POST BUTTON
 const newPostBtn = document.querySelector('.newPostBtn');
+const logoutBtn = document.querySelector('.logout');
 newPostBtn.addEventListener('click', createPost);
+logoutBtn.addEventListener('click', logout);
 
-//DISPLAYS USERNAME IN NAV
+// DISPLAYS USERNAME IN NAV
 let accountLink = document.querySelector('#account');
 let usernameDisplay = localStorage.getItem('username');
 
 accountLink.innerText = usernameDisplay;
 accountLink.style.borderBottom = "3px double rgb(163,13,45)";
 
-//THIS FUNCTION LISTS ALL THE POSTS FROM THE API
+// THIS FUNCTION LISTS ALL THE POSTS FROM THE API
 listAllPosts();
 function listAllPosts () {
 
@@ -18,14 +20,14 @@ function listAllPosts () {
  .then((response) => {
   const postSection = document.querySelector('#postHistoryDiv');
 
-  //CREATES DIV TO HOLD POST TITLE AND DESCRIPTION AND HAVE THE RESPONSE IDs
+  // CREATES DIV TO HOLD POST TITLE AND DESCRIPTION AND HAVE THE RESPONSE IDs
   for(let i = 0; i < response.length; i++) {
 
       const post = document.createElement('div');
       const title = document.createElement('h2');
       const description = document.createElement('p');
 
-      //CREATE COMMENT BOXES
+      // CREATE COMMENT BOXES
       const commentArea = document.createElement('div');
       const commentBox = document.createElement('textarea');
       const commentSubmit = document.createElement('button');
@@ -39,7 +41,7 @@ function listAllPosts () {
       commentBox.setAttribute('cols', '50');
       commentBox.setAttribute('placeholder', 'Enter a comment to submit.');
 
-      //PROVIDES ID OF POST FOR COMMENT
+      // PROVIDES ID OF POST FOR COMMENT
       commentBox.setAttribute('postIdForComments', response[i].id);
 
       title.innerText = response[i].title;
@@ -62,7 +64,7 @@ function listAllPosts () {
 
 }
 
-//THIS FUNCTION DISPLAYS ALL THE POSTS FROM THE USER
+// THIS FUNCTION DISPLAYS ALL THE POSTS FROM THE USER
 displayUserPosts();
 function displayUserPosts() {
   fetch('http://localhost:8080/' + `${usernameDisplay}`+ '/posts', {
@@ -117,7 +119,7 @@ function displayUserPosts() {
   .catch((error) => {console.log(error);})
 }
 
-//THIS FUNCTION ALLOWS USERS TO CREATE POSTS
+// THIS FUNCTION ALLOWS USERS TO CREATE POSTS
 function createPost(e) {
     e.preventDefault();
 
@@ -142,7 +144,7 @@ function createPost(e) {
     .catch((error) => {console.log(error);})
 }
 
-//THIS FUNCTION ALLOWS THE USER TO MAKE COMMENTS
+// THIS FUNCTION ALLOWS THE USER TO MAKE COMMENTS
 function createComment() {
 
   fetch('http://localhost:8080/' +`${this.value}` + '/comment' , {
@@ -158,7 +160,7 @@ function createComment() {
   .catch((error) => {console.log(error);});
 }
 
-//THIS FUNCTION WILL DISPLAY THE COMMENTS WITH A POST ID
+// THIS FUNCTION WILL DISPLAY THE COMMENTS WITH A POST ID
 function viewComments(postId) {
 
   fetch(`http://localhost:8080/post/${postId}/comments`)
@@ -178,3 +180,5 @@ function viewComments(postId) {
     }}})
   .catch((error) => {console.log(error);})
 }
+
+//
