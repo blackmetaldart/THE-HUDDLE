@@ -17,10 +17,10 @@ const logInUsername = document.querySelector('.logInUsername');
 const logInPassword = document.querySelector('.logInPassword');
 
 //THIS SECTION WILL HOLD ALL OF THE EVENT LISTENERS TO AFFECT THE DISPLAY OF THE APPLICATION
-signUpSubmit.addEventListener('click', createUser);
+signUpSubmit.addEventListener('click', signUp);
 signUpBtn.addEventListener('click', signUpToggle);
 logInBtn.addEventListener('click', logInToggle);
-logInSubmit.addEventListener('click', returningUser);
+logInSubmit.addEventListener('click', logIn);
 
 
 //THIS FUNCTION ALLOWS THE SIGNUP MENU TO TOGGLE
@@ -44,7 +44,7 @@ function logInToggle() {
 }
 
 //THIS FUNCTION ALLOWS THE USERS TO BE CREATED THROUGH SIGNUP
-function createUser(e) {
+function signUp(e) {
   e.preventDefault();
 
   localStorage.setItem('username', username.value);
@@ -72,7 +72,7 @@ function createUser(e) {
 }
 
 //THIS FUNCTION RETURNS A USER UPON LOGIN
-function returningUser(e) {
+function logIn(e) {
     e.preventDefault();
 
     fetch('http://localhost:8080/login', {
