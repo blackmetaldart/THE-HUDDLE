@@ -16,12 +16,12 @@ function listAllPosts () {
  fetch('http://localhost:8080/posts/list')
  .then((response) => {return response.json();})
  .then((response) => {
-  const randomPosts = document.querySelector('.postListSection');
+  const postSection = document.querySelector('.postListSection');
 
   //CREATES DIV TO HOLD POST TITLE AND DESCRIPTION AND HAVE THE RESPONSE IDs
   for(let i = 0; i < response.length; i++) {
 
-      const randomPost = document.createElement('div');
+      const post = document.createElement('div');
       const title = document.createElement('h2');
       const description = document.createElement('p');
 
@@ -33,7 +33,7 @@ function listAllPosts () {
       commentSubmit.setAttribute('value', response[i].id)
       commentSubmit.addEventListener('click', createComment);
 
-      randomPost.setAttribute('id', response[i].id);
+      post.setAttribute('id', response[i].id);
       title.setAttribute('class', 'title');
       commentBox.setAttribute('rows', '3');
       commentBox.setAttribute('cols', '50');
@@ -47,10 +47,10 @@ function listAllPosts () {
       commentSubmit.innerText = "Submit Comment";
 
       commentArea.append(commentBox, commentSubmit);
-      randomPost.append(title, description, commentArea);
-      randomPosts.appendChild(randomPost);
+      post.append(title, description, commentArea);
+      postSection.appendChild(post);
 
-      randomPost.classList.add('postDivStyle');
+      post.classList.add('postDivStyle');
       description.classList.add('description');
       commentArea.classList.add('commentAreaDiv');
       commentSubmit.classList.add('commitSubmit');
