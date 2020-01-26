@@ -32,9 +32,7 @@ We worked together to set goals and deadlines, and we kept to them. We made sure
 
 
 
-### USER STORIES
-[USER STORIES](https://docs.google.com/document/d/1tQ0M42U-i7CZ78qQF0Fsv2D8o2_AJXg62cdJCH9b0bQ/edit?usp=sharing)
-
+### [USER STORIES](https://docs.google.com/document/d/1tQ0M42U-i7CZ78qQF0Fsv2D8o2_AJXg62cdJCH9b0bQ/edit?usp=sharing)
 
 ### AUTHORS
 * **ZAINAB AKRAMI** - [GITHUB](https://github.com/zainabakrami)
